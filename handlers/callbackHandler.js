@@ -10,6 +10,12 @@ const strings = require('../localization');
 const { logger } = require('../services/logger');
 
 const fontDirectory = process.env.FONT_DIRECTORY;
+const tempDir = path.join(__dirname, '..', 'temp');
+
+// Ensure the temp directory exists
+if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir, { recursive: true });
+}
 
 module.exports = (bot) => (callbackQuery) => {
     const msg = callbackQuery.message;
@@ -69,19 +75,26 @@ module.exports = (bot) => (callbackQuery) => {
             const fromPage = params[1] || 0;
             const fontNameWithoutExt = path.basename(filename, path.extname(filename));
             const previewBuffer = generateFontPreview(filePath, fontNameWithoutExt);
-            
-            const media = { type: 'photo', media: previewBuffer, caption: strings.previewCaption(filename), parse_mode: 'Markdown' };
+            const tempPreviewPath = path.join(tempDir, `${Date.now()}_${fontNameWithoutExt}_preview.png`);
+
+            fs.writeFileSync(tempPreviewPath, previewBuffer);
+
+            const media = { type: 'photo', media: tempPreviewPath, caption: strings.previewCaption(filename), parse_mode: 'Markdown' };
             const options = {
-                chat_id: chatId,
-                message_id: msg.message_id,
                 reply_markup: { inline_keyboard: [[{ text: strings.btnDownload, callback_data: `download_${index}` }], [{ text: strings.btnBackToList, callback_data: `page_${fromPage}` }]] }
             };
-            
-            bot.editMessageMedia(media, options)
+
+            bot.editMessageMedia(media, { chat_id: chatId, message_id: msg.message_id, ...options })
                 .catch(err => {
                     logger.warn(`EditMessageMedia failed. Falling back to delete/send. Error: ${err.message}`, { user });
-                    bot.deleteMessage(chatId, msg.message_id).catch(() => {});
-                    bot.sendPhoto(chatId, previewBuffer, { caption: media.caption, parse_mode: media.parse_mode, reply_markup: options.reply_markup });
+                    return bot.deleteMessage(chatId, msg.message_id)
+                        .catch(() => {}) // Ignore if message is already gone
+                        .then(() => bot.sendPhoto(chatId, tempPreviewPath, { caption: media.caption, parse_mode: media.parse_mode, ...options }));
+                })
+                .finally(() => {
+                    fs.unlink(tempPreviewPath, (err) => {
+                        if (err) logger.error('Failed to delete temp preview file', { error: err.message, path: tempPreviewPath });
+                    });
                 });
             break;
         case 'download':

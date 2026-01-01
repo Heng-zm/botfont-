@@ -1,7 +1,5 @@
 // services/dbService.js
 
-const { Low } = require('lowdb');
-const { JSONFile } = require('lowdb/node');
 const path = require('path');
 const { logger } = require('./logger');
 const eventEmitter = require('./eventService');
@@ -18,13 +16,17 @@ const defaultData = {
     broadcastResults: null
 };
 
-const adapter = new JSONFile(dbPath);
-const db = new Low(adapter, defaultData);
+let db;
 
 /**
  * Initialize database with proper error handling and structure validation
  */
 async function initializeDatabase() {
+    const { Low } = await import('lowdb');
+    const { JSONFile } = await import('lowdb/node');
+    const adapter = new JSONFile(dbPath);
+    db = new Low(adapter, defaultData);
+
     const release = await mutex.acquire();
     try {
         await db.read();

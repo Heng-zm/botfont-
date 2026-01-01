@@ -2,7 +2,7 @@
 
 module.exports = {
     // General
-    welcome: "🤖 សូមស្វាគមន៍មកកាន់ X.Font!\n\n➡️ សរសេរ /fonts ឬ ឈ្មោះ Font ដើម្បីស្វែងរកពុម្ពអក្សរ។\n\n​➕ប្រើ /uploadfont សម្រាប់ upload  ពុម្ពអក្សរបន្ថែម\n💡ប្រើ /uploadfont រួចផ្ញើ File ពុម្ពអក្សរ ជា (.ttf ឬ .otf)​។",
+    welcome: "🤖 សូមស្វាគមន៍មកកាន់ KhFontBot!\n\n➡️ សរសេរ /fonts ឬ ឈ្មោះ Font ដើម្បីស្វែងរកពុម្ពអក្សរ។\n\n​➕ប្រើ /uploadfont សម្រាប់ upload  ពុម្ពអក្សរបន្ថែម\n💡ប្រើ /uploadfont រួចផ្ញើ File ពុម្ពអក្សរ ជា (.ttf ឬ .otf)​។",
     unknownCommand: "❌ ឈ្មោះមិនត្រឹមត្រូវ។",
     sessionExpired: "⌛ អ្នកបានផុតកំណត់។ សូមចាប់ផ្តើមម្តងទៀតដោយផ្ញើ /fonts ។",
     fileRemoved: "❌ កំហុស៖ ឯកសារនេះហាក់ដូចជាត្រូវបានដកចេញ។",
@@ -27,10 +27,10 @@ module.exports = {
     btnDownload: "⬇️ ទាញយក / DOWNLOAD",
     btnBackToList: "◀️ ត្រឡប់ក្រោយ / BACK",
     btnDownloadMore: "📥 ទាយយកពុម្ភអក្សរបន្ទាប់ / DOWNLOAD MORE",
-    downloadSuccess: "✅ បានទាញយកសម្រេច! តើអ្នកចង់ធ្វើអ្វីបន្ទាប់?", // Download successful! What would you like to do next?
+    downloadSuccess: "✅ បានទាញយកសម្រេច! ចុចប៊ូតុងខាងក្រោមដើម្បីបន្ទាប់?", // Download successful! What would you like to do next?
     // អត្ថបទគំរូថ្មីដែលល្អជាងមុន
-    previewTextKhmer: "ប្រាសាទព្រះវិហារ", 
-    previewTextLatin: "Temple of Preah Vihear",
+    previewTextKhmer: "ភ្នំពេញ", 
+    previewTextLatin: "Phnom Penh",
     previewWatermark: "@khfontbot", // ជំនួសដោយឈ្មោះបូតរបស់អ្នក
     errorImageText: (fontName) => `❌ មិនអាចដំណើរការពុម្ពអក្សរ\n${fontName}`,
 

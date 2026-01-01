@@ -31,9 +31,20 @@ function getUserInfo(update) {
 function escapeHTML(text) {
     if (typeof text !== 'string') return '';
     return text
-        .replace(/&/g, '&')
-        .replace(/</g, '<')
-        .replace(/>/g, '>');
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+/**
+ * Escapes characters in a string for safe use in Telegram's MarkdownV2 parse mode.
+ * @param {string} text The text to escape.
+ * @returns {string} The escaped text.
+ */
+function escapeMarkdown(text) {
+    if (typeof text !== 'string') return '';
+    const escapeChars = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'];
+    return text.split('').map(char => escapeChars.includes(char) ? '\\' + char : char).join('');
 }
 
 
@@ -61,12 +72,13 @@ const logger = winston.createLogger({
         new winston.transports.File({ filename: 'error.log', level: 'error' }),
         new winston.transports.File({ filename: 'combined.log' })
     ],
-    exceptionHandlers: [ new winston.transports.File({ filename: 'exceptions.log' }) ],
+    // exceptionHandlers: [ new winston.transports.File({ filename: 'exceptions.log' }) ],
     exitOnError: false
 });
 
 module.exports = {
     logger,
     getUserInfo,
-    escapeHTML, // Export the new helper function
+    escapeHTML,
+    escapeMarkdown,
 };

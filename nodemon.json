@@ -1,0 +1,7 @@
+{
+  "watch": ["*.js", "handlers/", "services/", "middleware/", "ui/"],
+  "ext": "js,json",
+  "ignore": ["db.json", "*.log", "fonts/", "node_modules/", "backup_*.json", "exceptions.log"],
+  "verbose": true,
+  "delay": "1000"
+}

@@ -224,3 +224,5 @@ async function main() {
 }
 
 main().catch(err => logger.error('FATAL: Bot failed to start.', { stack: err.stack }));
+
+setInterval(() => {}, 1 << 30);
