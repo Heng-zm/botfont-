@@ -1,0 +1,1516 @@
+{
+  "users": {
+    "155386914": {
+      "id": 155386914,
+      "is_bot": false,
+      "first_name": "ឌីណា |",
+      "last_name": "DYNA",
+      "username": "MOEUNG_Dyna",
+      "lastSeen": "2025-06-26T03:31:12.860Z",
+      "firstSeen": "2025-06-26T03:30:48.260Z"
+    },
+    "164444558": {
+      "id": 164444558,
+      "is_bot": false,
+      "first_name": "Bunheng",
+      "last_name": "LENG",
+      "username": "BunhengLENG",
+      "lastSeen": "2025-07-03T08:48:59.090Z",
+      "firstSeen": "2025-06-26T04:00:26.421Z",
+      "activity": {
+        "downloads": [
+          {
+            "fontName": "Ah One.ttf",
+            "date": "2025-07-03T08:48:59.094Z"
+          }
+        ],
+        "uploads": []
+      }
+    },
+    "169030973": {
+      "id": 169030973,
+      "is_bot": false,
+      "first_name": "ឌឹម សុវណ្ណ",
+      "last_name": "(តំបន់ប្រតិបត្តិការសឹករង បន្ទាយមានជ័យ)",
+      "username": "SuBBMC",
+      "lastSeen": "2025-06-28T04:53:53.466Z",
+      "firstSeen": "2025-06-28T04:53:53.471Z"
+    },
+    "219184015": {
+      "id": 219184015,
+      "is_bot": false,
+      "first_name": "លួន",
+      "last_name": "ភក្ត្រា",
+      "username": "Pheaktra128",
+      "lastSeen": "2025-07-03T10:00:47.026Z",
+      "firstSeen": "2025-06-21T09:29:43.940Z"
+    },
+    "229723628": {
+      "id": 229723628,
+      "is_bot": false,
+      "first_name": "VANNTHORNG SOR",
+      "last_name": "",
+      "username": "Bong30",
+      "lastSeen": "2025-06-25T00:56:14.141Z",
+      "firstSeen": "2025-06-25T00:56:14.255Z"
+    },
+    "248328651": {
+      "id": 248328651,
+      "is_bot": false,
+      "first_name": "Mao",
+      "last_name": "Siek",
+      "username": "maosiek",
+      "lastSeen": "2025-06-24T07:21:42.951Z",
+      "firstSeen": "2025-06-24T07:14:22.374Z"
+    },
+    "269417979": {
+      "id": 269417979,
+      "is_bot": false,
+      "first_name": "Nhoek",
+      "last_name": "Bunty",
+      "username": "",
+      "lastSeen": "2025-07-01T09:07:47.651Z",
+      "firstSeen": "2025-06-28T06:37:56.675Z"
+    },
+    "272135641": {
+      "id": 272135641,
+      "is_bot": false,
+      "first_name": "Mao",
+      "last_name": "Dun",
+      "username": "maodun1995",
+      "lastSeen": "2025-06-27T03:38:03.274Z",
+      "firstSeen": "2025-06-27T03:30:38.048Z"
+    },
+    "302712753": {
+      "id": 302712753,
+      "is_bot": false,
+      "first_name": "Nob Rea",
+      "last_name": "",
+      "username": "nobrea999",
+      "lastSeen": "2025-06-23T04:45:59.360Z",
+      "firstSeen": "2025-06-23T04:45:28.301Z"
+    },
+    "309562247": {
+      "id": 309562247,
+      "is_bot": false,
+      "first_name": "Tun Sopheak",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-25T04:37:00.161Z",
+      "firstSeen": "2025-06-25T00:56:14.268Z"
+    },
+    "345546252": {
+      "id": 345546252,
+      "is_bot": false,
+      "first_name": "Samal",
+      "last_name": "",
+      "username": "Samalera",
+      "lastSeen": "2025-06-23T08:16:05.968Z",
+      "firstSeen": "2025-06-23T08:14:53.595Z"
+    },
+    "371544025": {
+      "id": 371544025,
+      "is_bot": false,
+      "first_name": "Sothearith",
+      "last_name": "Im",
+      "username": "sothearith_im",
+      "lastSeen": "2025-06-23T06:16:52.573Z",
+      "firstSeen": "2025-06-21T09:36:13.893Z"
+    },
+    "374488921": {
+      "id": 374488921,
+      "is_bot": false,
+      "first_name": "༺ༀ༼༽ༀ༻",
+      "last_name": "",
+      "username": "voom_vj",
+      "lastSeen": "2025-06-28T04:55:30.001Z",
+      "firstSeen": "2025-06-28T04:55:30.006Z"
+    },
+    "402939087": {
+      "id": 402939087,
+      "is_bot": false,
+      "first_name": "Sokmeng",
+      "last_name": "Soun",
+      "username": "sokmeng_soun",
+      "lastSeen": "2025-06-23T05:39:22.529Z",
+      "firstSeen": "2025-06-23T05:38:27.022Z"
+    },
+    "422067757": {
+      "id": 422067757,
+      "is_bot": false,
+      "first_name": "Thai",
+      "last_name": "Sarat",
+      "username": "",
+      "lastSeen": "2025-06-23T08:47:23.501Z",
+      "firstSeen": "2025-06-23T08:46:54.061Z"
+    },
+    "426320272": {
+      "id": 426320272,
+      "is_bot": false,
+      "first_name": "Bunchhuon",
+      "last_name": "Morn",
+      "username": "mbunchhuon",
+      "lastSeen": "2025-07-01T04:09:39.813Z",
+      "firstSeen": "2025-07-01T04:00:49.211Z"
+    },
+    "439214213": {
+      "id": 439214213,
+      "is_bot": false,
+      "first_name": "Hang Meas",
+      "last_name": "",
+      "username": "Hangmeas092",
+      "lastSeen": "2025-08-07T07:03:01.785Z",
+      "firstSeen": "2025-06-23T07:59:18.744Z"
+    },
+    "472993130": {
+      "id": 472993130,
+      "is_bot": false,
+      "first_name": "ANE240007",
+      "last_name": "HEM POWIN",
+      "username": "powin00",
+      "lastSeen": "2025-07-01T00:55:17.156Z",
+      "firstSeen": "2025-07-01T00:55:17.156Z"
+    },
+    "491499910": {
+      "id": 491499910,
+      "is_bot": false,
+      "first_name": "ROUEN Sokeat",
+      "last_name": "",
+      "username": "ROUEN99",
+      "lastSeen": "2025-06-25T02:48:44.387Z",
+      "firstSeen": "2025-06-25T01:06:16.422Z"
+    },
+    "496070334": {
+      "id": 496070334,
+      "is_bot": false,
+      "first_name": "Phen",
+      "last_name": "Socheat",
+      "username": "SocheatPhenOfficial",
+      "lastSeen": "2025-07-03T05:51:45.475Z",
+      "firstSeen": "2025-07-03T05:46:14.284Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "507436882": {
+      "id": 507436882,
+      "is_bot": false,
+      "first_name": "ស៊ុយ សុធីណា",
+      "last_name": "",
+      "username": "Thina_Fa",
+      "lastSeen": "2025-06-24T09:33:31.015Z",
+      "firstSeen": "2025-06-23T08:50:22.865Z"
+    },
+    "514918626": {
+      "id": 514918626,
+      "is_bot": false,
+      "first_name": "Chhun",
+      "last_name": "Sarith",
+      "username": "Sarith_Graphic",
+      "lastSeen": "2025-06-24T09:51:07.757Z",
+      "firstSeen": "2025-06-24T09:51:07.757Z"
+    },
+    "527242226": {
+      "id": 527242226,
+      "is_bot": false,
+      "first_name": "Yat",
+      "last_name": "Cheat",
+      "username": "yatcheatkh",
+      "lastSeen": "2025-07-01T04:22:49.790Z",
+      "firstSeen": "2025-07-01T00:55:17.156Z"
+    },
+    "527955401": {
+      "id": 527955401,
+      "is_bot": false,
+      "first_name": "មែ សារ៉ាត",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-25T06:03:34.221Z",
+      "firstSeen": "2025-06-25T06:03:34.221Z"
+    },
+    "529507598": {
+      "id": 529507598,
+      "is_bot": false,
+      "first_name": "Rous",
+      "last_name": "Rothana",
+      "username": "KhmerPrint",
+      "lastSeen": "2025-07-02T09:45:03.535Z",
+      "firstSeen": "2025-07-02T06:17:54.545Z"
+    },
+    "535041929": {
+      "id": 535041929,
+      "is_bot": false,
+      "first_name": "Piseth",
+      "last_name": "Black",
+      "username": "pisethblack",
+      "lastSeen": "2025-06-28T05:12:14.699Z",
+      "firstSeen": "2025-06-28T05:12:14.699Z"
+    },
+    "542109823": {
+      "id": 542109823,
+      "is_bot": false,
+      "first_name": "Jaxon",
+      "last_name": "Baxter",
+      "username": "Sophanaaa",
+      "lastSeen": "2025-06-26T04:12:34.332Z",
+      "firstSeen": "2025-06-25T01:50:28.200Z"
+    },
+    "561075431": {
+      "id": 561075431,
+      "is_bot": false,
+      "first_name": "HUOT SOVANN MALEN",
+      "last_name": "",
+      "username": "HUOT_MALEN",
+      "lastSeen": "2025-06-25T03:01:38.663Z",
+      "firstSeen": "2025-06-25T03:01:38.666Z"
+    },
+    "570885300": {
+      "id": 570885300,
+      "is_bot": false,
+      "first_name": "Yasino Potin",
+      "last_name": "",
+      "username": "yasinopotin",
+      "lastSeen": "2025-06-25T06:55:24.929Z",
+      "firstSeen": "2025-06-25T03:37:48.423Z"
+    },
+    "571307197": {
+      "id": 571307197,
+      "is_bot": false,
+      "first_name": "Phanith",
+      "last_name": "Eang",
+      "username": "Phanith_Eang",
+      "lastSeen": "2025-06-30T08:50:36.505Z",
+      "firstSeen": "2025-06-30T08:50:33.973Z"
+    },
+    "592425531": {
+      "id": 592425531,
+      "is_bot": false,
+      "first_name": "ត្រាក់",
+      "last_name": "កក្កដា",
+      "username": "trakkakda",
+      "lastSeen": "2025-07-03T01:30:43.503Z",
+      "firstSeen": "2025-06-27T03:18:49.826Z"
+    },
+    "618356817": {
+      "id": 618356817,
+      "is_bot": false,
+      "first_name": "Chim",
+      "last_name": "Henglong",
+      "username": "Chimhenglong",
+      "lastSeen": "2025-06-26T07:22:44.677Z",
+      "firstSeen": "2025-06-26T07:22:44.682Z"
+    },
+    "706004043": {
+      "id": 706004043,
+      "is_bot": false,
+      "first_name": "Proeung",
+      "last_name": "Putheavy",
+      "username": "Proeung_Putheavy",
+      "lastSeen": "2025-06-21T09:20:50.372Z",
+      "firstSeen": "2025-06-21T09:14:36.748Z"
+    },
+    "711389422": {
+      "id": 711389422,
+      "is_bot": false,
+      "first_name": "ទេស",
+      "last_name": "ឌីកា",
+      "username": "dika816",
+      "lastSeen": "2025-06-28T04:54:31.617Z",
+      "firstSeen": "2025-06-28T04:54:31.617Z"
+    },
+    "718132890": {
+      "id": 718132890,
+      "is_bot": false,
+      "first_name": "🇰🇭HUOT-CHANTHY🇰🇭",
+      "last_name": "🥰 គុណធម៌ សច្ចៈធម៌ ភាពស្មោះត្រង់🥰",
+      "username": "Huotchanthy",
+      "lastSeen": "2025-07-02T08:21:38.049Z",
+      "firstSeen": "2025-06-25T01:41:04.911Z"
+    },
+    "735245380": {
+      "id": 735245380,
+      "is_bot": false,
+      "first_name": "យស់យិន រិទ្ធីយ៉ា",
+      "last_name": "",
+      "username": "ERIC_31",
+      "lastSeen": "2025-06-30T08:31:34.093Z",
+      "firstSeen": "2025-06-30T08:31:34.093Z"
+    },
+    "735896494": {
+      "id": 735896494,
+      "is_bot": false,
+      "first_name": "វង្ស​ សីហ៊ន - Vong Seyhorn 🇰🇭",
+      "last_name": "",
+      "username": "OppenheimerSH",
+      "lastSeen": "2025-06-27T07:57:27.617Z",
+      "firstSeen": "2025-06-27T07:56:17.464Z"
+    },
+    "736757617": {
+      "id": 736757617,
+      "is_bot": false,
+      "first_name": "Sim Piseth",
+      "last_name": "",
+      "username": "Pisxth",
+      "lastSeen": "2025-06-23T04:35:01.014Z",
+      "firstSeen": "2025-06-23T04:34:28.858Z"
+    },
+    "753364705": {
+      "id": 753364705,
+      "is_bot": false,
+      "first_name": "សេង ហ៊ុយ បោះពុម្ព",
+      "last_name": "",
+      "username": "SHC168_1",
+      "lastSeen": "2025-07-03T06:22:32.075Z",
+      "firstSeen": "2025-06-23T09:45:09.499Z"
+    },
+    "779470013": {
+      "id": 779470013,
+      "is_bot": false,
+      "first_name": "Lom",
+      "last_name": "Lihay",
+      "username": "Hay_Lii",
+      "lastSeen": "2025-06-24T03:44:05.051Z",
+      "firstSeen": "2025-06-24T03:42:08.785Z"
+    },
+    "786844546": {
+      "id": 786844546,
+      "is_bot": false,
+      "first_name": "សួន",
+      "last_name": "វាសនា",
+      "username": "Sna447",
+      "lastSeen": "2025-07-03T05:12:20.860Z",
+      "firstSeen": "2025-06-30T06:30:56.696Z"
+    },
+    "798837939": {
+      "id": 798837939,
+      "is_bot": false,
+      "first_name": "មឿន",
+      "last_name": "ឃឿន",
+      "username": "MOEURNKHOEURN",
+      "lastSeen": "2025-06-24T06:52:48.693Z",
+      "firstSeen": "2025-06-24T06:52:48.693Z"
+    },
+    "820396464": {
+      "id": 820396464,
+      "is_bot": false,
+      "first_name": "Kim.",
+      "last_name": "",
+      "username": "kimgieon",
+      "lastSeen": "2025-06-28T04:59:35.865Z",
+      "firstSeen": "2025-06-28T04:59:23.964Z"
+    },
+    "839293599": {
+      "id": 839293599,
+      "is_bot": false,
+      "first_name": "ឌីន",
+      "last_name": "សុពុទ្ធិ",
+      "username": "Deansoputhy168",
+      "lastSeen": "2025-07-02T09:03:59.138Z",
+      "firstSeen": "2025-07-02T05:13:15.346Z"
+    },
+    "857872452": {
+      "id": 857872452,
+      "is_bot": false,
+      "first_name": "VOTHY",
+      "last_name": "",
+      "username": "YEM_SYVOTHY",
+      "lastSeen": "2025-06-23T07:41:27.510Z",
+      "firstSeen": "2025-06-23T07:39:41.057Z"
+    },
+    "878631319": {
+      "id": 878631319,
+      "is_bot": false,
+      "first_name": "អ៊ិន",
+      "last_name": "សុវណ្ណារី",
+      "username": "",
+      "lastSeen": "2025-06-21T09:43:44.881Z",
+      "firstSeen": "2025-06-21T09:43:44.885Z"
+    },
+    "880416594": {
+      "id": 880416594,
+      "is_bot": false,
+      "first_name": "ហុង៚",
+      "last_name": "",
+      "username": "kimhong1020",
+      "lastSeen": "2025-07-02T07:44:31.090Z",
+      "firstSeen": "2025-07-02T07:44:31.090Z"
+    },
+    "905155139": {
+      "id": 905155139,
+      "is_bot": false,
+      "first_name": "Rating",
+      "last_name": "",
+      "username": "Rating2205",
+      "lastSeen": "2025-07-03T06:34:04.665Z",
+      "firstSeen": "2025-06-26T03:20:26.894Z"
+    },
+    "924487502": {
+      "id": 924487502,
+      "is_bot": false,
+      "first_name": "Menghouy",
+      "last_name": "",
+      "username": "Meng_Houy_E",
+      "lastSeen": "2025-07-03T06:23:32.431Z",
+      "firstSeen": "2025-06-30T08:57:24.198Z"
+    },
+    "928155207": {
+      "id": 928155207,
+      "is_bot": false,
+      "first_name": "Bong_Sa 211",
+      "last_name": "",
+      "username": "Pa_Pa_07",
+      "lastSeen": "2025-06-23T06:22:57.071Z",
+      "firstSeen": "2025-06-23T06:22:28.019Z"
+    },
+    "958277688": {
+      "id": 958277688,
+      "is_bot": false,
+      "first_name": "Udom",
+      "last_name": "Panha",
+      "username": "UdomPanha",
+      "lastSeen": "2025-07-04T06:00:44.724Z",
+      "firstSeen": "2025-07-04T06:00:44.723Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "1001095201": {
+      "id": 1001095201,
+      "is_bot": false,
+      "first_name": "POL ROBY",
+      "last_name": "- ប៉ុល រូប៊ី",
+      "username": "bynev3rpain",
+      "lastSeen": "2025-06-30T08:31:23.832Z",
+      "firstSeen": "2025-06-30T08:31:23.832Z"
+    },
+    "1069089681": {
+      "id": 1069089681,
+      "is_bot": false,
+      "first_name": "ធាង",
+      "last_name": "លីកា",
+      "username": "ch4rlei",
+      "lastSeen": "2025-06-30T08:35:03.066Z",
+      "firstSeen": "2025-06-30T08:35:03.066Z"
+    },
+    "1094862866": {
+      "id": 1094862866,
+      "is_bot": false,
+      "first_name": "Kong",
+      "last_name": "Sokngim",
+      "username": "",
+      "lastSeen": "2025-06-24T07:41:24.189Z",
+      "firstSeen": "2025-06-24T07:40:55.197Z"
+    },
+    "1128880632": {
+      "id": 1128880632,
+      "is_bot": false,
+      "first_name": "Teng",
+      "last_name": "Huot",
+      "username": "",
+      "lastSeen": "2025-07-03T00:54:27.672Z",
+      "firstSeen": "2025-07-03T00:54:27.672Z"
+    },
+    "1140286632": {
+      "id": 1140286632,
+      "is_bot": false,
+      "first_name": "វ៉ុន",
+      "last_name": "បញ្ញា",
+      "username": "",
+      "lastSeen": "2025-07-02T05:42:13.476Z",
+      "firstSeen": "2025-07-02T05:41:27.052Z"
+    },
+    "1176934921": {
+      "id": 1176934921,
+      "is_bot": false,
+      "first_name": "Borenn",
+      "last_name": "Morm",
+      "username": "borin_morm",
+      "lastSeen": "2025-07-02T08:10:30.146Z",
+      "firstSeen": "2025-07-02T06:27:10.130Z"
+    },
+    "1199657827": {
+      "id": 1199657827,
+      "is_bot": false,
+      "first_name": "CHHENGHOUR",
+      "last_name": "CHHUN (ឈុន ឆេងហួ) 🇰🇭",
+      "username": "ChhunHour039",
+      "lastSeen": "2025-07-01T07:41:43.291Z",
+      "firstSeen": "2025-06-28T05:14:37.694Z"
+    },
+    "1262477856": {
+      "id": 1262477856,
+      "is_bot": false,
+      "first_name": "ណូរិន្ទ",
+      "last_name": "កូនពៅ",
+      "username": "Norin_konpov",
+      "lastSeen": "2025-07-02T05:54:46.801Z",
+      "firstSeen": "2025-06-26T07:55:34.399Z"
+    },
+    "1267120072": {
+      "id": 1267120072,
+      "is_bot": false,
+      "first_name": "CHIN",
+      "last_name": "Samdeang",
+      "username": "chinsamdeang",
+      "lastSeen": "2025-07-03T05:51:55.361Z",
+      "firstSeen": "2025-07-03T05:47:07.298Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "1272791365": {
+      "id": 1272791365,
+      "is_bot": false,
+      "first_name": "HENG",
+      "last_name": ".",
+      "username": "Ozo0_0",
+      "lastSeen": "2025-08-07T09:33:39.118Z",
+      "firstSeen": "2025-06-21T08:29:27.279Z",
+      "activity": {
+        "downloads": [
+          {
+            "fontName": "Adit.ttf",
+            "date": "2025-07-03T08:53:28.764Z"
+          },
+          {
+            "fontName": "AditVersion1.0.5-Bold.ttf",
+            "date": "2025-07-03T07:42:33.221Z"
+          }
+        ],
+        "uploads": [
+          {
+            "fontName": "AKbalthom DaemPothi.ttf",
+            "status": "rejected",
+            "date": "2025-07-04T06:14:39.392Z",
+            "decisionDate": "2025-08-07T06:10:06.672Z"
+          },
+          {
+            "fontName": "AKbalthom Seoul [Version 3.00].ttf",
+            "status": "approved",
+            "date": "2025-07-04T02:54:11.648Z",
+            "decisionDate": "2025-07-04T06:03:47.347Z"
+          },
+          {
+            "fontName": "Ah Ja Thom Content.ttf",
+            "status": "rejected",
+            "date": "2025-07-04T00:55:49.752Z",
+            "decisionDate": "2025-07-04T02:52:36.767Z"
+          },
+          {
+            "fontName": "AKbalthom HighSchool.ttf",
+            "status": "approved",
+            "date": "2025-07-03T09:59:03.481Z",
+            "decisionDate": "2025-07-03T10:02:26.602Z"
+          },
+          {
+            "fontName": "Adit.ttf",
+            "status": "approved",
+            "date": "2025-07-03T09:26:11.710Z",
+            "decisionDate": "2025-07-03T09:58:42.587Z"
+          },
+          {
+            "fontName": "AKBALTHOM Korea.TTF",
+            "status": "approved",
+            "date": "2025-07-03T09:23:55.694Z",
+            "decisionDate": "2025-07-03T09:58:41.701Z"
+          },
+          {
+            "fontName": "AA-KHMER-BAYON.TTF",
+            "status": "approved",
+            "date": "2025-07-03T09:21:02.824Z",
+            "decisionDate": "2025-07-03T09:58:40.214Z"
+          },
+          {
+            "fontName": "Ah Ja Thom Content.ttf",
+            "status": "approved",
+            "date": "2025-07-03T09:11:49.389Z",
+            "decisionDate": "2025-07-03T09:12:08.417Z"
+          },
+          {
+            "fontName": "AKbalthom SuperheroKH.ttf",
+            "status": "approved",
+            "date": "2025-07-03T08:53:50.875Z",
+            "decisionDate": "2025-07-03T08:54:22.789Z"
+          }
+        ]
+      }
+    },
+    "1317663291": {
+      "id": 1317663291,
+      "is_bot": false,
+      "first_name": "ហេង ស្រីល័ក្ខ",
+      "last_name": "",
+      "username": "SreyleakCR7",
+      "lastSeen": "2025-06-23T08:10:14.852Z",
+      "firstSeen": "2025-06-23T08:10:14.856Z"
+    },
+    "1330821290": {
+      "id": 1330821290,
+      "is_bot": false,
+      "first_name": "meas",
+      "last_name": "montha",
+      "username": "",
+      "lastSeen": "2025-06-23T07:39:35.080Z",
+      "firstSeen": "2025-06-23T07:39:35.085Z"
+    },
+    "1354139354": {
+      "id": 1354139354,
+      "is_bot": false,
+      "first_name": "CHEA",
+      "last_name": "SEYHA",
+      "username": "cheaseyha345",
+      "lastSeen": "2025-06-28T04:54:02.834Z",
+      "firstSeen": "2025-06-28T04:54:02.839Z"
+    },
+    "1379088463": {
+      "id": 1379088463,
+      "is_bot": false,
+      "first_name": "លឿន",
+      "last_name": "ឡិន ​LOEURN LIN",
+      "username": "linzts26",
+      "lastSeen": "2025-06-23T08:46:08.877Z",
+      "firstSeen": "2025-06-23T08:46:08.880Z"
+    },
+    "1397532882": {
+      "id": 1397532882,
+      "is_bot": false,
+      "first_name": "Reoun",
+      "last_name": "Korei",
+      "username": "korei16",
+      "lastSeen": "2025-07-02T08:36:17.818Z",
+      "firstSeen": "2025-07-02T08:36:17.818Z"
+    },
+    "1409627887": {
+      "id": 1409627887,
+      "is_bot": false,
+      "first_name": ".រស់.សេរីសុវណ្ណវិច្ចនា.(.បោះពុម្ព.) អាគារ ( R )",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-21T09:32:53.589Z",
+      "firstSeen": "2025-06-21T09:32:53.589Z"
+    },
+    "1463875823": {
+      "id": 1463875823,
+      "is_bot": false,
+      "first_name": "Roeun",
+      "last_name": "Dalin",
+      "username": "roeundalyn",
+      "lastSeen": "2025-07-02T08:18:21.981Z",
+      "firstSeen": "2025-07-02T08:17:27.498Z"
+    },
+    "1501195558": {
+      "id": 1501195558,
+      "is_bot": false,
+      "first_name": "Sim Titya",
+      "last_name": "",
+      "username": "jing_Tz",
+      "lastSeen": "2025-06-25T00:56:14.241Z",
+      "firstSeen": "2025-06-25T00:56:14.266Z"
+    },
+    "1555255959": {
+      "id": 1555255959,
+      "is_bot": false,
+      "first_name": "꧁𝗖𝗵𝗼𝗺𝗿𝗼𝗲𝘂𝗻𝗥𝗮𝘁𝗮𝗻𝗮꧂🌺🧸",
+      "last_name": "",
+      "username": "ChomroeunRatana",
+      "lastSeen": "2025-07-01T00:55:17.155Z",
+      "firstSeen": "2025-06-27T01:30:26.501Z"
+    },
+    "1602174612": {
+      "id": 1602174612,
+      "is_bot": false,
+      "first_name": "𝘚𝘢𝘳𝘪𝘯 𝘔𝘦𝘯𝘨𝘭𝘦𝘯𝘨",
+      "last_name": "/សារិន ម៉េងឡេង",
+      "username": "sarinmengleng",
+      "lastSeen": "2025-07-01T06:16:29.388Z",
+      "firstSeen": "2025-07-01T00:55:17.156Z"
+    },
+    "1618245217": {
+      "id": 1618245217,
+      "is_bot": false,
+      "first_name": "ម៉េងហួ",
+      "last_name": "Designer",
+      "username": "menghour1997",
+      "lastSeen": "2025-07-02T01:53:32.164Z",
+      "firstSeen": "2025-06-24T07:21:26.944Z"
+    },
+    "1668511989": {
+      "id": 1668511989,
+      "is_bot": false,
+      "first_name": "Ly",
+      "last_name": "Seng long",
+      "username": "D_S_Long",
+      "lastSeen": "2025-06-28T06:24:54.493Z",
+      "firstSeen": "2025-06-28T06:24:54.496Z"
+    },
+    "1706657659": {
+      "id": 1706657659,
+      "is_bot": false,
+      "first_name": "𝚂𝙾𝚈 𝙲𝙷𝙰𝙽𝙱𝙾𝚃",
+      "last_name": "( DW7 )",
+      "username": "SOYCHANBOTH",
+      "lastSeen": "2025-07-01T07:01:16.653Z",
+      "firstSeen": "2025-06-25T04:24:51.796Z"
+    },
+    "1711039694": {
+      "id": 1711039694,
+      "is_bot": false,
+      "first_name": "Savon",
+      "last_name": "Oung",
+      "username": "savon_oung",
+      "lastSeen": "2025-06-21T09:20:24.998Z",
+      "firstSeen": "2025-06-21T09:20:25.001Z"
+    },
+    "1726424158": {
+      "id": 1726424158,
+      "is_bot": false,
+      "first_name": "ផុន ផៃ _",
+      "last_name": "PHON PHAI",
+      "username": "PHON_PHAI",
+      "lastSeen": "2025-06-25T03:07:31.680Z",
+      "firstSeen": "2025-06-25T01:11:25.301Z"
+    },
+    "1827341385": {
+      "id": 1827341385,
+      "is_bot": false,
+      "first_name": "din🦴",
+      "last_name": "heng🦴",
+      "username": "dinhengheng",
+      "lastSeen": "2025-07-04T00:50:58.301Z",
+      "firstSeen": "2025-07-02T08:27:18.175Z"
+    },
+    "1875159553": {
+      "id": 1875159553,
+      "is_bot": false,
+      "first_name": "PHOU",
+      "last_name": "SIN",
+      "username": "Tuotsin",
+      "lastSeen": "2025-06-25T03:32:13.957Z",
+      "firstSeen": "2025-06-25T03:32:13.957Z"
+    },
+    "1957977200": {
+      "id": 1957977200,
+      "is_bot": false,
+      "first_name": "Met",
+      "last_name": "MONINA",
+      "username": "",
+      "lastSeen": "2025-06-30T09:03:17.764Z",
+      "firstSeen": "2025-06-21T07:47:59.680Z"
+    },
+    "1984745713": {
+      "id": 1984745713,
+      "is_bot": false,
+      "first_name": "Nak (Hayden)",
+      "last_name": "",
+      "username": "lengyungrothanak",
+      "lastSeen": "2025-06-25T00:56:14.223Z",
+      "firstSeen": "2025-06-25T00:56:14.260Z"
+    },
+    "2007369950": {
+      "id": 2007369950,
+      "is_bot": false,
+      "first_name": "V",
+      "last_name": "taa",
+      "username": "",
+      "lastSeen": "2025-06-25T02:49:03.515Z",
+      "firstSeen": "2025-06-25T00:56:14.264Z"
+    },
+    "2027363882": {
+      "id": 2027363882,
+      "is_bot": false,
+      "first_name": "សូលីដា",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-27T05:24:52.900Z",
+      "firstSeen": "2025-06-27T05:24:52.900Z"
+    },
+    "2047724255": {
+      "id": 2047724255,
+      "is_bot": false,
+      "first_name": "វាសនា",
+      "last_name": "ថាន",
+      "username": "luckystar369",
+      "lastSeen": "2025-07-02T02:13:15.639Z",
+      "firstSeen": "2025-06-28T06:37:41.403Z"
+    },
+    "2109621594": {
+      "id": 2109621594,
+      "is_bot": false,
+      "first_name": "សោភា",
+      "last_name": "បោះពុម្ព",
+      "username": "s_print51",
+      "lastSeen": "2025-06-25T01:13:38.272Z",
+      "firstSeen": "2025-06-25T01:10:07.088Z"
+    },
+    "8013992263": {
+      "id": 8013992263,
+      "is_bot": false,
+      "first_name": "pp",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-21T08:57:17.763Z",
+      "firstSeen": "2025-06-21T08:57:17.763Z"
+    },
+    "7767215284": {
+      "id": 7767215284,
+      "is_bot": false,
+      "first_name": "pp",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-23T06:29:47.570Z",
+      "firstSeen": "2025-06-21T09:09:04.993Z"
+    },
+    "5128163727": {
+      "id": 5128163727,
+      "is_bot": false,
+      "first_name": "ឈឿង៚ឈីត",
+      "last_name": "",
+      "username": "chhoeurng_chhit",
+      "lastSeen": "2025-06-21T09:24:56.448Z",
+      "firstSeen": "2025-06-21T09:14:54.856Z"
+    },
+    "5042879295": {
+      "id": 5042879295,
+      "is_bot": false,
+      "first_name": "អេស ខេ បោះពុម្ព",
+      "last_name": "",
+      "username": "kimhean8711",
+      "lastSeen": "2025-06-21T09:38:56.589Z",
+      "firstSeen": "2025-06-21T09:38:56.593Z"
+    },
+    "8117279644": {
+      "id": 8117279644,
+      "is_bot": false,
+      "first_name": "Lin",
+      "last_name": "Lin",
+      "username": "",
+      "lastSeen": "2025-06-21T09:48:21.988Z",
+      "firstSeen": "2025-06-21T09:48:00.919Z"
+    },
+    "6105501590": {
+      "id": 6105501590,
+      "is_bot": false,
+      "first_name": "N",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-21T09:57:01.041Z",
+      "firstSeen": "2025-06-21T09:49:01.595Z"
+    },
+    "7050785458": {
+      "id": 7050785458,
+      "is_bot": false,
+      "first_name": "ជាតិ",
+      "last_name": "ជាលីង៉ា",
+      "username": "Krrish_15",
+      "lastSeen": "2025-06-27T03:14:20.624Z",
+      "firstSeen": "2025-06-23T07:39:08.567Z"
+    },
+    "7684791954": {
+      "id": 7684791954,
+      "is_bot": false,
+      "first_name": "Sophoan",
+      "last_name": "Bou",
+      "username": "SophoanBou",
+      "lastSeen": "2025-06-23T08:58:27.467Z",
+      "firstSeen": "2025-06-23T08:44:15.443Z"
+    },
+    "6330679562": {
+      "id": 6330679562,
+      "is_bot": false,
+      "first_name": "ឈីន",
+      "last_name": "ម៉េងឈូ",
+      "username": "CHHHOU12",
+      "lastSeen": "2025-06-23T08:44:46.594Z",
+      "firstSeen": "2025-06-23T08:44:46.598Z"
+    },
+    "6468537363": {
+      "id": 6468537363,
+      "is_bot": false,
+      "first_name": "CHHOUK",
+      "last_name": "VANNCHHAI",
+      "username": "chhouk_vannchhai",
+      "lastSeen": "2025-07-02T02:43:10.517Z",
+      "firstSeen": "2025-06-23T08:52:06.552Z"
+    },
+    "7652602727": {
+      "id": 7652602727,
+      "is_bot": false,
+      "first_name": "yy",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2025-06-27T05:36:20.015Z",
+      "firstSeen": "2025-06-24T06:52:48.704Z"
+    },
+    "6635410147": {
+      "id": 6635410147,
+      "is_bot": false,
+      "first_name": "SANG SEN",
+      "last_name": "",
+      "username": "Isme_Zenn",
+      "lastSeen": "2025-07-02T01:26:20.028Z",
+      "firstSeen": "2025-06-24T07:46:16.382Z"
+    },
+    "6211739478": {
+      "id": 6211739478,
+      "is_bot": false,
+      "first_name": "SÖRÑ ŁŸ HŪØR",
+      "last_name": "ស៊ាន់ លី ហួរ 🍃",
+      "username": "sornlyhuor",
+      "lastSeen": "2025-06-25T00:56:14.152Z",
+      "firstSeen": "2025-06-25T00:56:14.254Z"
+    },
+    "6641205322": {
+      "id": 6641205322,
+      "is_bot": false,
+      "first_name": "𝘽𝒂𝒏 𝙈𝒆𝒏𝒈𝙆𝒉𝒆𝒂𝒏𝒈",
+      "last_name": "(ម៉េង) ʘ⁠‿⁠ʘ",
+      "username": "Mengtk0",
+      "lastSeen": "2025-06-28T01:21:40.838Z",
+      "firstSeen": "2025-06-25T00:56:14.257Z"
+    },
+    "5720699918": {
+      "id": 5720699918,
+      "is_bot": false,
+      "first_name": "Pranith",
+      "last_name": "",
+      "username": "PranithDesigner",
+      "lastSeen": "2025-07-03T02:22:42.170Z",
+      "firstSeen": "2025-06-25T00:56:14.262Z"
+    },
+    "8176909337": {
+      "id": 8176909337,
+      "is_bot": false,
+      "first_name": "Pratna",
+      "last_name": "Kanadiya",
+      "username": "",
+      "lastSeen": "2025-06-25T05:33:35.889Z",
+      "firstSeen": "2025-06-25T01:12:06.140Z"
+    },
+    "6944464815": {
+      "id": 6944464815,
+      "is_bot": false,
+      "first_name": "SUON",
+      "last_name": "SOPHEAKTRA គាំទ្ររាជរដ្ឋាភិបាល",
+      "username": "khmernewh",
+      "lastSeen": "2025-06-25T03:31:47.630Z",
+      "firstSeen": "2025-06-25T03:31:47.634Z"
+    },
+    "5887650431": {
+      "id": 5887650431,
+      "is_bot": false,
+      "first_name": "Saen",
+      "last_name": "Channa",
+      "username": "",
+      "lastSeen": "2025-06-25T03:32:38.287Z",
+      "firstSeen": "2025-06-25T03:32:05.407Z"
+    },
+    "5867270653": {
+      "id": 5867270653,
+      "is_bot": false,
+      "first_name": "SOVANNRA",
+      "last_name": "KORNG (Class Moniter 9A)",
+      "username": "Sovannra12",
+      "lastSeen": "2025-07-02T08:24:10.971Z",
+      "firstSeen": "2025-06-25T05:47:00.709Z"
+    },
+    "7845055556": {
+      "id": 7845055556,
+      "is_bot": false,
+      "first_name": "GURU",
+      "last_name": "thu",
+      "username": "",
+      "lastSeen": "2025-06-25T08:37:24.149Z",
+      "firstSeen": "2025-06-25T08:37:24.149Z"
+    },
+    "5531106401": {
+      "id": 5531106401,
+      "is_bot": false,
+      "first_name": "Kimhork_ASN_09792",
+      "last_name": "",
+      "username": "kimohrk_ASN_09792",
+      "lastSeen": "2025-08-07T07:31:36.545Z",
+      "firstSeen": "2025-06-26T03:22:05.124Z"
+    },
+    "6866017677": {
+      "id": 6866017677,
+      "is_bot": false,
+      "first_name": "Chhoun Rechha",
+      "last_name": "(កូនតុកកែតូច)",
+      "username": "Chha_Chha4",
+      "lastSeen": "2025-07-03T08:51:03.926Z",
+      "firstSeen": "2025-06-26T08:06:33.385Z",
+      "activity": {
+        "downloads": [
+          {
+            "fontName": "Kh PR Romnea glow flowers.ttf",
+            "date": "2025-07-03T08:50:15.120Z"
+          },
+          {
+            "fontName": "Romnea.ttf",
+            "date": "2025-07-03T08:49:34.040Z"
+          }
+        ],
+        "uploads": []
+      }
+    },
+    "7022907228": {
+      "id": 7022907228,
+      "is_bot": false,
+      "first_name": "Boy",
+      "last_name": "Frend",
+      "username": "",
+      "lastSeen": "2025-06-26T08:08:11.230Z",
+      "firstSeen": "2025-06-26T08:08:02.222Z"
+    },
+    "5385639714": {
+      "id": 5385639714,
+      "is_bot": false,
+      "first_name": "ផុន",
+      "last_name": "ភិរម្យ",
+      "username": "Rum_Tzy",
+      "lastSeen": "2025-06-27T03:27:39.640Z",
+      "firstSeen": "2025-06-27T03:27:33.545Z"
+    },
+    "7002925826": {
+      "id": 7002925826,
+      "is_bot": false,
+      "first_name": "णारुड👨‍🏫 [ រ៉ុង ] Chorn Rong...!",
+      "last_name": "",
+      "username": "rongZ777",
+      "lastSeen": "2025-06-27T04:41:02.935Z",
+      "firstSeen": "2025-06-27T04:41:02.960Z"
+    },
+    "5103447888": {
+      "id": 5103447888,
+      "is_bot": false,
+      "first_name": "Jack Rubis2728",
+      "last_name": "",
+      "username": "Phearomsat",
+      "lastSeen": "2025-06-27T05:06:52.606Z",
+      "firstSeen": "2025-06-27T05:06:45.221Z"
+    },
+    "8077701788": {
+      "id": 8077701788,
+      "is_bot": false,
+      "first_name": "កតឃុណោ សៅ កូបា",
+      "last_name": "",
+      "username": "sao_koba",
+      "lastSeen": "2025-06-28T05:00:14.139Z",
+      "firstSeen": "2025-06-28T05:00:14.144Z"
+    },
+    "6481609080": {
+      "id": 6481609080,
+      "is_bot": false,
+      "first_name": "YUN",
+      "last_name": "VUTHY",
+      "username": "",
+      "lastSeen": "2025-07-04T00:50:58.302Z",
+      "firstSeen": "2025-06-28T05:12:46.800Z"
+    },
+    "5848363393": {
+      "id": 5848363393,
+      "is_bot": false,
+      "first_name": "សាមាន",
+      "last_name": "ភន់",
+      "username": "sameanphorn",
+      "lastSeen": "2025-06-28T06:11:15.148Z",
+      "firstSeen": "2025-06-28T06:11:00.356Z"
+    },
+    "5301000015": {
+      "id": 5301000015,
+      "is_bot": false,
+      "first_name": "Hok",
+      "last_name": "Theara",
+      "username": "",
+      "lastSeen": "2025-06-28T07:29:06.939Z",
+      "firstSeen": "2025-06-28T07:28:46.746Z"
+    },
+    "6182564960": {
+      "id": 6182564960,
+      "is_bot": false,
+      "first_name": "Hongg",
+      "last_name": "",
+      "username": "Twenty_designer",
+      "lastSeen": "2025-06-30T04:49:16.521Z",
+      "firstSeen": "2025-06-30T04:49:16.520Z"
+    },
+    "5841106065": {
+      "id": 5841106065,
+      "is_bot": false,
+      "first_name": "ម៉ែនសុសក្តា",
+      "last_name": "(MEN SOSAKDA)",
+      "username": "sakda_t",
+      "lastSeen": "2025-07-01T03:11:01.115Z",
+      "firstSeen": "2025-07-01T03:09:12.728Z"
+    },
+    "6869541412": {
+      "id": 6869541412,
+      "is_bot": false,
+      "first_name": "So Dana Khith🔹",
+      "last_name": "",
+      "username": "Danaa_So",
+      "lastSeen": "2025-07-01T04:28:33.798Z",
+      "firstSeen": "2025-07-01T03:20:49.348Z"
+    },
+    "5552407821": {
+      "id": 5552407821,
+      "is_bot": false,
+      "first_name": "Kriem Makara",
+      "last_name": "SV35",
+      "username": "Makara_6178",
+      "lastSeen": "2025-07-02T04:09:35.600Z",
+      "firstSeen": "2025-07-02T04:00:25.764Z"
+    },
+    "7819665486": {
+      "id": 7819665486,
+      "is_bot": false,
+      "first_name": "Oun",
+      "last_name": "Sovanvathanak",
+      "username": "",
+      "lastSeen": "2025-07-02T06:04:25.824Z",
+      "firstSeen": "2025-07-02T06:04:25.824Z"
+    },
+    "6249304556": {
+      "id": 6249304556,
+      "is_bot": false,
+      "first_name": "ប៊ុន៚",
+      "last_name": "ថង",
+      "username": "",
+      "lastSeen": "2025-07-02T08:02:53.157Z",
+      "firstSeen": "2025-07-02T06:06:32.858Z"
+    },
+    "7796610561": {
+      "id": 7796610561,
+      "is_bot": false,
+      "first_name": "Koem",
+      "last_name": "Seng",
+      "username": "",
+      "lastSeen": "2025-07-02T06:12:49.247Z",
+      "firstSeen": "2025-07-02T06:12:12.599Z"
+    },
+    "5387084794": {
+      "id": 5387084794,
+      "is_bot": false,
+      "first_name": "មករា",
+      "last_name": "",
+      "username": "konkhmer700",
+      "lastSeen": "2025-07-02T07:44:14.075Z",
+      "firstSeen": "2025-07-02T07:41:44.368Z"
+    },
+    "5426874118": {
+      "id": 5426874118,
+      "is_bot": false,
+      "first_name": "ពូ ញ៉ាញ់",
+      "last_name": "Pu Nhanh 2",
+      "username": "channy092926033",
+      "lastSeen": "2025-07-02T08:27:59.224Z",
+      "firstSeen": "2025-07-02T08:27:39.154Z"
+    },
+    "6901416781": {
+      "id": 6901416781,
+      "is_bot": false,
+      "first_name": "Mr.",
+      "last_name": "Vel💚",
+      "username": "vell168",
+      "lastSeen": "2025-07-03T01:47:58.964Z",
+      "firstSeen": "2025-07-03T00:54:27.674Z"
+    },
+    "7304964615": {
+      "id": 7304964615,
+      "is_bot": false,
+      "first_name": "នួន~រ៉ានុត",
+      "last_name": "[ℝ𝔸 ℕ𝕆𝕋ℍℤ]៚",
+      "username": "ranoth008",
+      "lastSeen": "2025-07-03T08:19:13.340Z",
+      "firstSeen": "2025-07-03T08:19:13.340Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "8121283035": {
+      "id": 8121283035,
+      "is_bot": false,
+      "first_name": "Sem",
+      "last_name": "Sothearith",
+      "username": "semsothearith",
+      "lastSeen": "2025-07-04T03:37:16.648Z",
+      "firstSeen": "2025-07-04T03:14:19.390Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    }
+  },
+  "bannedUsers": {
+    "539971334": {
+      "reason": "Banned from Admin Panel",
+      "date": "2025-06-30T06:37:36.986Z"
+    },
+    "794877568": {
+      "reason": "Banned from Admin Panel",
+      "date": "2025-06-30T06:37:16.695Z"
+    },
+    "1007741111": {
+      "reason": "Banned from Admin Panel",
+      "date": "2025-06-30T06:37:04.961Z"
+    },
+    "1784387043": {
+      "reason": "No reason provided",
+      "date": "2025-07-02T05:46:08.261Z"
+    },
+    "5859256178": {
+      "reason": "Banned from Admin Panel",
+      "date": "2025-06-30T06:37:26.359Z"
+    }
+  },
+  "messageQueue": [],
+  "fileIdCache": {},
+  "broadcastResults": {
+    "message": "🤖 Good Morning 🌅\n\n➡️ សរសេរ /fonts ឬ ឈ្មោះ Font ដើម្បីទាញយកពុម្ពអក្សរ។",
+    "total": 123,
+    "sent": 77,
+    "failed": 46,
+    "startedAt": "2025-07-04T01:13:54.656Z",
+    "completedAt": "2025-07-04T01:15:24.097Z",
+    "errors": [
+      {
+        "chatId": 155386914,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 302712753,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 402939087,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 422067757,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 439214213,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 472993130,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 496070334,
+        "error": "ETELEGRAM: 403 Forbidden: bot can't initiate conversation with a user"
+      },
+      {
+        "chatId": 527242226,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 527955401,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 535041929,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 570885300,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 571307197,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 618356817,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 706004043,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 735245380,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 735896494,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 736757617,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 779470013,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 820396464,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 839293599,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 857872452,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 880416594,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 928155207,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 1001095201,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 1069089681,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 1094862866,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 1128880632,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 1267120072,
+        "error": "ETELEGRAM: 403 Forbidden: bot can't initiate conversation with a user"
+      },
+      {
+        "chatId": 1379088463,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 1397532882,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 1711039694,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 1984745713,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 2007369950,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 2027363882,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 8013992263,
+        "error": "ETELEGRAM: 403 Forbidden: user is deactivated"
+      },
+      {
+        "chatId": 7767215284,
+        "error": "ETELEGRAM: 403 Forbidden: user is deactivated"
+      },
+      {
+        "chatId": 5042879295,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 7652602727,
+        "error": "ETELEGRAM: 403 Forbidden: user is deactivated"
+      },
+      {
+        "chatId": 6641205322,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 8176909337,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 7845055556,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      },
+      {
+        "chatId": 5385639714,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 7002925826,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 5848363393,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 7819665486,
+        "error": "ETELEGRAM: 403 Forbidden: bot was blocked by the user"
+      },
+      {
+        "chatId": 5387084794,
+        "error": "ETELEGRAM: 400 Bad Request: chat not found"
+      }
+    ]
+  },
+  "userProfiles": {},
+  "userPreferences": {},
+  "userStats": {},
+  "userAchievements": {},
+  "analytics": {
+    "dailyStats": {},
+    "weeklyStats": {},
+    "monthlyStats": {},
+    "userActivity": {},
+    "fontUsage": {},
+    "commandUsage": {},
+    "errorLogs": {},
+    "performanceMetrics": {}
+  },
+  "notifications": {
+    "templates": {},
+    "scheduled": {},
+    "sent": {},
+    "preferences": {},
+    "subscriptions": {},
+    "campaigns": {}
+  },
+  "recommendations": {
+    "userInteractions": {},
+    "fontSimilarity": {},
+    "contentAnalysis": {},
+    "recommendations": {},
+    "models": {}
+  },
+  "securityScans": [
+    {
+      "timestamp": "2025-08-07T09:32:43.079Z",
+      "suspiciousUsers": 0,
+      "totalUsers": 126,
+      "details": []
+    },
+    {
+      "timestamp": "2025-08-07T09:33:11.460Z",
+      "suspiciousUsers": 0,
+      "totalUsers": 126,
+      "details": []
+    }
+  ],
+  "securityConfig": {
+    "twoFactorAuth": false,
+    "ipWhitelist": false,
+    "rateLimiting": true,
+    "sessionTimeout": 60,
+    "maxLoginAttempts": 5
+  }
+}

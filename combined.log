@@ -1,0 +1,510 @@
+2025-08-07 13:09:17 [info]: Refreshing font cache...
+2025-08-07 13:09:18 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 13:09:18 [info]: Khmer fallback font registered successfully.
+2025-08-07 13:09:18 [info]: Database initialized and validated successfully.
+2025-08-07 13:09:18 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 13:09:18 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 13:09:21 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:22 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:22 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 13:09:23 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:23 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:24 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:24 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:25 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:25 [info]: Shutting down...
+2025-08-07 13:09:25 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:47 [info]: Refreshing font cache...
+2025-08-07 13:09:48 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 13:09:48 [info]: Khmer fallback font registered successfully.
+2025-08-07 13:09:48 [info]: Database initialized and validated successfully.
+2025-08-07 13:09:48 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 13:09:48 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 13:09:48 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 13:09:49 [info] (User: 5531106401, @kimohrk_ASN_09792): Performing search for query: "khmermoul"
+2025-08-07 13:09:52 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 13:10:05 [info]: Admin Panel client disconnected.
+2025-08-07 13:10:05 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 13:10:06 [warn]: ADMIN PANEL ACTION: Rejected font AKbalthom DaemPothi.ttf
+2025-08-07 13:10:27 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 13:10:28 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 13:10:30 [info] (User: 1272791365, @N/A): Processing callback: "get_7_0"
+2025-08-07 13:10:34 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 13:10:37 [info] (User: 1272791365, @N/A): Processing callback: "page_0"
+2025-08-07 13:34:19 [info]: Shutting down...
+2025-08-07 14:01:47 [info]: Refreshing font cache...
+2025-08-07 14:01:47 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:01:48 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:01:48 [info]: Database initialized and validated successfully.
+2025-08-07 14:01:48 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:01:48 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:01:51 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 14:01:53 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 14:01:56 [info] (User: 1272791365, @N/A): Processing callback: "get_0_0"
+2025-08-07 14:02:00 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:02:14 [info] (User: 1272791365, @N/A): Processing callback: "download_0"
+2025-08-07 14:02:14 [info] (User: 1272791365, @N/A): User requested to download font: "!KhmerOSSiemreap.ttf"
+2025-08-07 14:02:30 [info] (User: 439214213, @Hangmeas092): User entered upload mode.
+2025-08-07 14:02:46 [info] (User: 439214213, @Hangmeas092): Performing search for query: "kantumruy"
+2025-08-07 14:02:50 [info] (User: 439214213, @N/A): Processing callback: "get_0_0"
+2025-08-07 14:02:54 [warn] (User: 439214213, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:03:01 [info] (User: 439214213, @N/A): Processing callback: "download_0"
+2025-08-07 14:03:01 [info] (User: 439214213, @N/A): User requested to download font: "Kantumruy Bold.ttf"
+2025-08-07 14:14:42 [info]: Shutting down...
+2025-08-07 14:16:41 [info]: Refreshing font cache...
+2025-08-07 14:16:42 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:16:42 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:16:42 [info]: Database initialized and validated successfully.
+2025-08-07 14:16:42 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:16:42 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:16:47 [info] (User: 1272791365, @N/A): Processing callback: "page_0"
+2025-08-07 14:16:51 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 14:16:52 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 14:16:53 [info] (User: 1272791365, @N/A): Processing callback: "get_5_0"
+2025-08-07 14:16:57 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:16:59 [info] (User: 1272791365, @N/A): Processing callback: "download_5"
+2025-08-07 14:16:59 [info] (User: 1272791365, @N/A): User requested to download font: "Adit.ttf"
+2025-08-07 14:17:21 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 14:18:34 [info]: Shutting down...
+2025-08-07 14:31:35 [info]: Refreshing font cache...
+2025-08-07 14:31:35 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:31:35 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:31:35 [info]: Database initialized and validated successfully.
+2025-08-07 14:31:35 [error]: Error initializing User Profile Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at UserProfileService.setupProfileTables (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:27:31)
+    at UserProfileService.init (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:16:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:27:30)
+2025-08-07 14:31:35 [error]: Error initializing Analytics Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at AnalyticsService.setupAnalyticsTables (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:29:31)
+    at AnalyticsService.init (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:28:28)
+2025-08-07 14:31:35 [error]: Error initializing Notification Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at NotificationService.setupNotificationTables (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:32:31)
+    at NotificationService.init (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:19:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:29:31)
+2025-08-07 14:31:35 [error]: Error initializing Recommendation Engine: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at RecommendationEngine.setupRecommendationTables (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:29:31)
+    at RecommendationEngine.init (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:30:32)
+2025-08-07 14:31:35 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:31:35 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:31:36 [info] (User: 5531106401, @N/A): Processing callback: "get_0_0"
+2025-08-07 14:31:44 [info]: Shutting down...
+2025-08-07 14:32:43 [info]: Refreshing font cache...
+2025-08-07 14:32:43 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:32:43 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:32:43 [info]: Database initialized and validated successfully.
+2025-08-07 14:32:43 [error]: Error initializing User Profile Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at UserProfileService.setupProfileTables (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:27:31)
+    at UserProfileService.init (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:16:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:27:30)
+2025-08-07 14:32:43 [error]: Error initializing Analytics Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at AnalyticsService.setupAnalyticsTables (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:29:31)
+    at AnalyticsService.init (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:28:28)
+2025-08-07 14:32:43 [error]: Error initializing Notification Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at NotificationService.setupNotificationTables (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:32:31)
+    at NotificationService.init (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:19:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:29:31)
+2025-08-07 14:32:43 [error]: Error initializing Recommendation Engine: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at RecommendationEngine.setupRecommendationTables (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:29:31)
+    at RecommendationEngine.init (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:30:32)
+2025-08-07 14:32:43 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:32:43 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:32:51 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 14:32:52 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 14:32:54 [info] (User: 1272791365, @N/A): Processing callback: "get_5_0"
+2025-08-07 14:32:57 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:33:00 [info] (User: 1272791365, @N/A): Processing callback: "download_5"
+2025-08-07 14:33:00 [info] (User: 1272791365, @N/A): User requested to download font: "Adit.ttf"
+2025-08-07 14:33:03 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 14:33:14 [info]: Shutting down...
+2025-08-07 14:35:54 [info]: Refreshing font cache...
+2025-08-07 14:35:54 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:35:55 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:35:55 [info]: Database initialized and validated successfully.
+2025-08-07 14:35:55 [info]: User Profile Service initialized
+2025-08-07 14:35:55 [info]: Analytics Service initialized
+2025-08-07 14:35:55 [info]: Loaded 0 scheduled notifications
+2025-08-07 14:35:55 [info]: Notification Service initialized
+2025-08-07 14:35:55 [info]: Recommendation Engine initialized
+2025-08-07 14:35:55 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:35:55 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:37:53 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 14:38:38 [info]: Admin Panel client disconnected.
+2025-08-07 14:38:38 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 14:38:50 [info] (User: 1272791365, @N/A): Processing callback: "get_7_0"
+2025-08-07 14:38:55 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 14:38:56 [info] (User: 1272791365, @N/A): Processing callback: "get_7_0"
+2025-08-07 14:39:00 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:39:02 [info] (User: 1272791365, @N/A): Processing callback: "download_7"
+2025-08-07 14:39:02 [info] (User: 1272791365, @N/A): User requested to download font: "Ah Ja Thom Content.ttf"
+2025-08-07 14:39:05 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 14:39:12 [info] (User: 1272791365, @N/A): Processing callback: "get_6_0"
+2025-08-07 14:39:16 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 14:39:17 [info] (User: 1272791365, @N/A): Processing callback: "download_6"
+2025-08-07 14:39:17 [info] (User: 1272791365, @N/A): User requested to download font: "AditVersion1.0.5-Bold.ttf"
+2025-08-07 14:39:26 [info]: Shutting down...
+2025-08-07 14:48:55 [info]: Refreshing font cache...
+2025-08-07 14:48:56 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 14:48:56 [info]: Khmer fallback font registered successfully.
+2025-08-07 14:48:56 [info]: Database initialized and validated successfully.
+2025-08-07 14:48:56 [info]: User Profile Service initialized
+2025-08-07 14:48:56 [info]: Analytics Service initialized
+2025-08-07 14:48:56 [info]: Loaded 0 scheduled notifications
+2025-08-07 14:48:56 [info]: Notification Service initialized
+2025-08-07 14:48:56 [info]: Recommendation Engine initialized
+2025-08-07 14:48:56 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 14:48:56 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 14:48:58 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 14:49:00 [info]: Admin Panel client disconnected.
+2025-08-07 14:52:12 [info]: Shutting down...
+2025-08-07 15:03:40 [info]: Refreshing font cache...
+2025-08-07 15:03:40 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:03:41 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:03:41 [info]: Database initialized and validated successfully.
+2025-08-07 15:03:41 [info]: User Profile Service initialized
+2025-08-07 15:03:41 [info]: User Profile Service initialized successfully
+2025-08-07 15:03:41 [info]: Analytics Service initialized
+2025-08-07 15:03:41 [info]: Analytics Service initialized successfully
+2025-08-07 15:03:41 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:03:41 [info]: Notification Service initialized
+2025-08-07 15:03:41 [info]: Notification Service initialized successfully
+2025-08-07 15:03:41 [info]: Recommendation Engine initialized
+2025-08-07 15:03:41 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:03:41 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:03:41 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:03:48 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:03:52 [info]: Admin Panel client disconnected.
+2025-08-07 15:03:52 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:05:03 [info]: Admin Panel client disconnected.
+2025-08-07 15:05:04 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:07:21 [info]: Admin Panel client disconnected.
+2025-08-07 15:10:12 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 15:16:45 [info]: Refreshing font cache...
+2025-08-07 15:16:45 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:16:46 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:16:46 [info]: Database initialized and validated successfully.
+2025-08-07 15:16:46 [info]: User Profile Service initialized
+2025-08-07 15:16:46 [info]: User Profile Service initialized successfully
+2025-08-07 15:16:46 [info]: Analytics Service initialized
+2025-08-07 15:16:46 [info]: Analytics Service initialized successfully
+2025-08-07 15:16:46 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:16:46 [info]: Notification Service initialized
+2025-08-07 15:16:46 [info]: Notification Service initialized successfully
+2025-08-07 15:16:46 [info]: Recommendation Engine initialized
+2025-08-07 15:16:46 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:16:46 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:16:46 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:16:50 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:21:11 [info]: Refreshing font cache...
+2025-08-07 15:21:11 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:21:12 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:21:12 [info]: Database initialized and validated successfully.
+2025-08-07 15:21:12 [info]: User Profile Service initialized
+2025-08-07 15:21:12 [info]: User Profile Service initialized successfully
+2025-08-07 15:21:12 [info]: Analytics Service initialized
+2025-08-07 15:21:12 [info]: Analytics Service initialized successfully
+2025-08-07 15:21:12 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:21:12 [info]: Notification Service initialized
+2025-08-07 15:21:12 [info]: Notification Service initialized successfully
+2025-08-07 15:21:12 [info]: Recommendation Engine initialized
+2025-08-07 15:21:12 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:21:12 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:21:12 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:22:26 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:23:26 [info]: Shutting down...
+2025-08-07 15:40:37 [info]: Refreshing font cache...
+2025-08-07 15:40:37 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:40:37 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:40:37 [info]: Database initialized and validated successfully.
+2025-08-07 15:40:37 [info]: User Profile Service initialized
+2025-08-07 15:40:37 [info]: User Profile Service initialized successfully
+2025-08-07 15:40:37 [info]: Analytics Service initialized
+2025-08-07 15:40:37 [info]: Analytics Service initialized successfully
+2025-08-07 15:40:37 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:40:37 [info]: Notification Service initialized
+2025-08-07 15:40:37 [info]: Notification Service initialized successfully
+2025-08-07 15:40:37 [info]: Recommendation Engine initialized
+2025-08-07 15:40:37 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:40:37 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:40:37 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:40:44 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:41:41 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 15:41:43 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 15:41:45 [info] (User: 1272791365, @N/A): Processing callback: "get_4_0"
+2025-08-07 15:41:49 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 15:41:51 [info] (User: 1272791365, @N/A): Processing callback: "download_4"
+2025-08-07 15:41:51 [info] (User: 1272791365, @N/A): User requested to download font: "AA-KHMER-BAYON.TTF"
+2025-08-07 15:48:00 [info]: Refreshing font cache...
+2025-08-07 15:48:00 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:48:01 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:48:01 [info]: Database initialized and validated successfully.
+2025-08-07 15:48:01 [info]: User Profile Service initialized
+2025-08-07 15:48:01 [info]: User Profile Service initialized successfully
+2025-08-07 15:48:01 [info]: Analytics Service initialized
+2025-08-07 15:48:01 [info]: Analytics Service initialized successfully
+2025-08-07 15:48:01 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:48:01 [info]: Notification Service initialized
+2025-08-07 15:48:01 [info]: Notification Service initialized successfully
+2025-08-07 15:48:01 [info]: Recommendation Engine initialized
+2025-08-07 15:48:01 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:48:01 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:48:01 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:48:05 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:48:11 [info]: Admin Panel client disconnected.
+2025-08-07 15:48:12 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:48:42 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:49:47 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 15:49:49 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 15:49:53 [info] (User: 1272791365, @N/A): Processing callback: "page_1"
+2025-08-07 15:49:54 [info] (User: 1272791365, @N/A): Processing callback: "page_2"
+2025-08-07 15:49:56 [info] (User: 1272791365, @N/A): Processing callback: "page_3"
+2025-08-07 15:49:57 [info] (User: 1272791365, @N/A): Processing callback: "get_24_3"
+2025-08-07 15:50:01 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 15:50:04 [info] (User: 1272791365, @N/A): Processing callback: "download_24"
+2025-08-07 15:50:04 [info] (User: 1272791365, @N/A): User requested to download font: "AKbalthom HighSchool-Fun.ttf"
+2025-08-07 15:50:07 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 15:50:10 [info]: Admin Panel client disconnected.
+2025-08-07 15:50:10 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:50:50 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:51:21 [info]: Shutting down...
+2025-08-07 15:53:20 [info]: Refreshing font cache...
+2025-08-07 15:53:20 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:53:21 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:53:21 [info]: Database initialized and validated successfully.
+2025-08-07 15:53:21 [info]: User Profile Service initialized
+2025-08-07 15:53:21 [info]: User Profile Service initialized successfully
+2025-08-07 15:53:21 [info]: Analytics Service initialized
+2025-08-07 15:53:21 [info]: Analytics Service initialized successfully
+2025-08-07 15:53:21 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:53:21 [info]: Notification Service initialized
+2025-08-07 15:53:21 [info]: Notification Service initialized successfully
+2025-08-07 15:53:21 [info]: Recommendation Engine initialized
+2025-08-07 15:53:21 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:53:21 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:53:21 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:53:23 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:53:23 [info]: Admin Panel client disconnected.
+2025-08-07 15:53:24 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:53:26 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:53:32 [info]: Shutting down...
+2025-08-07 15:54:25 [info]: Refreshing font cache...
+2025-08-07 15:54:25 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 15:54:25 [info]: Khmer fallback font registered successfully.
+2025-08-07 15:54:25 [info]: Database initialized and validated successfully.
+2025-08-07 15:54:25 [info]: User Profile Service initialized
+2025-08-07 15:54:25 [info]: User Profile Service initialized successfully
+2025-08-07 15:54:25 [info]: Analytics Service initialized
+2025-08-07 15:54:25 [info]: Analytics Service initialized successfully
+2025-08-07 15:54:25 [info]: Loaded 0 scheduled notifications
+2025-08-07 15:54:25 [info]: Notification Service initialized
+2025-08-07 15:54:25 [info]: Notification Service initialized successfully
+2025-08-07 15:54:25 [info]: Recommendation Engine initialized
+2025-08-07 15:54:25 [info]: Recommendation Engine initialized successfully
+2025-08-07 15:54:25 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 15:54:25 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 15:54:30 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 15:54:45 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:54:56 [info]: Database backup created successfully.
+2025-08-07 15:55:26 [info]: Shutting down...
+2025-08-07 16:00:44 [info]: Refreshing font cache...
+2025-08-07 16:00:44 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 16:00:44 [info]: Khmer fallback font registered successfully.
+2025-08-07 16:00:44 [info]: Database initialized and validated successfully.
+2025-08-07 16:00:45 [info]: User Profile Service initialized
+2025-08-07 16:00:45 [info]: User Profile Service initialized successfully
+2025-08-07 16:00:45 [info]: Analytics Service initialized
+2025-08-07 16:00:45 [info]: Analytics Service initialized successfully
+2025-08-07 16:00:45 [info]: Loaded 0 scheduled notifications
+2025-08-07 16:00:45 [info]: Notification Service initialized
+2025-08-07 16:00:45 [info]: Notification Service initialized successfully
+2025-08-07 16:00:45 [info]: Recommendation Engine initialized
+2025-08-07 16:00:45 [info]: Recommendation Engine initialized successfully
+2025-08-07 16:00:45 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 16:00:45 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 16:01:41 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:02:40 [info]: Shutting down...
+2025-08-07 16:06:48 [info]: Refreshing font cache...
+2025-08-07 16:06:48 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 16:06:49 [info]: Khmer fallback font registered successfully.
+2025-08-07 16:06:49 [info]: Database initialized and validated successfully.
+2025-08-07 16:06:49 [info]: User Profile Service initialized
+2025-08-07 16:06:49 [info]: User Profile Service initialized successfully
+2025-08-07 16:06:49 [info]: Analytics Service initialized
+2025-08-07 16:06:49 [info]: Analytics Service initialized successfully
+2025-08-07 16:06:49 [info]: Loaded 0 scheduled notifications
+2025-08-07 16:06:49 [info]: Notification Service initialized
+2025-08-07 16:06:49 [info]: Notification Service initialized successfully
+2025-08-07 16:06:49 [info]: Recommendation Engine initialized
+2025-08-07 16:06:49 [info]: Recommendation Engine initialized successfully
+2025-08-07 16:06:49 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 16:06:49 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 16:07:08 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:07:36 [info]: Shutting down...
+2025-08-07 16:16:04 [info]: Refreshing font cache...
+2025-08-07 16:16:04 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 16:16:04 [info]: Khmer fallback font registered successfully.
+2025-08-07 16:16:04 [info]: Database initialized and validated successfully.
+2025-08-07 16:16:04 [info]: User Profile Service initialized
+2025-08-07 16:16:04 [info]: User Profile Service initialized successfully
+2025-08-07 16:16:04 [info]: Analytics Service initialized
+2025-08-07 16:16:04 [info]: Analytics Service initialized successfully
+2025-08-07 16:16:04 [info]: Loaded 0 scheduled notifications
+2025-08-07 16:16:04 [info]: Notification Service initialized
+2025-08-07 16:16:04 [info]: Notification Service initialized successfully
+2025-08-07 16:16:04 [info]: Recommendation Engine initialized
+2025-08-07 16:16:04 [info]: Recommendation Engine initialized successfully
+2025-08-07 16:16:04 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 16:16:04 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 16:16:38 [info] (User: 1272791365, @Ozo0_0): Performing search for query: "loopadoople"
+2025-08-07 16:16:59 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:17:20 [info]: Admin Panel client disconnected.
+2025-08-07 16:17:21 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:18:16 [info]: Shutting down...
+2025-08-07 16:21:10 [info]: Refreshing font cache...
+2025-08-07 16:21:10 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 16:21:10 [info]: Khmer fallback font registered successfully.
+2025-08-07 16:21:10 [info]: Database initialized and validated successfully.
+2025-08-07 16:21:10 [info]: User Profile Service initialized
+2025-08-07 16:21:10 [info]: User Profile Service initialized successfully
+2025-08-07 16:21:10 [info]: Analytics Service initialized
+2025-08-07 16:21:10 [info]: Analytics Service initialized successfully
+2025-08-07 16:21:10 [info]: Loaded 0 scheduled notifications
+2025-08-07 16:21:10 [info]: Notification Service initialized
+2025-08-07 16:21:10 [info]: Notification Service initialized successfully
+2025-08-07 16:21:10 [info]: Recommendation Engine initialized
+2025-08-07 16:21:10 [info]: Recommendation Engine initialized successfully
+2025-08-07 16:21:10 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 16:21:10 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 16:21:14 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:21:36 [info]: Shutting down...
+2025-08-07 16:32:22 [info]: Refreshing font cache...
+2025-08-07 16:32:22 [info]: Font cache updated successfully. Found 2039 valid fonts.
+2025-08-07 16:32:22 [info]: Khmer fallback font registered successfully.
+2025-08-07 16:32:22 [info]: Database initialized and validated successfully.
+2025-08-07 16:32:22 [info]: User Profile Service initialized
+2025-08-07 16:32:22 [info]: User Profile Service initialized successfully
+2025-08-07 16:32:22 [info]: Analytics Service initialized
+2025-08-07 16:32:22 [info]: Analytics Service initialized successfully
+2025-08-07 16:32:22 [info]: Loaded 0 scheduled notifications
+2025-08-07 16:32:22 [info]: Notification Service initialized
+2025-08-07 16:32:22 [info]: Notification Service initialized successfully
+2025-08-07 16:32:22 [info]: Recommendation Engine initialized
+2025-08-07 16:32:22 [info]: Recommendation Engine initialized successfully
+2025-08-07 16:32:22 [info]: ✅ Font Sharer Bot is fully operational.
+2025-08-07 16:32:22 [info]: Admin Panel (HTTP & WebSocket) is running at http://localhost:3000
+2025-08-07 16:32:27 [info]: Admin Panel client connected via WebSocket.
+2025-08-07 16:32:43 [info]: Security scan completed. Found 0 suspicious users.
+2025-08-07 16:33:05 [info]: Security configuration updated
+2025-08-07 16:33:11 [info]: Security scan completed. Found 0 suspicious users.
+2025-08-07 16:33:22 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /start
+2025-08-07 16:33:24 [info] (User: 1272791365, @Ozo0_0): Processing admin command: /fonts
+2025-08-07 16:33:25 [info] (User: 1272791365, @N/A): Processing callback: "get_1_0"
+2025-08-07 16:33:29 [warn] (User: 1272791365, @N/A): EditMessageMedia failed. Falling back to delete/send. Error: ETELEGRAM: 400 Bad Request: can't parse InputMedia: Field "media" must be of type String
+2025-08-07 16:33:34 [info] (User: 1272791365, @N/A): Processing callback: "download_1"
+2025-08-07 16:33:34 [info] (User: 1272791365, @N/A): User requested to download font: "A1.TTF"
+2025-08-07 16:33:37 [info] (User: 1272791365, @N/A): Processing callback: "browse_all"
+2025-08-07 16:33:39 [info] (User: 1272791365, @N/A): Processing callback: "page_1"
+2025-08-07 16:35:58 [info]: Shutting down...

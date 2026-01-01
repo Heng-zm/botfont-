@@ -1,0 +1,144 @@
+2025-08-07 13:09:21 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:22 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:23 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:23 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:24 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:24 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:25 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 13:09:25 [error]: Polling Error: ETELEGRAM - ETELEGRAM: 401 Unauthorized
+2025-08-07 14:31:35 [error]: Error initializing User Profile Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at UserProfileService.setupProfileTables (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:27:31)
+    at UserProfileService.init (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:16:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:27:30)
+2025-08-07 14:31:35 [error]: Error initializing Analytics Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at AnalyticsService.setupAnalyticsTables (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:29:31)
+    at AnalyticsService.init (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:28:28)
+2025-08-07 14:31:35 [error]: Error initializing Notification Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at NotificationService.setupNotificationTables (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:32:31)
+    at NotificationService.init (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:19:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:29:31)
+2025-08-07 14:31:35 [error]: Error initializing Recommendation Engine: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at RecommendationEngine.setupRecommendationTables (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:29:31)
+    at RecommendationEngine.init (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:30:32)
+2025-08-07 14:32:43 [error]: Error initializing User Profile Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at UserProfileService.setupProfileTables (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:27:31)
+    at UserProfileService.init (C:\Users\GS Computer\Downloads\bot\services\userProfileService.js:16:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:27:30)
+2025-08-07 14:32:43 [error]: Error initializing Analytics Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at AnalyticsService.setupAnalyticsTables (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:29:31)
+    at AnalyticsService.init (C:\Users\GS Computer\Downloads\bot\services\analyticsService.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:28:28)
+2025-08-07 14:32:43 [error]: Error initializing Notification Service: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at NotificationService.setupNotificationTables (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:32:31)
+    at NotificationService.init (C:\Users\GS Computer\Downloads\bot\services\notificationService.js:19:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:29:31)
+2025-08-07 14:32:43 [error]: Error initializing Recommendation Engine: db.getData is not a function
+    at TypeError: db.getData is not a function
+    at RecommendationEngine.setupRecommendationTables (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:29:31)
+    at RecommendationEngine.init (C:\Users\GS Computer\Downloads\bot\services\recommendationEngine.js:18:24)
+    at main (C:\Users\GS Computer\Downloads\bot\index.js:30:32)
+2025-08-07 15:48:42 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:50:50 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:53:26 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
+2025-08-07 15:54:45 [error]: Failed to get fonts:
+    at TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at Object.join (node:path:478:7)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:458:39
+    at Array.map (<anonymous>)
+    at C:\Users\GS Computer\Downloads\bot\adminPanel.js:457:35
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:295:15
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at jsonParser (C:\Users\GS Computer\Downloads\bot\node_modules\body-parser\lib\types\json.js:100:7)
+    at Layer.handleRequest (C:\Users\GS Computer\Downloads\bot\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:342:13)
+    at C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:297:9
+    at processParams (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:582:12)
+    at next (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\application.js:177:15)
+    at Server.app (C:\Users\GS Computer\Downloads\bot\node_modules\express\lib\express.js:38:9)
+    at Server.emit (node:events:518:28)
