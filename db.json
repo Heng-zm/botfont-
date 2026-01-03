@@ -26,14 +26,66 @@
         "uploads": []
       }
     },
+    "786844546": {
+      "id": 786844546,
+      "is_bot": false,
+      "first_name": "សួន",
+      "last_name": "វាសនា (Suon Veasna)",
+      "username": "Sna447",
+      "lastSeen": "2026-01-01T10:23:18.937Z",
+      "firstSeen": "2026-01-01T09:49:07.851Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "812325619": {
+      "id": 812325619,
+      "is_bot": false,
+      "first_name": "សេង សុខ",
+      "last_name": "- SENG SOK",
+      "username": "SengSok7122",
+      "lastSeen": "2026-01-03T01:36:21.791Z",
+      "firstSeen": "2026-01-03T01:26:06.833Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
     "1272791365": {
       "id": 1272791365,
       "is_bot": false,
       "first_name": "HENG",
       "last_name": ".",
       "username": "Ozo0_0",
-      "lastSeen": "2026-01-01T06:20:10.448Z",
+      "lastSeen": "2026-01-03T04:33:34.791Z",
       "firstSeen": "2026-01-01T03:18:59.314Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "1608104588": {
+      "id": 1608104588,
+      "is_bot": false,
+      "first_name": "UY SOPHANNADA (ဆိုဖန်နဒ )",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2026-01-03T01:36:44.119Z",
+      "firstSeen": "2026-01-03T01:25:48.503Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "1856646002": {
+      "id": 1856646002,
+      "is_bot": false,
+      "first_name": "Ounh",
+      "last_name": "Chhailen",
+      "username": "",
+      "lastSeen": "2026-01-03T02:46:33.289Z",
+      "firstSeen": "2026-01-03T01:23:11.827Z",
       "activity": {
         "downloads": [],
         "uploads": []
@@ -45,18 +97,154 @@
       "first_name": "RAK៚(447)",
       "last_name": "",
       "username": "Rakattacking",
-      "lastSeen": "2026-01-01T05:22:33.523Z",
+      "lastSeen": "2026-01-01T07:49:29.301Z",
       "firstSeen": "2026-01-01T05:22:16.574Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "6343771836": {
+      "id": 6343771836,
+      "is_bot": false,
+      "first_name": "Kong",
+      "last_name": "Chanrith",
+      "username": "chanrith_kk",
+      "lastSeen": "2026-01-02T01:39:59.833Z",
+      "firstSeen": "2026-01-01T08:13:54.324Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "8017801890": {
+      "id": 8017801890,
+      "is_bot": false,
+      "first_name": "Meng",
+      "last_name": "🙉",
+      "username": "van085",
+      "lastSeen": "2026-01-03T04:17:58.036Z",
+      "firstSeen": "2026-01-01T08:45:03.615Z",
+      "activity": {
+        "downloads": [],
+        "uploads": [
+          {
+            "fontName": "Adit.ttf",
+            "status": "rejected",
+            "date": "2026-01-03T04:16:50.158Z",
+            "decisionDate": "2026-01-03T04:18:14.224Z"
+          }
+        ]
+      }
+    },
+    "7714442453": {
+      "id": 7714442453,
+      "is_bot": false,
+      "first_name": "DARK",
+      "last_name": "STAR",
+      "username": "soondyon",
+      "lastSeen": "2026-01-01T09:39:47.902Z",
+      "firstSeen": "2026-01-01T09:37:34.572Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "5704872069": {
+      "id": 5704872069,
+      "is_bot": false,
+      "first_name": "គ្រូយើង សេវាបោះពុម្ព │",
+      "last_name": "Krou Yoeung Printing House",
+      "username": "kyprinting168",
+      "lastSeen": "2026-01-01T09:40:32.702Z",
+      "firstSeen": "2026-01-01T09:40:32.702Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "6449266850": {
+      "id": 6449266850,
+      "is_bot": false,
+      "first_name": "Gwan",
+      "last_name": "",
+      "username": "demonkai168",
+      "lastSeen": "2026-01-01T09:59:28.526Z",
+      "firstSeen": "2026-01-01T09:59:28.526Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "7672298857": {
+      "id": 7672298857,
+      "is_bot": false,
+      "first_name": "Laa Laa",
+      "last_name": "",
+      "username": "CHHEAN0",
+      "lastSeen": "2026-01-02T07:16:21.264Z",
+      "firstSeen": "2026-01-01T10:35:59.508Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "5683123601": {
+      "id": 5683123601,
+      "is_bot": false,
+      "first_name": "ផុន សុគីម",
+      "last_name": "- PHON SOKIM",
+      "username": "phonsokim_Venerable21",
+      "lastSeen": "2026-01-02T01:17:16.506Z",
+      "firstSeen": "2026-01-02T01:17:16.488Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "6006123307": {
+      "id": 6006123307,
+      "is_bot": false,
+      "first_name": "Tino",
+      "last_name": "Grapic Technology🧑‍💻",
+      "username": "Pichtino",
+      "lastSeen": "2026-01-02T04:10:55.011Z",
+      "firstSeen": "2026-01-02T03:36:01.654Z",
       "activity": {
         "downloads": [],
         "uploads": []
       }
     }
   },
-  "bannedUsers": {},
+  "bannedUsers": {
+    "539971334": {
+      "reason": "No reason provided",
+      "date": "2026-01-03T03:17:49.640Z"
+    },
+    "1007741111": {
+      "reason": "No reason provided",
+      "date": "2026-01-03T03:16:25.191Z"
+    },
+    "1784387043": {
+      "reason": "No reason provided",
+      "date": "2026-01-03T03:17:20.826Z"
+    },
+    "5859256178": {
+      "reason": "No reason provided",
+      "date": "2026-01-03T03:16:50.254Z"
+    }
+  },
   "messageQueue": [],
   "fileIdCache": {},
-  "broadcastResults": null,
+  "broadcastResults": {
+    "message": "🤖 សូមស្វាគមន៍មកកាន់ KhFontBot!\n\n➡️ សរសេរ /fonts ឬ ឈ្មោះ Font ដើម្បីស្វែងរកពុម្ពអក្សរ។\n\n​➕ប្រើ /uploadfont សម្រាប់ upload  ពុម្ពអក្សរបន្ថែម\n💡ប្រើ /uploadfont រួចផ្ញើ File ពុម្ពអក្សរ ជា (.ttf ឬ .otf)​។",
+    "total": 12,
+    "sent": 12,
+    "failed": 0,
+    "startedAt": "2026-01-02T06:16:02.672Z",
+    "completedAt": "2026-01-02T06:16:12.010Z",
+    "errors": []
+  },
   "errors": {
     "err_1767237256304_xkmc1icm5": {
       "id": "err_1767237256304_xkmc1icm5",
@@ -92,9 +280,9 @@
       },
       "fingerprint": "56vejk",
       "resolved": false,
-      "count": 2598,
+      "count": 3691,
       "firstSeen": "2026-01-01T05:02:05.668Z",
-      "lastSeen": "2026-01-01T05:06:51.192Z"
+      "lastSeen": "2026-01-01T07:01:12.073Z"
     },
     "err_1767243917996_uytj7bxsg": {
       "id": "err_1767243917996_uytj7bxsg",
@@ -135,15 +323,118 @@
       "count": 1,
       "firstSeen": "2026-01-01T05:06:35.176Z",
       "lastSeen": "2026-01-01T05:06:35.176Z"
+    },
+    "err_1767261621365_cboovwztd": {
+      "id": "err_1767261621365_cboovwztd",
+      "timestamp": "2026-01-01T10:00:21.365Z",
+      "type": "Error",
+      "message": "ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 139",
+      "stack": "Error: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 139\n    at /home/user/botfont-/node_modules/node-telegram-bot-api/src/telegram.js:299:15\n    at tryCatcher (/home/user/botfont-/node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:547:31)\n    at Promise._settlePromise (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:604:18)\n    at Promise._settlePromise0 (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:649:10)\n    at Promise._settlePromises (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:729:18)\n    at _drainQueueStep (/home/user/botfont-/node_modules/bluebird/js/release/async.js:93:12)\n    at _drainQueue (/home/user/botfont-/node_modules/bluebird/js/release/async.js:86:9)\n    at Async._drainQueues (/home/user/botfont-/node_modules/bluebird/js/release/async.js:102:5)\n    at Async.drainQueues [as _onImmediate] (/home/user/botfont-/node_modules/bluebird/js/release/async.js:15:14)\n    at process.processImmediate (node:internal/timers:483:21)",
+      "userId": null,
+      "context": {
+        "severity": "high",
+        "component": "unknown",
+        "action": "unknown",
+        "type": "unhandled_rejection",
+        "promise": "[object Promise]"
+      },
+      "fingerprint": "k196xe",
+      "resolved": false,
+      "count": 1,
+      "firstSeen": "2026-01-01T10:00:21.365Z",
+      "lastSeen": "2026-01-01T10:00:21.365Z"
+    },
+    "err_1767262304238_e9ng2pr5b": {
+      "id": "err_1767262304238_e9ng2pr5b",
+      "timestamp": "2026-01-01T10:11:44.238Z",
+      "type": "Error",
+      "message": "ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 148",
+      "stack": "Error: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 148\n    at /home/user/botfont-/node_modules/node-telegram-bot-api/src/telegram.js:299:15\n    at tryCatcher (/home/user/botfont-/node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:547:31)\n    at Promise._settlePromise (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:604:18)\n    at Promise._settlePromise0 (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:649:10)\n    at Promise._settlePromises (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:729:18)\n    at _drainQueueStep (/home/user/botfont-/node_modules/bluebird/js/release/async.js:93:12)\n    at _drainQueue (/home/user/botfont-/node_modules/bluebird/js/release/async.js:86:9)\n    at Async._drainQueues (/home/user/botfont-/node_modules/bluebird/js/release/async.js:102:5)\n    at Async.drainQueues [as _onImmediate] (/home/user/botfont-/node_modules/bluebird/js/release/async.js:15:14)\n    at process.processImmediate (node:internal/timers:483:21)",
+      "userId": null,
+      "context": {
+        "severity": "high",
+        "component": "unknown",
+        "action": "unknown",
+        "type": "unhandled_rejection",
+        "promise": "[object Promise]"
+      },
+      "fingerprint": "k196y8",
+      "resolved": false,
+      "count": 1,
+      "firstSeen": "2026-01-01T10:11:44.238Z",
+      "lastSeen": "2026-01-01T10:11:44.238Z"
+    },
+    "err_1767262362628_38rfkgpzi": {
+      "id": "err_1767262362628_38rfkgpzi",
+      "timestamp": "2026-01-01T10:12:42.628Z",
+      "type": "Error",
+      "message": "ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 138",
+      "stack": "Error: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 138\n    at /home/user/botfont-/node_modules/node-telegram-bot-api/src/telegram.js:299:15\n    at tryCatcher (/home/user/botfont-/node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:547:31)\n    at Promise._settlePromise (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:604:18)\n    at Promise._settlePromise0 (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:649:10)\n    at Promise._settlePromises (/home/user/botfont-/node_modules/bluebird/js/release/promise.js:729:18)\n    at _drainQueueStep (/home/user/botfont-/node_modules/bluebird/js/release/async.js:93:12)\n    at _drainQueue (/home/user/botfont-/node_modules/bluebird/js/release/async.js:86:9)\n    at Async._drainQueues (/home/user/botfont-/node_modules/bluebird/js/release/async.js:102:5)\n    at Async.drainQueues [as _onImmediate] (/home/user/botfont-/node_modules/bluebird/js/release/async.js:15:14)\n    at process.processImmediate (node:internal/timers:483:21)",
+      "userId": null,
+      "context": {
+        "severity": "high",
+        "component": "unknown",
+        "action": "unknown",
+        "type": "unhandled_rejection",
+        "promise": "[object Promise]"
+      },
+      "fingerprint": "k196xd",
+      "resolved": false,
+      "count": 1,
+      "firstSeen": "2026-01-01T10:12:42.628Z",
+      "lastSeen": "2026-01-01T10:12:42.628Z"
+    },
+    "err_1767404334126_6wmhqohcp": {
+      "id": "err_1767404334126_6wmhqohcp",
+      "timestamp": "2026-01-03T01:38:54.126Z",
+      "type": "ReferenceError",
+      "message": "media is not defined",
+      "stack": "ReferenceError: media is not defined\n    at sendFontPreview (/home/user/botfont-/handlers/callbackHandler.js:154:65)",
+      "userId": null,
+      "context": {
+        "severity": "high",
+        "component": "unknown",
+        "action": "unknown",
+        "type": "unhandled_rejection",
+        "promise": "[object Promise]"
+      },
+      "fingerprint": "1qfcxr",
+      "resolved": false,
+      "count": 1,
+      "firstSeen": "2026-01-03T01:38:54.126Z",
+      "lastSeen": "2026-01-03T01:38:54.126Z"
+    },
+    "err_1767404588178_zq9cuporo": {
+      "id": "err_1767404588178_zq9cuporo",
+      "timestamp": "2026-01-03T01:43:08.178Z",
+      "type": "TypeError",
+      "message": "Class constructor ProfileHandler cannot be invoked without 'new'",
+      "stack": "TypeError: Class constructor ProfileHandler cannot be invoked without 'new'\n    at handlePublicCommand (/home/user/botfont-/handlers/messageHandler.js:138:20)\n    at /home/user/botfont-/handlers/messageHandler.js:193:16\n    at /home/user/botfont-/index.js:211:186\n    at TelegramBot.<anonymous> (/home/user/botfont-/index.js:199:25)",
+      "userId": null,
+      "context": {
+        "severity": "high",
+        "component": "unknown",
+        "action": "unknown",
+        "type": "unhandled_rejection",
+        "promise": "[object Promise]"
+      },
+      "fingerprint": "ns9bx",
+      "resolved": false,
+      "count": 2,
+      "firstSeen": "2026-01-03T01:43:08.178Z",
+      "lastSeen": "2026-01-03T01:43:44.901Z"
     }
   },
   "errorStats": {
-    "total": 2601,
+    "total": 3700,
     "byType": {
-      "Error": 2601
+      "Error": 3697,
+      "ReferenceError": 1,
+      "TypeError": 2
     },
     "byDay": {
-      "2026-01-01": 2601
+      "2026-01-01": 3697,
+      "2026-01-03": 3
     },
     "resolved": 0
   },

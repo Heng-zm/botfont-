@@ -6,6 +6,7 @@ const { logger } = require('../services/logger');
 const path = require('path');
 
 const fileIdCache = new Map();
+const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
 
 module.exports = (bot) => async (query) => {
     const user = { id: query.from.id };
@@ -23,16 +24,18 @@ module.exports = (bot) => async (query) => {
                 if (!fileId) {
                     try {
                         const filePath = path.join(process.env.FONT_DIRECTORY, font);
-                        const tempMsg = await bot.sendDocument(query.from.id, filePath);
+                        // Send to admin chat to get file_id without disturbing the user
+                        const tempMsg = await bot.sendDocument(ADMIN_CHAT_ID, filePath, { caption: `Caching file_id for ${font}` });
                         if (tempMsg.document) {
                             fileId = tempMsg.document.file_id;
                             fileIdCache.set(font, fileId);
                             logger.info(`Cached new file_id for ${font}`);
+                            // It's good practice to delete the temporary message from the admin chat
+                            await bot.deleteMessage(ADMIN_CHAT_ID, tempMsg.message_id);
                         }
-                        await bot.deleteMessage(query.from.id, tempMsg.message_id);
                     } catch (uploadError) {
                         logger.error(`Failed to pre-upload ${font} for inline mode: ${uploadError.message}`);
-                        return null; // Skip this result if upload fails
+                        return null;
                     }
                 }
                 if (fileId) {

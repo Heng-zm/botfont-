@@ -9,17 +9,34 @@ const { logger } = require('../services/logger');
  * @returns {Promise<boolean>} - True if the request should proceed, false if blocked.
  */
 async function banCheck(msg) {
-    if (!msg || !msg.from) {
-        return true; // Proceed if we can't identify the user
+    // robustly get the user object (works for messages and callback queries)
+    const user = msg.from;
+
+    if (!user) {
+        // If we can't identify the user (e.g. anonymous channel post), we allow it.
+        return true; 
     }
 
-    const userId = msg.from.id;
-    if (await isUserBanned(userId)) {
-        logger.warn(`Blocked request from banned user: ${userId}`);
-        return false; // Block the request
-    }
+    const userId = user.id;
 
-    return true; // Allow the request
+    try {
+        const banned = await isUserBanned(userId);
+
+        if (banned) {
+            const userInfo = user.username ? `@${user.username}` : (user.first_name || 'Unknown');
+            logger.warn(`🚫 Blocked interaction from banned user: ${userId} (${userInfo})`);
+            
+            // Return false to stop the bot from processing the command
+            return false; 
+        }
+
+        return true; // User is not banned, proceed
+    } catch (error) {
+        logger.error(`⚠️ Error verifying ban status for user ${userId}:`, error);
+        // If DB fails, we usually default to true (allow) to prevent blocking everyone during a glitch,
+        // or false (block) if security is high priority. defaulting to allow:
+        return true;
+    }
 }
 
 module.exports = { banCheck };

@@ -2,18 +2,25 @@
 
 const advancedUserProfileService = require('../services/advancedUserProfileService');
 const { logger, getUserInfo } = require('../services/logger');
-const strings = require('../localization');
 
 /**
- * Handle profile-related commands
+ * Helper to generate progress bar
  */
-class ProfileHandler {
+function getProgressBar(current, total, length = 10) {
+    const percent = Math.min(Math.max(current / total, 0), 1);
+    const fill = Math.floor(percent * length);
+    return '█'.repeat(fill) + '▒'.repeat(length - fill);
+}
+
+/**
+ * Core logic for profile commands
+ */
+class ProfileActions {
     
     /**
-     * Handle /profile command - Show comprehensive user profile
+     * Handle /profile command
      */
-    static async handleProfile(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleProfile(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
@@ -21,21 +28,22 @@ class ProfileHandler {
             
             const profile = await advancedUserProfileService.getUserProfile(user.id);
             if (!profile) {
-                return bot.sendMessage(chatId, '❌ មិនអាចទាញយកព័ត៌មានប្រូហ្វាល់បានទេ។');
+                return bot.sendMessage(chatId, '❌ មិនអាចទាញយកព័ត៌មានប្រូហ្វាល់បានទេ។ សូមព្យាយាមម្តងទៀត។');
             }
 
             const message = this.formatProfileMessage(profile);
+            
             const keyboard = [
                 [
-                    { text: '📊 សកម្មភាព / Activity', callback_data: 'profile_activity' },
-                    { text: '🏆 ជោគជ័យ / Achievements', callback_data: 'profile_achievements' }
+                    { text: '📊 ស្ថិតិរបស់ខ្ញុំ', callback_data: 'profile_mystats' }, // Mapped to mystats
+                    { text: '🏆 សមិទ្ធផល', callback_data: 'profile_achievements' }
                 ],
                 [
-                    { text: '⚙️ ការកំណត់ / Settings', callback_data: 'profile_settings' },
-                    { text: '📈 របាយការណ៍ / Report', callback_data: 'profile_report' }
+                    { text: '⚙️ ការកំណត់', callback_data: 'profile_settings' },
+                    { text: '📈 របាយការណ៍', callback_data: 'profile_report' }
                 ],
                 [
-                    { text: '💡 អនុសាសន៍ / Recommendations', callback_data: 'profile_recommendations' }
+                    { text: '💡 អនុសាសន៍សម្រាប់អ្នក', callback_data: 'profile_recommendations' }
                 ]
             ];
 
@@ -46,15 +54,14 @@ class ProfileHandler {
 
         } catch (error) {
             logger.error('Error in profile handler:', error);
-            bot.sendMessage(chatId, '❌ កំហុសក្នុងការបង្ហាញប្រូហ្វាល់។');
+            bot.sendMessage(chatId, '❌ មានបញ្ហាក្នុងការបង្ហាញប្រូហ្វាល់។');
         }
     }
 
     /**
-     * Handle /mystats command - Show detailed user statistics
+     * Handle /mystats command
      */
-    static async handleMyStats(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleMyStats(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
@@ -62,18 +69,17 @@ class ProfileHandler {
             
             const stats = await advancedUserProfileService.calculateUserStats(user.id);
             if (!stats) {
-                return bot.sendMessage(chatId, '❌ មិនអាចទាញយកស្ថិតិបានទេ។');
+                return bot.sendMessage(chatId, '❌ មិនមានទិន្នន័យស្ថិតិទេ។');
             }
 
             const message = this.formatStatsMessage(stats);
             const keyboard = [
                 [
-                    { text: '📅 សប្តាហ៍នេះ / This Week', callback_data: 'stats_week' },
-                    { text: '📆 ខែនេះ / This Month', callback_data: 'stats_month' }
+                    { text: '📅 សប្តាហ៍នេះ', callback_data: 'stats_week' },
+                    { text: '📆 ខែនេះ', callback_data: 'stats_month' }
                 ],
                 [
-                    { text: '📊 ក្រាហ្វិក / Graph', callback_data: 'stats_graph' },
-                    { text: '🔄 ធ្វើបច្ចុប្បន្នភាព / Refresh', callback_data: 'stats_refresh' }
+                    { text: '🔙 ត្រឡប់ក្រោយ', callback_data: 'back_to_profile' }
                 ]
             ];
 
@@ -89,10 +95,9 @@ class ProfileHandler {
     }
 
     /**
-     * Handle /achievements command - Show user achievements
+     * Handle /achievements command
      */
-    static async handleAchievements(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleAchievements(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
@@ -102,29 +107,24 @@ class ProfileHandler {
             const stats = await advancedUserProfileService.calculateUserStats(user.id);
             
             const message = this.formatAchievementsMessage(achievements, stats);
-            const keyboard = [
-                [
-                    { text: '🎯 គោលដៅបន្ទាប់ / Next Goals', callback_data: 'achievements_next' },
-                    { text: '📈 ដំណើរការ / Progress', callback_data: 'achievements_progress' }
-                ]
-            ];
-
+            
             await bot.sendMessage(chatId, message, {
                 parse_mode: 'Markdown',
-                reply_markup: { inline_keyboard: keyboard }
+                reply_markup: { 
+                    inline_keyboard: [[{ text: '🔙 ត្រឡប់ក្រោយ', callback_data: 'back_to_profile' }]] 
+                }
             });
 
         } catch (error) {
             logger.error('Error in achievements handler:', error);
-            bot.sendMessage(chatId, '❌ កំហុសក្នុងការបង្ហាញជោគជ័យ។');
+            bot.sendMessage(chatId, '❌ កំហុសក្នុងការបង្ហាញសមិទ្ធផល។');
         }
     }
 
     /**
-     * Handle /rank command - Show user rank and progress
+     * Handle /rank command
      */
-    static async handleRank(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleRank(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
@@ -133,50 +133,36 @@ class ProfileHandler {
             const stats = await advancedUserProfileService.calculateUserStats(user.id);
             const rank = await advancedUserProfileService.getUserRank(user.id, stats);
             
-            const message = this.formatRankMessage(rank, stats);
-            const keyboard = [
-                [
-                    { text: '📊 លម្អិតបន្ថែម / More Details', callback_data: 'rank_details' },
-                    { text: '🎯 វិធីកើនឡើង / How to Improve', callback_data: 'rank_improve' }
-                ]
-            ];
-
+            const message = this.formatRankMessage(rank);
+            
             await bot.sendMessage(chatId, message, {
-                parse_mode: 'Markdown',
-                reply_markup: { inline_keyboard: keyboard }
+                parse_mode: 'Markdown'
             });
 
         } catch (error) {
             logger.error('Error in rank handler:', error);
-            bot.sendMessage(chatId, '❌ កំហុសក្នុងការបង្ហាញឋានៈ។');
+            bot.sendMessage(chatId, '❌ កំហុសក្នុងការបង្ហាញចំណាត់ថ្នាក់។');
         }
     }
 
     /**
-     * Handle /settings command - Show user settings
+     * Handle /settings command
      */
-    static async handleSettings(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleSettings(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
             const profile = await advancedUserProfileService.getUserProfile(user.id);
-            if (!profile) {
-                return bot.sendMessage(chatId, '❌ មិនអាចទាញយកការកំណត់បានទេ។');
-            }
+            if (!profile) return bot.sendMessage(chatId, '❌ មិនអាចចូលទៅកាន់ការកំណត់។');
 
             const message = this.formatSettingsMessage(profile.preferences);
             const keyboard = [
                 [
-                    { text: '🌐 ភាសា / Language', callback_data: 'settings_language' },
-                    { text: '🔔 ការជូនដំណឹង / Notifications', callback_data: 'settings_notifications' }
+                    { text: '🌐 ភាសា (Language)', callback_data: 'settings_language' },
+                    { text: '🔔 ការជូនដំណឹង', callback_data: 'settings_notifications' }
                 ],
                 [
-                    { text: '🖼️ ទំហំរូបភាព / Preview Size', callback_data: 'settings_preview' },
-                    { text: '🎨 រចនាបទ / Theme', callback_data: 'settings_theme' }
-                ],
-                [
-                    { text: '📂 ប្រភេទពុម្ពអក្សរ / Font Categories', callback_data: 'settings_categories' }
+                    { text: '🔙 ត្រឡប់ក្រោយ', callback_data: 'back_to_profile' }
                 ]
             ];
 
@@ -192,10 +178,9 @@ class ProfileHandler {
     }
 
     /**
-     * Handle /recommendations command - Show personalized recommendations
+     * Handle /recommendations command
      */
-    static async handleRecommendations(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleRecommendations(bot, msg, user) {
         const chatId = msg.chat.id;
         
         try {
@@ -203,14 +188,17 @@ class ProfileHandler {
             
             const recommendations = await advancedUserProfileService.getUserRecommendations(user.id);
             
-            if (recommendations.length === 0) {
-                return bot.sendMessage(chatId, 'ℹ️ មិនមានអនុសាសន៍នៅពេលនេះទេ។ សាកល្បងប្រើប្រាស់បន្ថែមទៀត។');
+            if (!recommendations || recommendations.length === 0) {
+                return bot.sendMessage(chatId, 'ℹ️ មិនមានអនុសាសន៍នៅពេលនេះទេ។ សូមប្រើប្រាស់ Bot បន្ថែមទៀតដើម្បីទទួលបានការណែនាំ។');
             }
 
             const message = this.formatRecommendationsMessage(recommendations);
+            
+            // Generate buttons for recommendations if they have actions
             const keyboard = recommendations.map((rec, index) => [
-                { text: `${index + 1}. ${rec.title}`, callback_data: `rec_${rec.action}_${index}` }
+                { text: `👉 ${index + 1}. មើល ${rec.title}`, callback_data: `rec_${rec.action}_${index}` }
             ]);
+            keyboard.push([{ text: '🔙 ត្រឡប់ក្រោយ', callback_data: 'back_to_profile' }]);
 
             await bot.sendMessage(chatId, message, {
                 parse_mode: 'Markdown',
@@ -224,18 +212,17 @@ class ProfileHandler {
     }
 
     /**
-     * Handle /report command - Generate activity report
+     * Handle /report command
      */
-    static async handleReport(bot, msg) {
-        const user = getUserInfo(msg);
+    static async handleReport(bot, msg, user) {
         const chatId = msg.chat.id;
-        const [, period] = msg.text.split(' ');
+        const args = (msg.text || '').split(' ');
+        const period = args[1] || 'month'; // Default to month
         
         try {
             bot.sendChatAction(chatId, 'typing');
             
-            const reportPeriod = period || 'month';
-            const report = await advancedUserProfileService.generateActivityReport(user.id, reportPeriod);
+            const report = await advancedUserProfileService.generateActivityReport(user.id, period);
             
             if (!report) {
                 return bot.sendMessage(chatId, '❌ មិនអាចបង្កើតរបាយការណ៍បានទេ។');
@@ -244,12 +231,9 @@ class ProfileHandler {
             const message = this.formatReportMessage(report);
             const keyboard = [
                 [
-                    { text: '📅 សប្តាហ៍ / Week', callback_data: 'report_week' },
-                    { text: '📆 ខែ / Month', callback_data: 'report_month' },
-                    { text: '📊 ឆ្នាំ / Year', callback_data: 'report_year' }
-                ],
-                [
-                    { text: '📄 ទាញយកPDF / Export PDF', callback_data: 'report_export' }
+                    { text: '📅 សប្តាហ៍', callback_data: 'report_week' },
+                    { text: '📆 ខែ', callback_data: 'report_month' },
+                    { text: '📊 ឆ្នាំ', callback_data: 'report_year' }
                 ]
             ];
 
@@ -264,154 +248,167 @@ class ProfileHandler {
         }
     }
 
-    // Formatting methods
+    // ================= FORMATTING METHODS =================
+
     static formatProfileMessage(profile) {
-        const completeness = '█'.repeat(Math.floor(profile.profileCompleteness / 10)) + 
-                           '▒'.repeat(10 - Math.floor(profile.profileCompleteness / 10));
+        const bar = getProgressBar(profile.profileCompleteness, 100);
         
-        return `👤 **ប្រូហ្វាល់របស់អ្នក / Your Profile**
+        return `👤 **ប្រូហ្វាល់របស់អ្នក (User Profile)**
 
-🔸 **ឈ្មោះ / Name:** ${profile.first_name || 'N/A'} ${profile.last_name || ''}
-🔸 **ឈ្មោះអ្នកប្រើ / Username:** @${profile.username || 'None'}
-🔸 **ឋានៈ / Rank:** ${profile.rank.rankIcon} ${profile.rank.rank} (${profile.rank.score} points)
-🔸 **ពិន្ទុ / Score:** ${profile.rank.score}/${profile.rank.nextRank ? profile.rank.score + profile.rank.pointsToNext : 'Max'}
+📛 **ឈ្មោះ:** ${profile.first_name || 'N/A'} ${profile.last_name || ''}
+🆔 **ID:** \`${profile.userId}\`
+🏅 **កម្រិត (Rank):** ${profile.rank.rankIcon} ${profile.rank.rank}
+⭐ **ពិន្ទុ:** ${profile.rank.score} points
 
-📈 **ភាពពេញលេញ / Completeness:** ${profile.profileCompleteness}%
-${completeness}
+📈 **ភាពពេញលេញនៃគណនី:** ${profile.profileCompleteness}%
+${bar}
 
-📊 **សកម្មភាពសរុប / Total Activity:**
-• ទាញយក / Downloads: ${profile.stats.totalDownloads}
-• បានផ្ទុកឡើង / Uploads: ${profile.stats.totalUploads}
-• បានអនុម័ត / Approved: ${profile.stats.approvedUploads}
+📊 **សកម្មភាពសរុប:**
+• 📥 ទាញយក: ${profile.stats.totalDownloads}
+• 📤 ផ្ទុកឡើង: ${profile.stats.totalUploads} (${profile.stats.approvedUploads} approved)
 
-🏆 **ជោគជ័យ / Achievements:** ${profile.achievements.length}
-🔥 **Streak បច្ចុប្បន្ន / Current Streak:** ${profile.stats.currentDownloadStreak} days
+🏆 **សមិទ្ធផល:** ${profile.achievements.length} badges
+🔥 **Streak:** ${profile.stats.currentDownloadStreak} ថ្ងៃជាប់គ្នា
 
-📅 **ចូលរួម / Joined:** ${new Date(profile.firstSeen).toLocaleDateString()}
-⏰ **សកម្មភាពចុងក្រោយ / Last Active:** ${new Date(profile.lastSeen).toLocaleDateString()}`;
+📅 **ថ្ងៃចូលរួម:** ${new Date(profile.firstSeen).toLocaleDateString()}
+⏰ **សកម្មភាពចុងក្រោយ:** ${new Date(profile.lastSeen).toLocaleDateString()}`;
     }
 
     static formatStatsMessage(stats) {
-        return `📊 **ស្ថិតិលម្អិត / Detailed Statistics**
+        return `📊 **ស្ថិតិលម្អិត (Detailed Stats)**
 
-📥 **ទាញយក / Downloads:**
-• សរុប / Total: ${stats.totalDownloads}
-• សប្តាហ៍នេះ / This Week: ${stats.weeklyDownloads}
-• ខែនេះ / This Month: ${stats.monthlyDownloads}
-• មធ្យមក្នុងមួយវគ្គ / Avg per Session: ${stats.avgDownloadsPerSession}
+📥 **ការទាញយក (Downloads):**
+• សរុប: ${stats.totalDownloads}
+• សប្តាហ៍នេះ: ${stats.weeklyDownloads}
+• ខែនេះ: ${stats.monthlyDownloads}
 
-📤 **ការផ្ទុក / Uploads:**
-• សរុប / Total: ${stats.totalUploads}
-• បានអនុម័ត / Approved: ${stats.approvedUploads}
-• កំពុងរង់ចាំ / Pending: ${stats.pendingUploads}
-• បានបដិសេធ / Rejected: ${stats.rejectedUploads}
-• អត្រាអនុម័ត / Approval Rate: ${stats.approvalRate}%
+📤 **ការផ្ទុកឡើង (Uploads):**
+• សរុប: ${stats.totalUploads}
+• ✅ អនុម័ត: ${stats.approvedUploads}
+• ⏳ រង់ចាំ: ${stats.pendingUploads}
+• ❌ បដិសេធ: ${stats.rejectedUploads}
+• អត្រាជោគជ័យ: ${stats.approvalRate}%
 
-🔥 **Streaks:**
-• បច្ចុប្បន្ន / Current: ${stats.currentDownloadStreak} days
-• ច្រើនជាងគេ / Longest: ${stats.longestDownloadStreak} days
+🔥 **ភាពសកម្ម (Activity Streaks):**
+• បច្ចុប្បន្ន: ${stats.currentDownloadStreak} ថ្ងៃ
+• យូរបំផុត: ${stats.longestDownloadStreak} ថ្ងៃ
 
-⏰ **ម៉ោងសកម្មបំផុត / Most Active Time:**
-${stats.mostActiveHours.hour}:00 (${stats.mostActiveHours.period})
-
-📅 **ពេលវេលា / Timeline:**
-• ចូលរួម / Days Since Joined: ${stats.daysSinceJoin} days
-• ការណនេះ / Last Updated: ${new Date(stats.calculatedAt).toLocaleString()}`;
+⏰ **ម៉ោងដែលសកម្មបំផុត:** ${stats.mostActiveHours ? stats.mostActiveHours.hour + ':00' : 'N/A'}
+`;
     }
 
     static formatAchievementsMessage(achievements, stats) {
-        let message = `🏆 **ជោគជ័យរបស់អ្នក / Your Achievements**\n\n`;
+        let message = `🏆 **សមិទ្ធផល និង រង្វាន់ (Achievements)**\n\n`;
         
         if (achievements.length === 0) {
-            message += 'ℹ️ អ្នកមិនទាន់មានជោគជ័យទេ។ ចាប់ផ្តើមទាញយកពុម្ពអក្សរដើម្បីដោះសោជោគជ័យ!\n\n';
+            message += 'ℹ️ អ្នកមិនទាន់មានសមិទ្ធផលទេ។ ចាប់ផ្តើមទាញយកឬផ្ទុកឡើងពុម្ពអក្សរដើម្បីទទួលបាន!\n\n';
         } else {
             achievements.forEach((achievement) => {
                 message += `${achievement.icon} **${achievement.name}**\n`;
-                message += `   ${achievement.description}\n\n`;
+                message += `└ _${achievement.description}_\n\n`;
             });
         }
 
-        // Add progress towards next achievements
-        const nextAchievement = advancedUserProfileService.getNextAchievementSuggestion(stats);
+        const nextAchievement = advancedUserProfileService.getNextAchievementSuggestion ? advancedUserProfileService.getNextAchievementSuggestion(stats) : null;
         if (nextAchievement) {
-            message += `🎯 **គោលដៅបន្ទាប់ / Next Goal:**\n`;
-            message += `${nextAchievement.title}\n`;
-            message += `${nextAchievement.description}\n`;
+            message += `🎯 **គោលដៅបន្ទាប់:**\n`;
+            message += `**${nextAchievement.title}**\n`;
+            message += `_${nextAchievement.description}_`;
         }
 
         return message;
     }
 
-    static formatRankMessage(rank, stats) {
-        const progressBar = '█'.repeat(Math.floor(rank.percentToNext / 10)) + 
-                          '▒'.repeat(10 - Math.floor(rank.percentToNext / 10));
+    static formatRankMessage(rank) {
+        const bar = getProgressBar(rank.percentToNext, 100);
         
-        return `🏅 **ឋានៈរបស់អ្នក / Your Rank**
+        return `🏅 **ចំណាត់ថ្នាក់របស់អ្នក (Rank)**
 
 ${rank.rankIcon} **${rank.rank}**
-ពិន្ទុ / Score: **${rank.score}** points
+ពិន្ទុបច្ចុប្បន្ន: **${rank.score}**
 
-${rank.nextRank ? `🎯 **គោលដៅបន្ទាប់ / Next Rank:** ${rank.nextRank}
-ចាំបាច់ / Points Needed: **${rank.pointsToNext}** more points
+${rank.nextRank ? `🎯 **គោលដៅបន្ទាប់:** ${rank.nextRank}
+ត្រូវការ: **${rank.pointsToNext}** ពិន្ទុបន្ថែម
 
-📈 **ដំណើរការ / Progress:**
-${progressBar} ${rank.percentToNext.toFixed(1)}%` : '🎉 **អ្នកបានដល់ឋានៈខ្ពស់បំផុត!**'}
+📈 **ដំណើរការ:**
+${bar} ${rank.percentToNext.toFixed(1)}%` : '🎉 **សូមអបអរសាទរ! អ្នកនៅកម្រិតកំពូល។**'}
 
-💡 **វិធីកើនឡើង / How to Improve:**
-• ទាញយកពុម្ពអក្សរបន្ថែម (+2 points/download)
-• ផ្ទុកពុម្ពអក្សរថ្មី (+15 points/approved upload)
-• រក្សាការប្រើប្រាស់ជាប្រចាំ (streak bonus)
-• ការពេលវេលាយូរ (loyalty bonus)`;
+💡 **របៀបយកពិន្ទុ:**
+• ទាញយកពុម្ពអក្សរ
+• ផ្ទុកឡើងពុម្ពអក្សរថ្មី
+• ប្រើប្រាស់ Bot ជារៀងរាល់ថ្ងៃ`;
     }
 
     static formatSettingsMessage(preferences) {
-        return `⚙️ **ការកំណត់របស់អ្នក / Your Settings**
+        return `⚙️ **ការកំណត់ (Settings)**
 
-🌐 **ភាសា / Language:** ${preferences.language === 'khmer' ? 'ខ្មែរ / Khmer' : 'English'}
+🌐 **ភាសា:** ${preferences.language === 'khmer' ? 'ខ្មែរ (Khmer)' : 'English'}
 
-🔔 **ការជូនដំណឹង / Notifications:**
-• ទាញយក / Download: ${preferences.downloadNotifications ? '✅' : '❌'}
-• អនុម័ត / Approval: ${preferences.approvalNotifications ? '✅' : '❌'}
-• សំបុត្រប្រចាំសប្តាហ៍ / Weekly Digest: ${preferences.weeklyDigest ? '✅' : '❌'}
+🔔 **ការជូនដំណឹង:**
+• ទាញយក: ${preferences.downloadNotifications ? '✅ បើក' : '❌ បិទ'}
+• ការអនុម័ត: ${preferences.approvalNotifications ? '✅ បើក' : '❌ បិទ'}
 
-🖼️ **ទំហំរូបភាព / Preview Size:** ${preferences.fontPreviewSize}
-🎨 **រចនាបទ / Theme:** ${preferences.darkMode ? '🌙 Dark' : '☀️ Light'}
+🎨 **រចនាបទ:** ${preferences.darkMode ? '🌙 ងងឹត (Dark)' : '☀️ ភ្លឺ (Light)'}
 
-📂 **ប្រភេទពុម្ពអក្សរ / Font Categories:**
-${preferences.fontCategories.join(', ')}
-
-⏰ **ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ / Last Updated:**
+⏰ **កែប្រែចុងក្រោយ:**
 ${new Date(preferences.updatedAt).toLocaleString()}`;
     }
 
     static formatRecommendationsMessage(recommendations) {
-        let message = `💡 **អនុសាសន៍សម្រាប់អ្នក / Recommendations for You**\n\n`;
+        let message = `💡 **អនុសាសន៍សម្រាប់អ្នក (Recommendations)**\n\n`;
         
         recommendations.forEach((rec, index) => {
             message += `${index + 1}. **${rec.title}**\n`;
-            message += `   ${rec.description}\n\n`;
+            message += `   _${rec.description}_\n\n`;
         });
 
         return message;
     }
 
     static formatReportMessage(report) {
-        return `📈 **របាយការណ៍សកម្មភាព / Activity Report**
-📅 **រយៈពេល / Period:** ${report.period} (${new Date(report.startDate).toLocaleDateString()} - ${new Date(report.endDate).toLocaleDateString()})
+        return `📈 **របាយការណ៍សកម្មភាព (Activity Report)**
+📅 **រយៈពេល:** ${report.period}
 
-📊 **សេចក្តីសង្ខេប / Summary:**
-• ទាញយក / Downloads: ${report.summary.downloads}
-• ផ្ទុកឡើង / Uploads: ${report.summary.uploads}
-• ថ្ងៃសកម្ម / Active Days: ${report.summary.daysActive}
-• មធ្យមក្នុងមួយថ្ងៃ / Average per Day: ${report.summary.averagePerDay}
+📊 **សេចក្តីសង្ខេប:**
+• ទាញយកសរុប: ${report.summary.downloads}
+• ផ្ទុកឡើងសរុប: ${report.summary.uploads}
+• ថ្ងៃសកម្ម: ${report.summary.daysActive} ថ្ងៃ
 
-🏆 **ជោគជ័យថ្មី / New Achievements:** ${report.achievements.length}
+🏆 **សមិទ្ធផលថ្មី:** ${report.achievements.length}
 
-📂 **ពុម្ពអក្សរពេញនិយមបំផុត / Top Downloaded Fonts:**
-${report.topFonts.map((font, index) => `${index + 1}. ${font.font} (${font.count}x)`).join('\n')}
+📂 **ពុម្ពអក្សរដែលអ្នកពេញចិត្ត:**
+${report.topFonts.map((font, index) => `${index + 1}. ${font.font} (${font.count} ដង)`).join('\n')}
 
-📊 **បង្កើតនៅ / Generated at:** ${new Date(report.generatedAt).toLocaleString()}`;
+_បង្កើតនៅ: ${new Date(report.generatedAt).toLocaleString()}_`;
     }
 }
 
-module.exports = ProfileHandler;
+/**
+ * Main export function to route commands
+ */
+module.exports = async (bot, msg) => {
+    const user = getUserInfo(msg);
+    if (!user) return;
+
+    const command = (msg.text || '').split(' ')[0].toLowerCase();
+
+    switch (command) {
+        case '/profile':
+            return ProfileActions.handleProfile(bot, msg, user);
+        case '/mystats':
+            return ProfileActions.handleMyStats(bot, msg, user);
+        case '/achievements':
+            return ProfileActions.handleAchievements(bot, msg, user);
+        case '/rank':
+            return ProfileActions.handleRank(bot, msg, user);
+        case '/settings':
+            return ProfileActions.handleSettings(bot, msg, user);
+        case '/recommendations':
+            return ProfileActions.handleRecommendations(bot, msg, user);
+        case '/report':
+            return ProfileActions.handleReport(bot, msg, user);
+        default:
+            // Fallback if needed, or do nothing
+            break;
+    }
+};

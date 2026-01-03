@@ -3,28 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Font Sharer Bot - Admin Dashboard</title>
+    <title>Font Sharer - Admin Panel</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
+        /* --- 1. Variables & Reset --- */
         :root { 
-            --primary-color: #3b82f6; --primary-hover: #2563eb;
-            --success-color: #22c55e; --danger-color: #ef4444; --warning-color: #f59e0b;
-            --bg-dark-1: #0D1117; --bg-dark-2: #161B22; --bg-dark-3: #21262D;
+            --primary-color: #3b82f6; 
+            --primary-hover: #2563eb;
+            --success-color: #22c55e; 
+            --danger-color: #ef4444; 
+            --warning-color: #f59e0b;
+            --bg-dark-1: #0D1117; 
+            --bg-dark-2: #161B22; 
+            --bg-dark-3: #21262D;
             --border-color: #30363d;
-            --text-primary: #c9d1d9; --text-secondary: #8b949e;
+            --text-primary: #c9d1d9; 
+            --text-secondary: #8b949e;
         }
+
         *, *::before, *::after { box-sizing: border-box; }
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--bg-dark-1);
             color: var(--text-primary);
+            overflow: hidden; 
         }
-        .dashboard-layout { display: flex; min-height: 100vh; }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark-1); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+        /* --- 2. Layout Structure --- */
+        .dashboard-layout { display: flex; height: 100vh; }
+
+        /* Sidebar */
         .sidebar {
             width: 260px;
             background-color: var(--bg-dark-2);
@@ -33,1741 +58,701 @@
             display: flex;
             flex-direction: column;
             flex-shrink: 0;
-            transition: width 0.2s ease, padding 0.2s ease;
+            transition: all 0.3s ease;
+            z-index: 100;
         }
- .editor-textarea { width: 100%; border: none; padding: 12px; resize: vertical; min-height: 80px; font-size: 1rem; outline: none; background-color: var(--bg-dark-2); color: var(--text-primary); }
-        .markdown-help { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
-        .sidebar.collapsed { width: 88px; padding: 24px 12px; }
-        .sidebar-header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
-        .sidebar-header .logo { width: 32px; height: 32px; background: linear-gradient(45deg, #3b82f6, #60a5fa); border-radius: 8px; color: white; display: grid; place-items: center; font-weight: bold; font-size: 1.25rem; flex-shrink: 0; }
-        .sidebar.collapsed .sidebar-header h1, .sidebar.collapsed .nav-item .nav-text, .sidebar.collapsed .sidebar-footer .label { display: none; }
-        .sidebar-header h1 { font-size: 1.25rem; font-weight: 600; margin: 0;}
-        .nav-menu { flex-grow: 1; }
+
+        .sidebar.collapsed { width: 80px; padding: 24px 12px; }
+
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        .logo-container { display: flex; align-items: center; gap: 12px; overflow: hidden; }
+        .logo { 
+            width: 32px; height: 32px; 
+            background: linear-gradient(45deg, #3b82f6, #60a5fa); 
+            border-radius: 8px; color: white; 
+            display: grid; place-items: center; 
+            font-weight: bold; font-size: 1.25rem; 
+            flex-shrink: 0; 
+        }
+        .sidebar-header h1 { font-size: 1.25rem; font-weight: 600; margin: 0; white-space: nowrap; }
+        
+        .mobile-menu-toggle { display: none; cursor: pointer; font-size: 1.2rem; color: var(--text-secondary); }
+
+        /* Nav */
+        .nav-menu { flex-grow: 1; overflow-y: auto; overflow-x: hidden; }
         .nav-list { list-style: none; padding: 0; margin: 0; }
-        .nav-item a { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 6px; text-decoration: none; color: var(--text-secondary); font-weight: 500; transition: all 0.2s; white-space: nowrap; overflow: hidden;}
-        .sidebar.collapsed .nav-item a { justify-content: center; }
+        .nav-item { margin-bottom: 4px; }
+
+        .nav-item a { 
+            display: flex; align-items: center; gap: 12px; 
+            padding: 12px 16px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            color: var(--text-secondary); 
+            font-weight: 500; 
+            transition: all 0.2s; 
+            white-space: nowrap; 
+        }
+
         .nav-item a:hover { background-color: var(--bg-dark-3); color: white; }
         .nav-item a.active { background-color: var(--primary-color); color: white; }
-        .nav-item a svg { width: 20px; height: 20px; flex-shrink: 0; }
-        .sidebar-footer { margin-top: auto; }
-        #sidebarToggle { width: 100%; background-color: var(--bg-dark-3); color: var(--text-secondary); border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-size: 1.5rem; line-height: 1; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        
-        .main-content { flex-grow: 1; padding: 32px; overflow-y: auto; }
-        .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-        .main-header h2 { font-size: 1.75rem; font-weight: 700; }
-        
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        .grid { display: grid; gap: 24px; }
-        .command-center-grid { grid-template-columns: 380px 380px 1fr; }
-        .column { display: flex; flex-direction: column; gap: 24px; }
-        
-        .card { background-color: var(--bg-dark-2); border-radius: 8px; border: 1px solid var(--border-color); padding: 24px; display: flex; flex-direction: column; }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
-        h3 { font-size: 1.125rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 10px; }
-        h3 svg { width: 20px; height: 20px; color: var(--text-secondary); }
-        .count { background-color: var(--primary-color); color: white; font-weight: 500; font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; }
-        
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .nav-item a i { width: 20px; text-align: center; flex-shrink: 0; }
+
+        .sidebar.collapsed .logo-container h1, 
+        .sidebar.collapsed .nav-text { display: none; }
+        .sidebar.collapsed .nav-item a { justify-content: center; padding: 12px; }
+
+        .sidebar-footer { margin-top: auto; padding-top: 10px; }
+        #sidebarToggle { 
+            width: 100%; background: var(--bg-dark-3); 
+            border: none; color: var(--text-secondary); 
+            padding: 10px; border-radius: 6px; cursor: pointer; 
+        }
+
+        /* Main Content */
+        .main-content { flex-grow: 1; padding: 32px; overflow-y: auto; display: flex; flex-direction: column; }
+        .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-shrink: 0; }
+
+        /* Tabs */
+        .tab-content { display: none; height: 100%; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- 3. Grid & Components --- */
+        .command-center-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .card { 
+            background-color: var(--bg-dark-2); 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            padding: 24px; 
+            display: flex; flex-direction: column; 
+            height: 100%;
+        }
+
+        .card-header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            margin-bottom: 16px; padding-bottom: 16px; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        .card-header h3 { margin: 0; font-size: 1.1rem; display: flex; gap: 8px; align-items: center; }
+
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .stat-card { background-color: var(--bg-dark-3); padding: 16px; border-radius: 8px; text-align: center; }
-        .stat-card .value { font-size: 2rem; font-weight: 700; }
-        .stat-card .label { font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px; }
-        
-        .item-list { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex-grow: 1; min-height: 150px; }
-        .item-list li { display: flex; justify-content: space-between; align-items: center; padding: 12px 8px; border-bottom: 1px solid var(--border-color); }
-        .action-btn { padding: 15px 30px;margin: 10px 10px; font-size: 0.875rem; cursor: pointer; border: none; border-radius: 6px; color: white; transition: all 0.2s; white-space: nowrap; }
-        .approve-btn { background-color: var(--success-color); } .reject-btn, .ban-btn { background-color: var(--danger-color); } .unban-btn { background-color: var(--text-secondary); }
-        
-        .controls { display: flex; gap: 10px; margin-top: 16px; }
-        .controls input, .controls textarea { flex-grow: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; background-color: var(--bg-dark-1); color: var(--text-primary); }
-        .controls button { background-color: var(--primary-color); color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; }
-        .log-container { height: calc(100vh - 200px); overflow-y: scroll; font-family: 'Fira Code', monospace; font-size: 0.85em; background-color: var(--bg-dark-1); border-radius: 6px; padding: 10px; }
-        .log-warn { color: #f59e0b; } .log-error { color: #ef4444; }
-        
-        .user-list-table { width: 100%; border-collapse: collapse; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; color: white; }
+        .stat-card .label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
+
+        /* Charts */
+        .chart-container { position: relative; height: 300px; width: 100%; }
+
+        /* Lists */
+        .item-list { list-style: none; padding: 0; margin: 0; overflow-y: auto; max-height: 400px; }
+        .item-list li { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 0; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        .item-info { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-right: 10px; }
+        .btn-group { display: flex; gap: 8px; flex-shrink: 0; }
+
+        /* Tables */
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .user-list-table { width: 100%; min-width: 600px; border-collapse: collapse; }
         .user-list-table th, .user-list-table td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border-color); }
-        .user-list-table th { font-weight: 500; font-size: 0.875rem; color: var(--text-secondary); text-transform: uppercase; }
-        .user-status-banned { color: var(--danger-color); font-weight: bold; }
-        .user-status-active { color: var(--success-color); }
+        .user-list-table th { color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; }
 
-        .progress-bar { width: 100%; background-color: var(--bg-dark-3); border-radius: 4px; overflow: hidden; height: 10px; margin-top: 8px; }
-        .progress-bar-inner { height: 100%; background-color: var(--success-color); transition: width 0.5s ease; }
-        
+        /* Form Elements */
+        .controls { display: flex; gap: 10px; margin-top: 12px; }
+        input, select, textarea { 
+            width: 100%; padding: 10px; 
+            background: var(--bg-dark-1); border: 1px solid var(--border-color); 
+            border-radius: 6px; color: white; outline: none; font-family: inherit;
+        }
+        input:focus { border-color: var(--primary-color); }
+        textarea { resize: vertical; min-height: 80px; }
+
+        /* Buttons */
+        .action-btn { 
+            padding: 8px 16px; border: none; border-radius: 4px; 
+            cursor: pointer; color: white; font-size: 0.85rem; 
+            transition: opacity 0.2s; white-space: nowrap; 
+        }
+        .action-btn:hover { opacity: 0.9; }
+        .bg-primary { background: var(--primary-color); }
+        .bg-success { background: var(--success-color); }
+        .bg-danger { background: var(--danger-color); }
+        .bg-warning { background: var(--warning-color); color: #000; }
+        .bg-secondary { background: var(--border-color); color: var(--text-secondary); }
+
+        /* Logs */
+        .log-container { 
+            height: 350px; overflow-y: auto; 
+            background: #000; padding: 10px; 
+            border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+        .log-entry { margin-bottom: 4px; border-bottom: 1px solid #333; padding-bottom: 2px; }
+        .log-warn { color: var(--warning-color); }
+        .log-error { color: var(--danger-color); }
+
+        /* Toast */
         #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
-        .toast { padding: 16px; border-radius: 8px; color: white; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.15); opacity: 0; transform: translateY(20px); animation: slideInUp 0.5s forwards; margin-top: 10px;}
-        .toast.hide { animation: slideOutDown 0.5s forwards; }
-        .toast-success { background-color: var(--success-color); } .toast-error { background-color: var(--danger-color); } .toast-info { background-color: #0dcaf0; }
-        @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes slideOutDown { from { transform: translateY(0); opacity: 1; } to { transform: translateY(20px); opacity: 0; } }
+        .toast { padding: 12px 20px; background: var(--bg-dark-3); border-left: 4px solid var(--primary-color); color: white; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: slideIn 0.3s forwards; }
+        .toast-success { border-color: var(--success-color); }
+        .toast-error { border-color: var(--danger-color); }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        @media (max-width: 1200px) { .command-center-grid { grid-template-columns: 1fr 1fr; } .right-column { grid-column: 1 / -1; margin-top: 24px; } }
-        @media (max-width: 768px) { .command-center-grid { grid-template-columns: 1fr; } .sidebar { display: none; } .main-content { padding: 16px; } }
+        /* --- 4. Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .dashboard-layout { flex-direction: column; overflow: hidden; }
+            
+            .sidebar { 
+                width: 100%; height: auto; max-height: 70px;
+                padding: 15px 20px;
+                overflow: hidden;
+            }
+
+            .sidebar.mobile-open { 
+                max-height: 100vh; 
+                position: absolute; 
+                top: 0; left: 0; bottom: 0;
+                background: var(--bg-dark-2);
+                overflow-y: auto;
+            }
+
+            .mobile-menu-toggle { display: block; }
+            .sidebar-footer { display: none; }
+            
+            .sidebar.collapsed { width: 100%; padding: 15px 20px; }
+            .sidebar.collapsed .logo-container h1 { display: block; }
+
+            .main-content { padding: 16px; margin-top: 70px; height: calc(100vh - 70px); }
+            .command-center-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
+
     <div id="toast-container"></div>
+
     <div class="dashboard-layout">
+        <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header"><div class="logo">B</div><h1>Command Center</h1></div>
-            <nav class="nav-menu"><ul class="nav-list" id="navMenu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" data-tab="dashboard">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3h16.5M3.75 3v-1.5A2.25 2.25 0 016 0h12a2.25 2.25 0 012.25 2.25v1.5M3.75 16.5v2.25A2.25 2.25 0 006 21h12a2.25 2.25 0 002.25-2.25V16.5m-14.25-8.25h12.75" /></svg>
-                        <span class="nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-tab="users">
-                        <i class="fas fa-users"></i>
-                        <span class="nav-text">All Users</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-tab="analytics">
-                        <i class="fas fa-chart-line"></i>
-                        <span class="nav-text">Analytics</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-tab="fonts">
-                        <i class="fas fa-font"></i>
-                        <span class="nav-text">Font Manager</span>
-                    </a>
-                </li>
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo">B</div>
+                    <h1>Admin Panel</h1>
+                </div>
+                <div class="mobile-menu-toggle" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-tab="system">
-                            <i class="fas fa-cog"></i>
-                            <span class="nav-text">System</span>
+                        <a href="#" class="nav-link active" data-tab="dashboard">
+                            <i class="fas fa-home"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-tab="notifications">
-                            <i class="fas fa-bell"></i>
-                            <span class="nav-text">Notifications</span>
+                        <a href="#" class="nav-link" data-tab="users">
+                            <i class="fas fa-users"></i><span class="nav-text">Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-tab="fonts">
+                            <i class="fas fa-font"></i><span class="nav-text">Fonts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-tab="analytics">
+                            <i class="fas fa-chart-line"></i><span class="nav-text">Analytics</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link" data-tab="monitoring">
-                            <i class="fas fa-chart-area"></i>
-                            <span class="nav-text">Monitoring</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-tab="content">
-                            <i class="fas fa-file-alt"></i>
-                            <span class="nav-text">Content</span>
+                            <i class="fas fa-server"></i><span class="nav-text">Monitoring</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link" data-tab="security">
-                            <i class="fas fa-shield-alt"></i>
-                            <span class="nav-text">Security</span>
+                            <i class="fas fa-shield-alt"></i><span class="nav-text">Security</span>
                         </a>
                     </li>
-            </ul></nav>
+                </ul>
+            </nav>
+
             <div class="sidebar-footer">
-                <button id="sidebarToggle" title="Toggle Sidebar"><span class="label"><</span></button>
+                <button id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="main-header"><h2 id="pageTitle">System Overview</h2><div id="statusIndicator">Connecting...</div></header>
-            
-            <div id="dashboard" class="tab-content active">
-                <div class="card" id="broadcastStatusCard" style="display: none; margin-bottom: 24px;">
-                    <div class="card-header"><h3>📡 Broadcast Status</h3></div>
-                    <p><strong>Message:</strong> <em id="broadcastMessageText"></em></p>
-                    <div class="progress-bar"><div id="broadcastProgressBar" class="progress-bar-inner" style="width: 0%;"></div></div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9em; margin-top: 8px;">
-                        <span><strong>Progress:</strong> <span id="broadcastProgress">0</span> / <span id="broadcastTotal">0</span></span>
-                        <span><strong style="color: var(--success-color);">Success:</strong> <span id="broadcastSuccess">0</span> | <strong style="color: var(--danger-color);">Failed:</strong> <span id="broadcastFailed">0</span></span>
-                    </div>
-                    <div id="broadcastErrors" style="margin-top: 10px; font-size: 0.8em; max-height: 100px; overflow-y: auto;"></div>
+            <header class="main-header">
+                <h2 id="pageTitle">Dashboard</h2>
+                <div id="statusIndicator" style="font-size: 0.9rem; color: var(--text-secondary);">
+                    <i class="fas fa-circle" style="font-size: 0.6rem; color: var(--success-color);"></i> Live
                 </div>
-                <div class="grid command-center-grid">
-                    <div class="column left-column">
+            </header>
+            
+            <!-- TAB: DASHBOARD -->
+            <div id="dashboard" class="tab-content active">
+                <div class="command-center-grid">
+                    <!-- Column 1 -->
+                    <div class="column">
                         <div class="card">
-                            <div class="card-header"><h3>📊 Key Statistics</h3></div>
-                            <div class="grid stats-grid">
-                                <div class="stat-card"><div id="totalFonts" class="value">0</div><div class="label">Fonts</div></div>
-                                <div class="stat-card"><div id="totalUsers" class="value">0</div><div class="label">Users</div></div>
-                                <div class="stat-card"><div id="pendingFontsStat" class="value">0</div><div class="label">Pending</div></div>
-                                <div class="stat-card"><div id="bannedUsersStat" class="value">0</div><div class="label">Banned</div></div>
+                            <div class="card-header"><h3><i class="fas fa-chart-pie"></i> Overview</h3></div>
+                            <div class="stats-grid">
+                                <div class="stat-card"><div class="value" id="statFonts">0</div><div class="label">Fonts</div></div>
+                                <div class="stat-card"><div class="value" id="statUsers">0</div><div class="label">Users</div></div>
+                                <div class="stat-card"><div class="value" id="statPending">0</div><div class="label">Pending</div></div>
+                                <div class="stat-card"><div class="value" id="statBanned">0</div><div class="label">Banned</div></div>
                             </div>
                         </div>
+
+                        <div class="card">
+                            <div class="card-header"><h3><i class="fas fa-bullhorn"></i> Broadcast</h3></div>
+                            <textarea id="broadcastMsg" placeholder="Message to all users..."></textarea>
+                            <div class="controls" style="justify-content: flex-end;">
+                                <button id="btnBroadcast" class="action-btn bg-primary">Send</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="column">
                         <div class="card">
                             <div class="card-header">
-                                <h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>User Management</h3>
+                                <h3><i class="fas fa-clock"></i> Pending Fonts <span id="pendingBadge" class="count" style="font-size: 0.8rem; background: var(--primary-color); padding: 2px 8px; border-radius: 10px;">0</span></h3>
                             </div>
-                            <div class="controls" style="margin-top: 0;"><input type="text" id="userSearchInput" placeholder="Enter User ID..."><button id="userSearchBtn">Find</button></div>
-                            <div id="userInfo" style="display: none;"></div>
-                            <div id="messageControls" style="display: none;"><textarea id="singleMessage" class="editor-textarea" rows="3" placeholder="Send a direct message..."></textarea><div class="controls" style="justify-content: flex-end;"><button id="sendMessageBtn">Send Message</button></div></div>
+                            <ul class="item-list" id="pendingList">
+                                <li style="justify-content: center; color: var(--text-secondary);">Loading...</li>
+                            </ul>
                         </div>
                         <div class="card">
-                             <div class="card-header">
-                                <h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688 0-1.25-.562-1.25-1.25s.562-1.25 1.25-1.25h3.32c.688 0 1.25.562 1.25 1.25s-.562 1.25-1.25 1.25h-3.32z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.09 15.84A5.25 5.25 0 0013.59 5.85m-4.5 9.99a5.25 5.25 0 01-4.5-9.99m4.5 9.99V18a2.25 2.25 0 002.25 2.25h1.5a2.25 2.25 0 002.25-2.25v-2.16m-4.5 0a5.25 5.25 0 004.5 0" /></svg>Broadcast Message</h3>
-                            </div>
-                             <textarea id="broadcastMessage" class="editor-textarea" rows="4" placeholder="Enter message to send to all users..."></textarea>
-                             <div class="controls" style="justify-content: flex-end;"><button id="sendBroadcastBtn">Broadcast</button></div>
+                            <div class="card-header"><h3><i class="fas fa-ban"></i> Banned Users</h3></div>
+                            <ul class="item-list" id="bannedList">
+                                <li style="justify-content: center; color: var(--text-secondary);">Loading...</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="column middle-column">
-                        <div class="card">
-                            <div class="card-header"><h3>🕒 Pending Fonts</h3><span id="pendingCount" class="count">0</span></div>
-                            <ul class="item-list" id="pendingList"></ul>
-                        </div>
-                         <div class="card">
-                            <div class="card-header"><h3>🚫 Banned Users</h3><span id="bannedCount" class="count">0</span></div>
-                            <ul class="item-list" id="bannedList"></ul>
-                        </div>
-                    </div>
-
-                    <div class="column right-column">
-                         <div class="card">
-                            <div class="card-header"><h3>📜 Live Activity Log</h3></div>
-                            <div class="controls" style="margin-top: 0; margin-bottom: 16px;"><input type="text" id="logSearchInput" placeholder="Filter logs..."></div>
-                            <div id="logContainer" class="log-container"></div>
+                    <!-- Column 3 -->
+                    <div class="column">
+                        <div class="card" style="min-height: 400px;">
+                            <div class="card-header"><h3><i class="fas fa-terminal"></i> System Logs</h3></div>
+                            <div class="controls" style="margin-top: 0; margin-bottom: 10px;">
+                                <input type="text" id="logFilter" placeholder="Filter logs...">
+                            </div>
+                            <div id="logContainer" class="log-container">
+                                <div class="log-entry" style="color: var(--text-secondary);">Connecting to log stream...</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- TAB: USERS -->
             <div id="users" class="tab-content">
-                 <div class="card">
-                    <div class="card-header"><h3>👥 All Users</h3><span id="allUserCount" class="count">0</span></div>
-                    <div class="controls" style="margin-top: 0; margin-bottom: 16px;"><input type="text" id="allUserSearchInput" placeholder="Search users by ID, name, or username..."></div>
-                    <div style="overflow-x: auto;"><table class="user-list-table"><thead><tr><th>ID</th><th>Name</th><th>Username</th><th>Last Seen</th><th>Status</th><th>Actions</th></tr></thead><tbody id="allUserList"></tbody></table></div>
-                </div>
-            </div>
-
-            <div id="analytics" class="tab-content">
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px;">
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-chart-bar"></i> User Growth</h3></div>
-                        <canvas id="userGrowthChart" width="400" height="200"></canvas>
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-users"></i> User Directory</h3>
                     </div>
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-download"></i> Font Downloads</h3></div>
-                        <canvas id="downloadsChart" width="400" height="200"></canvas>
+                    <div class="controls">
+                        <input type="text" id="userSearch" placeholder="Search ID, Name, Username...">
+                        <button id="btnSearchUser" class="action-btn bg-secondary">Search</button>
                     </div>
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-clock"></i> Activity Timeline</h3></div>
-                        <div class="stats-grid">
-                            <div class="stat-card"><div class="value">24</div><div class="label">Last 24h Users</div></div>
-                            <div class="stat-card"><div class="value">156</div><div class="label">Weekly Downloads</div></div>
-                            <div class="stat-card"><div class="value">98%</div><div class="label">Uptime</div></div>
-                            <div class="stat-card"><div class="value">3.2s</div><div class="label">Avg Response</div></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-fire"></i> Popular Fonts</h3></div>
-                        <div id="popularFontsList" style="max-height: 300px; overflow-y: auto;">
-                            <div style="padding: 12px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span>Arial.ttf</span><span style="color: var(--success-color); font-weight: bold;">234 downloads</span>
-                            </div>
-                            <div style="padding: 12px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span>Helvetica.ttf</span><span style="color: var(--success-color); font-weight: bold;">189 downloads</span>
-                            </div>
-                            <div style="padding: 12px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
-                                <span>Times New Roman.ttf</span><span style="color: var(--success-color); font-weight: bold;">156 downloads</span>
-                            </div>
-                        </div>
+                    <div class="table-responsive" style="margin-top: 20px;">
+                        <table class="user-list-table">
+                            <thead><tr><th>ID</th><th>Name</th><th>Username</th><th>Last Seen</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody id="userTableBody">
+                                <!-- Dynamic -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
+            <!-- TAB: FONTS -->
             <div id="fonts" class="tab-content">
-                <div class="grid" style="grid-template-columns: 300px 1fr; gap: 24px;">
+                <div class="command-center-grid" style="grid-template-columns: 300px 1fr;">
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-filter"></i> Font Filters</h3></div>
+                        <div class="card-header"><h3>Filters</h3></div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <div>
-                                <label style="display: block; margin-bottom: 4px; font-size: 0.9rem; color: var(--text-secondary);">Search Fonts</label>
-                                <input type="text" id="fontSearchInput" placeholder="Search font names..." style="width: 100%; padding: 8px; background: var(--bg-dark-3); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
-                            </div>
-                            <div>
-                                <label style="display: block; margin-bottom: 4px; font-size: 0.9rem; color: var(--text-secondary);">Category</label>
-                                <select id="fontCategoryFilter" style="width: 100%; padding: 8px; background: var(--bg-dark-3); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
-                                    <option value="all">All Categories</option>
-                                    <option value="serif">Serif</option>
-                                    <option value="sans-serif">Sans Serif</option>
-                                    <option value="monospace">Monospace</option>
-                                    <option value="script">Script</option>
-                                    <option value="display">Display</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label style="display: block; margin-bottom: 4px; font-size: 0.9rem; color: var(--text-secondary);">Sort By</label>
-                                <select id="fontSortBy" style="width: 100%; padding: 8px; background: var(--bg-dark-3); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
-                                    <option value="name">Name A-Z</option>
-                                    <option value="downloads">Most Downloaded</option>
-                                    <option value="recent">Recently Added</option>
-                                    <option value="size">File Size</option>
-                                </select>
-                            </div>
-                            <button class="controls button" style="background: var(--primary-color); color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer;">Apply Filters</button>
-                        </div>
-                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-                            <h4 style="margin: 0 0 12px 0; font-size: 1rem;">Bulk Actions</h4>
-                            <button class="controls button" style="background: var(--danger-color); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 8px;">Delete Selected</button>
-                            <button class="controls button" style="background: var(--warning-color); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%;">Export List</button>
+                            <input type="text" id="fontSearchInput" placeholder="Font Name...">
+                            <select id="fontCategoryInput"><option value="">All Categories</option><option value="Serif">Serif</option><option value="Sans">Sans</option></select>
+                            <button id="btnFilterFonts" class="action-btn bg-primary">Apply</button>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-font"></i> Font Library</h3>
-                            <span id="fontCount" class="count">0</span>
-                        </div>
-                        <div id="fontGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; max-height: 600px; overflow-y: auto;">
-                            <!-- Font items will be dynamically loaded here -->
+                        <div class="card-header"><h3>Font Library</h3></div>
+                        <div id="fontGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
+                            <!-- Dynamic Content -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="system" class="tab-content">
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+            <!-- TAB: ANALYTICS -->
+            <div id="analytics" class="tab-content">
+                <div class="command-center-grid" style="grid-template-columns: 1fr 1fr;">
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-server"></i> System Status</h3></div>
-                        <div class="stats-grid">
-                            <div class="stat-card" style="background: linear-gradient(135deg, var(--success-color), #16a34a);">
-                                <div class="value">Online</div>
-                                <div class="label">Bot Status</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value">2.1GB</div>
-                                <div class="label">Memory Usage</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value">1.2%</div>
-                                <div class="label">CPU Usage</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value">45.2GB</div>
-                                <div class="label">Storage Used</div>
-                            </div>
+                        <div class="card-header"><h3>User Growth</h3></div>
+                        <div class="chart-container">
+                            <canvas id="userGrowthChart"></canvas>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-cog"></i> Configuration</h3></div>
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Auto-approve fonts</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-secondary); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Maintenance mode</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-secondary); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Debug logging</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--primary-color); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-database"></i> Database Operations</h3></div>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <button class="controls button" style="background: var(--primary-color); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">Backup Database</button>
-                            <button class="controls button" style="background: var(--warning-color); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">Clear Cache</button>
-                            <button class="controls button" style="background: var(--text-secondary); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">Export Logs</button>
-                            <button class="controls button" style="background: var(--danger-color); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer;">Reset Statistics</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-shield-alt"></i> Security</h3></div>
-                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color);">
-                                <span>Failed login attempts:</span><span style="color: var(--danger-color); font-weight: bold;">0</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color);">
-                                <span>Active sessions:</span><span style="color: var(--success-color); font-weight: bold;">1</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color);">
-                                <span>Last backup:</span><span>2025-08-07 14:30</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
-                                <span>SSL Status:</span><span style="color: var(--success-color); font-weight: bold;">✓ Secure</span>
-                            </div>
+                        <div class="card-header"><h3>Downloads</h3></div>
+                        <div class="chart-container">
+                            <canvas id="downloadsChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- New Notifications Tab -->
-            <div id="notifications" class="tab-content">
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
-                    <!-- Notification Templates -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-template"></i> Notification Templates</h3>
-                            <button class="action-btn" style="background: var(--primary-color);" id="createTemplateBtn">Create New</button>
-                        </div>
-                        <div class="controls" style="margin-top: 0; margin-bottom: 16px;">
-                            <input type="text" id="templateSearchInput" placeholder="Search templates...">
-                        </div>
-                        <div id="templatesList" style="max-height: 400px; overflow-y: auto;">
-                            <div class="template-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; margin-bottom: 12px; background: var(--bg-dark-3);">
-                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
-                                    <h4 style="margin: 0; color: var(--text-primary);">Welcome Message</h4>
-                                    <div>
-                                        <button class="action-btn" style="background: var(--primary-color); padding: 6px 12px; margin-right: 8px;">Edit</button>
-                                        <button class="action-btn" style="background: var(--danger-color); padding: 6px 12px;">Delete</button>
-                                    </div>
-                                </div>
-                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 8px 0;">Sent to new users when they join</p>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary);">
-                                    <span>✅ Active | 📧 Queue Channel | 👥 247 sent this month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Scheduled Notifications -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-clock"></i> Scheduled Notifications</h3>
-                            <button class="action-btn" style="background: var(--success-color);" id="scheduleNotificationBtn">Schedule New</button>
-                        </div>
-                        <div id="scheduledList" style="max-height: 400px; overflow-y: auto;">
-                            <div class="scheduled-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; margin-bottom: 12px; background: var(--bg-dark-3);">
-                                <div style="display: flex; justify-content: space-between; align-items: start;">
-                                    <div>
-                                        <h4 style="margin: 0 0 8px 0; color: var(--text-primary);">Daily Font Reminder</h4>
-                                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">📅 Every day at 9:00 AM</p>
-                                        <p style="color: var(--warning-color); font-size: 0.8rem; margin: 4px 0 0 0;">⏳ Next: Today 9:00 AM</p>
-                                    </div>
-                                    <div>
-                                        <button class="action-btn" style="background: var(--text-secondary); padding: 6px 12px; margin-right: 8px;">Pause</button>
-                                        <button class="action-btn" style="background: var(--danger-color); padding: 6px 12px;">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Notification Analytics -->
-                    <div class="card" style="grid-column: 1 / -1;">
-                        <div class="card-header"><h3><i class="fas fa-chart-line"></i> Notification Analytics</h3></div>
-                        <div class="stats-grid">
-                            <div class="stat-card"><div class="value" id="notificationsSentToday">0</div><div class="label">Sent Today</div></div>
-                            <div class="stat-card"><div class="value" id="notificationsDelivered">0</div><div class="label">Delivered</div></div>
-                            <div class="stat-card"><div class="value" id="notificationOpenRate">0%</div><div class="label">Open Rate</div></div>
-                            <div class="stat-card"><div class="value" id="activeTemplates">0</div><div class="label">Active Templates</div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Monitoring Tab -->
+            
+            <!-- TAB: MONITORING -->
             <div id="monitoring" class="tab-content">
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px;">
-                    <!-- Real-time System Metrics -->
+                <div class="command-center-grid" style="grid-template-columns: 1fr 1fr;">
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-tachometer-alt"></i> System Performance</h3></div>
+                        <div class="card-header"><h3>System Load</h3></div>
+                        <div class="chart-container">
+                            <canvas id="systemMetricsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Metrics</h3></div>
                         <div class="stats-grid">
-                            <div class="stat-card"><div class="value" id="cpuUsage">0%</div><div class="label">CPU Usage</div></div>
-                            <div class="stat-card"><div class="value" id="memoryUsage">0MB</div><div class="label">Memory</div></div>
-                            <div class="stat-card"><div class="value" id="diskUsage">0%</div><div class="label">Disk Usage</div></div>
-                            <div class="stat-card"><div class="value" id="uptime">0h</div><div class="label">Uptime</div></div>
-                        </div>
-                        <canvas id="systemMetricsChart" width="400" height="200" style="margin-top: 20px;"></canvas>
-                    </div>
-
-                    <!-- Bot Activity Monitoring -->
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-robot"></i> Bot Activity</h3></div>
-                        <div class="stats-grid">
-                            <div class="stat-card"><div class="value" id="requestsPerMinute">0</div><div class="label">Requests/Min</div></div>
-                            <div class="stat-card"><div class="value" id="activeUsers">0</div><div class="label">Active Users</div></div>
-                            <div class="stat-card"><div class="value" id="errorRate">0%</div><div class="label">Error Rate</div></div>
-                            <div class="stat-card"><div class="value" id="avgResponseTime">0ms</div><div class="label">Avg Response</div></div>
-                        </div>
-                    </div>
-
-                    <!-- Error Monitoring -->
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-exclamation-triangle"></i> Error Tracking</h3></div>
-                        <div id="errorsList" style="max-height: 300px; overflow-y: auto;">
-                            <div class="error-item" style="padding: 12px; border-left: 4px solid var(--danger-color); background: var(--bg-dark-3); border-radius: 4px; margin-bottom: 8px;">
-                                <div style="display: flex; justify-content: space-between; align-items: start;">
-                                    <div>
-                                        <span style="color: var(--danger-color); font-weight: bold;">TypeError</span>
-                                        <p style="margin: 4px 0; color: var(--text-secondary); font-size: 0.9rem;">Cannot read property 'name' of undefined</p>
-                                        <span style="font-size: 0.8rem; color: var(--text-secondary);">2 minutes ago | User: 123456789</span>
-                                    </div>
-                                    <button class="action-btn" style="background: var(--text-secondary); padding: 4px 8px;">View</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Performance Metrics -->
-                    <div class="card" style="grid-column: 1 / -1;">
-                        <div class="card-header"><h3><i class="fas fa-chart-area"></i> Performance Trends</h3></div>
-                        <canvas id="performanceChart" width="800" height="300"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Content Management Tab -->
-            <div id="content" class="tab-content">
-                <div class="grid" style="grid-template-columns: 300px 1fr; gap: 24px;">
-                    <!-- Content Categories -->
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-layer-group"></i> Content Types</h3></div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <button class="action-btn content-filter active" data-type="all" style="background: var(--primary-color); text-align: left;">📋 All Content</button>
-                            <button class="action-btn content-filter" data-type="announcements" style="background: var(--bg-dark-3); text-align: left;">📢 Announcements</button>
-                            <button class="action-btn content-filter" data-type="tutorials" style="background: var(--bg-dark-3); text-align: left;">🎓 Tutorials</button>
-                            <button class="action-btn content-filter" data-type="tips" style="background: var(--bg-dark-3); text-align: left;">💡 Tips & Tricks</button>
-                            <button class="action-btn content-filter" data-type="updates" style="background: var(--bg-dark-3); text-align: left;">🔄 Updates</button>
-                            <button class="action-btn content-filter" data-type="promotions" style="background: var(--bg-dark-3); text-align: left;">🎉 Promotions</button>
-                        </div>
-                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-                            <h4 style="margin: 0 0 12px 0; font-size: 1rem;">Quick Actions</h4>
-                            <button class="controls button" id="createContentBtn" style="background: var(--success-color); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 8px;">Create New Content</button>
-                            <button class="controls button" id="scheduleContentBtn" style="background: var(--primary-color); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 8px;">Schedule Post</button>
-                            <button class="controls button" id="importContentBtn" style="background: var(--warning-color); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; width: 100%;">Import Content</button>
-                        </div>
-                    </div>
-
-                    <!-- Content List -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-file-alt"></i> Content Library</h3>
-                            <span id="contentCount" class="count">0</span>
-                        </div>
-                        <div class="controls" style="margin-top: 0; margin-bottom: 16px;">
-                            <input type="text" id="contentSearchInput" placeholder="Search content...">
-                            <select id="contentStatusFilter" style="background: var(--bg-dark-3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px;">
-                                <option value="all">All Status</option>
-                                <option value="published">Published</option>
-                                <option value="draft">Draft</option>
-                                <option value="scheduled">Scheduled</option>
-                                <option value="archived">Archived</option>
-                            </select>
-                        </div>
-                        <div id="contentGrid" style="display: grid; gap: 16px; max-height: 600px; overflow-y: auto;">
-                            <!-- Sample content items -->
-                            <div class="content-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; background: var(--bg-dark-3);">
-                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-                                    <div>
-                                        <h4 style="margin: 0; color: var(--text-primary);">Welcome to Font Bot v2.0</h4>
-                                        <span style="background: var(--success-color); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">Published</span>
-                                        <span style="background: var(--primary-color); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; margin-left: 4px;">Announcement</span>
-                                    </div>
-                                    <div>
-                                        <button class="action-btn" style="background: var(--primary-color); padding: 6px 12px; margin-right: 8px;">Edit</button>
-                                        <button class="action-btn" style="background: var(--text-secondary); padding: 6px 12px;">⋮</button>
-                                    </div>
-                                </div>
-                                <p style="color: var(--text-secondary); margin: 8px 0; font-size: 0.9rem;">Exciting new features including advanced text styling, color customization, and performance improvements...</p>
-                                <div style="font-size: 0.8rem; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center;">
-                                    <span>📅 Created: 2025-08-01 | 👁️ 1,247 views</span>
-                                    <span>👤 By Admin</span>
-                                </div>
-                            </div>
+                            <div class="stat-card"><div class="value" id="metricCpu">0%</div><div class="label">CPU</div></div>
+                            <div class="stat-card"><div class="value" id="metricRam">0MB</div><div class="label">RAM</div></div>
+                            <div class="stat-card"><div class="value" id="metricUptime">0%</div><div class="label">Uptime</div></div>
+                            <div class="stat-card"><div class="value" id="metricLatency">0ms</div><div class="label">Latency</div></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Enhanced Security Tab -->
+            <!-- TAB: SECURITY -->
             <div id="security" class="tab-content">
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px;">
-                    <!-- Security Overview -->
+                <div class="command-center-grid" style="grid-template-columns: 1fr 1fr;">
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-shield-alt"></i> Security Status</h3></div>
-                        <div class="stats-grid">
-                            <div class="stat-card" style="background: linear-gradient(135deg, var(--success-color), #16a34a);">
-                                <div class="value">Secure</div>
-                                <div class="label">Overall Status</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value" id="failedLoginAttempts">0</div>
-                                <div class="label">Failed Logins</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value" id="suspiciousActivity">0</div>
-                                <div class="label">Suspicious Activity</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="value" id="blockedRequests">0</div>
-                                <div class="label">Blocked Requests</div>
-                            </div>
+                        <div class="card-header"><h3>IP Blocking</h3></div>
+                        <div class="controls">
+                            <input type="text" id="ipInput" placeholder="IP Address">
+                            <button id="btnBlockIp" class="action-btn bg-danger">Block</button>
                         </div>
+                        <div style="margin-top: 20px; color: var(--text-secondary);" id="blockedIpList">No blocked IPs.</div>
                     </div>
-
-                    <!-- Security Actions -->
                     <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-shield-virus"></i> Security Operations</h3></div>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <button id="runSecurityScan" class="action-btn" style="background: var(--warning-color); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-search"></i> Run Security Scan
-                            </button>
-                            <button id="generateSecurityReport" class="action-btn" style="background: var(--primary-color); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-file-alt"></i> Generate Security Report
-                            </button>
-                            <div class="controls">
-                                <input type="text" id="ipToBlock" placeholder="IP Address to block" style="margin-bottom: 8px;">
-                                <input type="text" id="blockReason" placeholder="Reason for blocking (optional)">
-                            </div>
-                            <button id="blockIPBtn" class="action-btn" style="background: var(--danger-color); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-ban"></i> Block IP Address
-                            </button>
-                        </div>
-                        <div id="scanResults" style="margin-top: 16px; display: none;">
-                            <div style="background: var(--bg-dark-3); padding: 12px; border-radius: 6px; border-left: 4px solid var(--warning-color);">
-                                <h4 style="margin: 0 0 8px 0; color: var(--warning-color);">⚠️ Security Scan Results</h4>
-                                <p id="scanResultText" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);"></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blocked IPs Management -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-ban"></i> Blocked IP Addresses</h3>
-                            <button id="refreshBlockedIPs" class="action-btn" style="background: var(--primary-color); padding: 6px 12px;">Refresh</button>
-                        </div>
-                        <div id="blockedIPsList" style="max-height: 300px; overflow-y: auto;">
-                            <div style="text-align: center; padding: 20px; color: var(--text-secondary);">Loading blocked IPs...</div>
-                        </div>
-                    </div>
-
-                    <!-- Security Events Log -->
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-list-alt"></i> Security Events</h3></div>
-                        <div class="controls" style="margin-top: 0; margin-bottom: 16px;">
-                            <select id="securityEventFilter" style="background: var(--bg-dark-3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 100%;">
-                                <option value="all">All Events</option>
-                                <option value="failed_login">Failed Logins</option>
-                                <option value="suspicious_activity">Suspicious Activity</option>
-                                <option value="blocked_request">Blocked Requests</option>
-                                <option value="admin_action">Admin Actions</option>
-                            </select>
-                        </div>
-                        <div id="securityEventsList" style="max-height: 300px; overflow-y: auto;">
-                            <div style="text-align: center; padding: 20px; color: var(--text-secondary);">Loading security events...</div>
-                        </div>
-                    </div>
-
-                    <!-- Access Control Configuration -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-users-cog"></i> Access Control</h3>
-                            <button id="saveSecurityConfig" class="action-btn" style="background: var(--success-color); padding: 6px 12px;">Save Config</button>
-                        </div>
-                        <div id="accessControlSettings" style="display: flex; flex-direction: column; gap: 16px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Two-Factor Authentication</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" id="twoFactorAuth" style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-secondary); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>IP Whitelist</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" id="ipWhitelist" style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-secondary); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Rate Limiting</span>
-                                <label style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" id="rateLimiting" checked style="opacity: 0; width: 0; height: 0;">
-                                    <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--success-color); border-radius: 24px; transition: 0.4s;"></span>
-                                </label>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Session Timeout (minutes)</span>
-                                <select id="sessionTimeout" style="background: var(--bg-dark-1); border: 1px solid var(--border-color); color: var(--text-primary); padding: 4px 8px; border-radius: 4px;">
-                                    <option value="15">15 minutes</option>
-                                    <option value="30" selected>30 minutes</option>
-                                    <option value="60">1 hour</option>
-                                    <option value="120">2 hours</option>
-                                </select>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg-dark-3); border-radius: 6px;">
-                                <span>Max Login Attempts</span>
-                                <input type="number" id="maxLoginAttempts" value="5" min="1" max="10" style="background: var(--bg-dark-1); border: 1px solid var(--border-color); color: var(--text-primary); padding: 4px 8px; border-radius: 4px; width: 80px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Audit Log Viewer -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-clipboard-list"></i> Security Audit Log</h3>
-                            <div>
-                                <select id="auditLogType" style="background: var(--bg-dark-3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 4px 8px; border-radius: 4px; margin-right: 8px;">
-                                    <option value="all">All Types</option>
-                                    <option value="login">Login Events</option>
-                                    <option value="admin">Admin Actions</option>
-                                    <option value="security">Security Events</option>
-                                    <option value="system">System Events</option>
-                                </select>
-                                <button id="refreshAuditLog" class="action-btn" style="background: var(--primary-color); padding: 4px 8px;">Refresh</button>
-                            </div>
-                        </div>
-                        <div id="auditLogList" style="max-height: 350px; overflow-y: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-                            <div style="text-align: center; padding: 20px; color: var(--text-secondary);">Loading audit logs...</div>
-                        </div>
-                    </div>
-
-                    <!-- Security Scan History -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-history"></i> Scan History</h3>
-                            <button id="refreshScanHistory" class="action-btn" style="background: var(--primary-color); padding: 6px 12px;">Refresh</button>
-                        </div>
-                        <div id="scanHistoryList" style="max-height: 300px; overflow-y: auto;">
-                            <div style="text-align: center; padding: 20px; color: var(--text-secondary);">No scan history available</div>
-                        </div>
-                    </div>
-
-                    <!-- Backup & Recovery -->
-                    <div class="card">
-                        <div class="card-header"><h3><i class="fas fa-database"></i> Backup & Recovery</h3></div>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <div style="background: var(--bg-dark-3); padding: 12px; border-radius: 6px;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                    <span>Last Backup:</span>
-                                    <span id="lastBackupTime" style="color: var(--success-color);">Never</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                    <span>Backup Size:</span>
-                                    <span id="backupSize">Unknown</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span>Status:</span>
-                                    <span id="backupStatus" style="color: var(--success-color);">✓ Ready</span>
-                                </div>
-                            </div>
-                            <button id="createBackupBtn" class="action-btn" style="background: var(--primary-color); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-save"></i> Create Backup Now
-                            </button>
-                            <button id="exportLogsBtn" class="action-btn" style="background: var(--warning-color); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-download"></i> Export System Logs
-                            </button>
-                            <button id="clearCacheBtn" class="action-btn" style="background: var(--text-secondary); width: 100%; padding: 12px; font-weight: 600;">
-                                <i class="fas fa-trash"></i> Clear System Cache
-                            </button>
+                        <div class="card-header"><h3>Audit Log</h3></div>
+                        <div class="log-container" id="auditLogContainer" style="height: 200px;">
+                            <div class="log-entry">Loading logs...</div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </main>
     </div>
 
     <script>
-        const elements = {
-            status: document.getElementById('statusIndicator'), navMenu: document.getElementById('navMenu'),
-            tabContents: document.querySelectorAll('.tab-content'), pageTitle: document.getElementById('pageTitle'),
-            sidebar: document.getElementById('sidebar'), sidebarToggle: document.getElementById('sidebarToggle'),
-            totalFonts: document.getElementById('totalFonts'), pendingFontsStat: document.getElementById('pendingFontsStat'),
-            bannedUsersStat: document.getElementById('bannedUsersStat'), totalUsers: document.getElementById('totalUsers'),
-            pendingList: document.getElementById('pendingList'), pendingCount: document.getElementById('pendingCount'),
-            bannedList: document.getElementById('bannedList'), bannedCount: document.getElementById('bannedCount'),
-            logContainer: document.getElementById('logContainer'), logSearchInput: document.getElementById('logSearchInput'),
-            userSearchInput: document.getElementById('userSearchInput'), userSearchBtn: document.getElementById('userSearchBtn'),
-            banBtn: document.getElementById('banBtn'), userInfo: document.getElementById('userInfo'),
-            messageControls: document.getElementById('messageControls'), singleMessage: document.getElementById('singleMessage'),
-            sendMessageBtn: document.getElementById('sendMessageBtn'),
-            broadcastMessage: document.getElementById('broadcastMessage'), sendBroadcastBtn: document.getElementById('sendBroadcastBtn'),
-            allUserCount: document.getElementById('allUserCount'), allUserSearchInput: document.getElementById('allUserSearchInput'),
-            allUserList: document.getElementById('allUserList'),
-            toastContainer: document.getElementById('toast-container'),
-            broadcastStatusCard: document.getElementById('broadcastStatusCard'), broadcastMessageText: document.getElementById('broadcastMessageText'), broadcastProgressBar: document.getElementById('broadcastProgressBar'), broadcastProgress: document.getElementById('broadcastProgress'), broadcastTotal: document.getElementById('broadcastTotal'), broadcastSuccess: document.getElementById('broadcastSuccess'), broadcastFailed: document.getElementById('broadcastFailed'), broadcastErrors: document.getElementById('broadcastErrors'),
+        // --- 1. Utilities ---
+        const $ = (id) => document.getElementById(id);
+        const $$ = (sel) => document.querySelectorAll(sel);
+        const showToast = (msg, type = 'success') => {
+            const t = document.createElement('div');
+            t.className = `toast toast-${type}`;
+            t.innerText = msg;
+            $('toast-container').appendChild(t);
+            setTimeout(() => t.remove(), 3500);
         };
-        const apiCall = async (endpoint, method = 'GET', body = null, signal = null) => { try { const options = { method, headers: { 'Content-Type': 'application/json' }, signal }; if (body) options.body = JSON.stringify(body); const response = await fetch(endpoint, options); const responseData = await response.json(); if (!response.ok) throw new Error(responseData.error || `API call failed: ${response.statusText}`); return responseData; } catch (error) { if (error.name !== 'AbortError') { console.error(`API Error on ${endpoint}:`, error); showToast(`Action failed: ${error.message}`, 'error'); } return null; } };
-        const showToast = (message, type = 'success') => { if (!message) return; const toast = document.createElement('div'); toast.className = `toast toast-${type}`; toast.textContent = message; elements.toastContainer.appendChild(toast); setTimeout(() => toast.classList.add('show'), 10); setTimeout(() => { toast.classList.add('hide'); toast.addEventListener('animationend', () => toast.remove()); }, 4000); };
-        const createEmptyListItem = (message) => `<li style="justify-content:center; padding: 20px; color: var(--text-secondary);">${message}</li>`;
-        const createEmptyTableRow = (message, colspan) => `<tr class="empty-state"><td colspan="${colspan}" style="text-align:center; padding: 20px;">${message}</td></tr>`;
-        
-        const renderStats = (stats = {}) => { elements.totalFonts.textContent = stats.totalFonts ?? 0; elements.pendingFontsStat.textContent = stats.pendingCount ?? 0; elements.bannedUsersStat.textContent = stats.bannedCount ?? 0; elements.totalUsers.textContent = stats.totalUsers ?? 0; };
-        const renderPending = (fonts = []) => { elements.pendingCount.textContent = fonts.length; if (fonts.length === 0) return elements.pendingList.innerHTML = createEmptyListItem('No pending fonts.'); elements.pendingList.innerHTML = fonts.map(fileName => { const originalName = fileName.split('_').slice(2).join('_') || fileName; const uploaderId = fileName.split('_')[1]; return `<li><div class="item-info"><strong>${originalName}</strong><span class="meta" style="display:block;">from: <code>${uploaderId}</code></span></div><div><button class="action-btn approve-btn" data-filename="${fileName}">✔</button><button class="action-btn reject-btn" data-filename="${fileName}">✖</button></div></li>`; }).join(''); };
-        const renderBanned = (users = []) => { elements.bannedCount.textContent = users.length; if (users.length === 0) return elements.bannedList.innerHTML = createEmptyListItem('No banned users.'); elements.bannedList.innerHTML = users.map(user => `<li><div class="item-info"><code>${user.id}</code><span class="meta" style="display:block;">${user.reason || 'N/A'}</span></div><button class="action-btn unban-btn" data-userid="${user.id}">Unban</button></li>`).join(''); };
-        const renderLogs = (logs = []) => { if (logs.length === 0) return elements.logContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-secondary);">No logs found.</div>'; elements.logContainer.innerHTML = logs.map(log => { let logClass = ''; if (log.includes('[WARN]')) logClass = 'log-warn'; if (log.includes('[ERROR]')) logClass = 'log-error'; return `<div class="log-entry ${logClass}">${log}</div>`; }).join(''); };
-        const renderUserInfo = (user) => { if (!user) { elements.userInfo.innerHTML = `<div style="padding:15px; background-color: var(--danger-color); color:white; border-radius:8px;">User not found.</div>`; elements.userInfo.style.display = 'block'; elements.messageControls.style.display = 'none'; return; } const banStatus = user.isBanned ? '<span class="user-status-banned">BANNED</span>' : '<span class="user-status-active">Active</span>'; elements.userInfo.innerHTML = `<div id="user-info-details" style="margin-top:15px; padding:15px; background-color: var(--bg-dark-3); border-radius:8px;"><p><strong>ID:</strong> <code>${user.id}</code> | <strong>Status:</strong> ${banStatus}</p><p><strong>Name:</strong> ${user.first_name || ''} ${user.last_name || ''}</p><p><strong>Username:</strong> ${user.username ? `@${user.username}` : 'N/A'}</p><p><strong>Last Seen:</strong> ${new Date(user.lastSeen).toLocaleString()}</p></div>`; elements.userInfo.style.display = 'block'; elements.messageControls.style.display = 'block'; };
-        const renderAllUsers = (users = []) => { elements.allUserCount.textContent = users.length; if (users.length === 0) { elements.allUserList.innerHTML = createEmptyTableRow('No users found for this query.', 6); return; } elements.allUserList.innerHTML = users.map(user => { const statusClass = user.isBanned ? 'user-status-banned' : 'user-status-active'; const statusText = user.isBanned ? 'Banned' : 'Active'; const banButton = user.isBanned ? `<button class="action-btn unban-btn" data-userid="${user.id}">Unban</button>` : `<button class="action-btn ban-btn" data-userid="${user.id}">Ban</button>`; return `<tr><td><code>${user.id}</code></td><td>${(user.first_name || '')} ${user.last_name || ''}</td><td>${user.username ? `@${user.username}` : 'N/A'}</td><td>${new Date(user.lastSeen).toLocaleString()}</td><td><span style="font-weight:bold;" class="${statusClass}">${statusText}</span></td><td>${banButton}</td></tr>`; }).join(''); };
-        const renderBroadcastStatus = (status) => { if (!status) { elements.broadcastStatusCard.style.display = 'none'; return; } elements.broadcastStatusCard.style.display = 'block'; elements.broadcastMessageText.textContent = status.message.substring(0, 100) + (status.message.length > 100 ? '...' : ''); elements.broadcastTotal.textContent = status.total; const progress = status.total > 0 ? ((status.sent + status.failed) / status.total) * 100 : 0; elements.broadcastProgressBar.style.width = `${progress}%`; elements.broadcastProgress.textContent = status.sent + status.failed; elements.broadcastSuccess.textContent = status.sent; elements.broadcastFailed.textContent = status.failed; if(status.errors && status.errors.length > 0) { elements.broadcastErrors.innerHTML = '<strong>Error Details:</strong><br>' + status.errors.map(e => `User <code>${e.chatId}</code>: ${e.error}`).join('<br>'); } else { elements.broadcastErrors.innerHTML = ''; } if(status.completedAt) { elements.broadcastProgressBar.style.backgroundColor = status.failed > 0 ? 'var(--warning-color)' : 'var(--success-color)'; } else { elements.broadcastProgressBar.style.backgroundColor = 'var(--success-color)'; } };
-        
-        let currentTab = 'dashboard';
-        let dataFetchController;
-        const fetchData = async () => {
-            if (dataFetchController) dataFetchController.abort();
-            dataFetchController = new AbortController();
-            const signal = dataFetchController.signal;
-            elements.status.textContent = 'Loading...';
-            try {
-                if (currentTab === 'dashboard') {
-                    const logSearchQuery = elements.logSearchInput.value.trim();
-                    const data = await apiCall(`/api/data?log_search=${encodeURIComponent(logSearchQuery)}`, 'GET', null, signal);
-                    const broadcastStatus = await apiCall('/api/broadcast/status', 'GET', null, signal);
-                    if (data) { renderStats(data.stats); renderPending(data.pendingFonts); renderBanned(data.bannedUsers); renderLogs(data.logs); renderBroadcastStatus(broadcastStatus); }
-                } else if (currentTab === 'users') {
-                    const userSearchQuery = elements.allUserSearchInput.value.trim();
-                    const data = await apiCall(`/api/users?search=${encodeURIComponent(userSearchQuery)}`, 'GET', null, signal);
-                    if (data?.users) renderAllUsers(data.users);
-                }
-                elements.status.textContent = `Live`;
-                elements.status.style.color = 'var(--success-color)';
-            } catch (err) {
-                if (err.name !== 'AbortError') {
-                    elements.status.textContent = 'Error loading data.';
-                    elements.status.style.color = 'var(--danger-color)';
-                }
-            }
-        };
-        
-        const setupEventListeners = () => {
-            elements.navMenu.addEventListener('click', (e) => { e.preventDefault(); const link = e.target.closest('.nav-link'); if (!link) return; const tabId = link.dataset.tab; if (currentTab === tabId) return; currentTab = tabId; elements.navMenu.querySelector('.active').classList.remove('active'); link.classList.add('active'); elements.tabContents.forEach(c => c.classList.toggle('active', c.id === tabId)); elements.pageTitle.textContent = link.querySelector('.nav-text').textContent.trim(); fetchData(); });
-            const handleListAction = async (e) => { const button = e.target.closest('.action-btn'); if (!button) return; const { dataset } = button; let actionTaken = false; if (dataset.filename) { if (button.classList.contains('approve-btn')) await apiCall('/api/approve', 'POST', { fileName: dataset.filename }); else if (button.classList.contains('reject-btn')) await apiCall('/api/reject', 'POST', { fileName: dataset.filename }); actionTaken = true; } else if (dataset.userid) { if (button.classList.contains('unban-btn')) await apiCall('/api/unban', 'POST', { userId: dataset.userid }); else if (button.classList.contains('ban-btn')) { if (confirm(`Ban user ${dataset.userid}?`)) await apiCall('/api/ban', 'POST', { userId: dataset.userid, reason: 'Banned from user list' }); } actionTaken = true; } if (actionTaken) { fetchData(); } };
-            elements.pendingList.addEventListener('click', handleListAction);
-            elements.bannedList.addEventListener('click', handleListAction);
-            elements.allUserList.addEventListener('click', handleListAction);
-            const handleUserSearch = async () => { const userId = elements.userSearchInput.value.trim(); if (!userId || isNaN(userId)) { alert('Please enter a valid User ID.'); return; } const user = await apiCall(`/api/user/${userId}`); renderUserInfo(user); };
-            elements.userSearchBtn.addEventListener('click', handleUserSearch);
-            elements.userSearchInput.addEventListener('keyup', e => { if (e.key === 'Enter') handleUserSearch(); });
-            elements.sendMessageBtn.addEventListener('click', async () => { const userId = elements.userSearchInput.value.trim(); const message = elements.singleMessage.value.trim(); if (userId && message) { const result = await apiCall('/api/message', 'POST', { userId, message }); if (result) { showToast(`Message queued for user ${userId}!`, 'success'); elements.singleMessage.value = ''; } } });
-            elements.sendBroadcastBtn.addEventListener('click', async (e) => { const button = e.target; const message = elements.broadcastMessage.value.trim(); if (message && confirm(`Are you sure you want to broadcast this message?`)) { button.disabled = true; button.textContent = 'Sending...'; const result = await apiCall('/api/broadcast', 'POST', { message }); if (result) { showToast(result.message, 'success'); elements.broadcastMessage.value = ''; } button.disabled = false; button.textContent = 'Broadcast'; } });
-            elements.logSearchInput.addEventListener('keyup', () => { clearTimeout(window.searchTimeout); window.searchTimeout = setTimeout(fetchData, 300); });
-            elements.allUserSearchInput.addEventListener('keyup', () => { clearTimeout(window.userSearchTimeout); window.userSearchTimeout = setTimeout(fetchData, 300); });
-            elements.sidebarToggle.addEventListener('click', () => { elements.sidebar.classList.toggle('collapsed'); elements.sidebarToggle.querySelector('.label').textContent = elements.sidebar.classList.contains('collapsed') ? '»' : '«'; });
-        };
-        
-        function connectWebSocket() {
-            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const ws = new WebSocket(`${protocol}//${window.location.host}`);
-            ws.onopen = () => { showToast('Real-time connection established!', 'success'); fetchData(); };
-            ws.onmessage = (event) => { try { const data = JSON.parse(event.data); if (data.event === 'dataUpdate') { showToast(`Live update: ${(data.type || '').replace(/_/g, ' ')}`, 'info'); fetchData(); } else if (data.event === 'newLog' && data.message) { if (currentTab !== 'dashboard') return; const newLog = document.createElement('div'); let logClass = ''; if (data.message.includes('[WARN]')) logClass = 'log-warn'; if (data.message.includes('[ERROR]')) logClass = 'log-error'; newLog.className = `log-entry ${logClass}`; newLog.textContent = data.message; elements.logContainer.prepend(newLog); while (elements.logContainer.children.length > 200) elements.logContainer.lastChild.remove(); } } catch (error) { console.error("Error processing WebSocket message:", error); } };
-            ws.onclose = () => { elements.status.textContent = 'Disconnected. Retrying...'; elements.status.style.color = 'var(--danger-color)'; setTimeout(connectWebSocket, 5000); };
-            ws.onerror = (error) => { console.error('WebSocket error:', error); ws.close(); };
-        }
-        
-        // Initialize charts for analytics tab
-        function initializeCharts() {
-            // User Growth Chart
-            const userGrowthCtx = document.getElementById('userGrowthChart');
-            if (userGrowthCtx) {
-                new Chart(userGrowthCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                        datasets: [{
-                            label: 'New Users',
-                            data: [12, 19, 3, 5, 2, 3, 20],
-                            borderColor: 'rgb(59, 130, 246)',
-                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { labels: { color: '#c9d1d9' } }
-                        },
-                        scales: {
-                            y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
-                            x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
-                        }
-                    }
-                });
-            }
 
-            // Downloads Chart
-            const downloadsCtx = document.getElementById('downloadsChart');
-            if (downloadsCtx) {
-                new Chart(downloadsCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        datasets: [{
-                            label: 'Downloads',
-                            data: [65, 59, 80, 81, 56, 55, 40],
-                            backgroundColor: 'rgba(34, 197, 94, 0.8)',
-                            borderColor: 'rgb(34, 197, 94)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { labels: { color: '#c9d1d9' } }
-                        },
-                        scales: {
-                            y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
-                            x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
-                        }
-                    }
-                });
-            }
-        }
-
-        // Initialize font grid with actual API data
-        async function initializeFontGrid() {
-            const fontGrid = document.getElementById('fontGrid');
-            const fontCount = document.getElementById('fontCount');
-            
-            if (!fontGrid) return;
-            
+        // --- 2. Real API Handler ---
+        const apiCall = async (url, method = 'GET', body = null) => {
             try {
-                const response = await apiCall('/api/fonts');
-                if (!response) return;
+                const options = {
+                    method,
+                    headers: { 'Content-Type': 'application/json' }
+                };
+                if (body) options.body = JSON.stringify(body);
+
+                const res = await fetch(url, options);
                 
-                const fonts = response.fonts || [];
-                fontCount.textContent = fonts.length;
-                
-                if (fonts.length === 0) {
-                    fontGrid.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No fonts available.</div>';
-                    return;
+                // Handle non-JSON responses gracefully
+                const contentType = res.headers.get("content-type");
+                let data;
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    data = await res.json();
+                } else {
+                    data = { success: res.ok, message: await res.text() };
                 }
-                
-                fontGrid.innerHTML = fonts.map(font => `
-                    <div class="font-item" style="background: var(--bg-dark-3); border-radius: 8px; padding: 16px; border: 1px solid var(--border-color);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                            <h4 style="margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-primary);">${font.name}</h4>
-                            <input type="checkbox" class="font-checkbox" data-font-name="${font.name}" style="margin-left: 8px;">
+
+                if (!res.ok) throw new Error(data.error || data.message || `API Error: ${res.statusText}`);
+                return data;
+            } catch (e) {
+                console.error(e);
+                showToast(e.message, 'error');
+                return null;
+            }
+        };
+
+        // --- 3. UI Renderers ---
+        const renderDashboard = (data) => {
+            if (!data || !data.stats) return;
+
+            // Stats
+            $('statFonts').innerText = data.stats.totalFonts || 0;
+            $('statUsers').innerText = data.stats.totalUsers || 0;
+            $('statPending').innerText = data.stats.pendingCount || 0;
+            $('statBanned').innerText = data.stats.bannedCount || 0;
+            $('pendingBadge').innerText = data.stats.pendingCount || 0;
+
+            // Pending List
+            const pList = $('pendingList');
+            if(data.pendingFonts && data.pendingFonts.length > 0) {
+                pList.innerHTML = data.pendingFonts.map(f => `
+                    <li>
+                        <div class="item-info"><strong>${f.split('_').pop()}</strong></div>
+                        <div class="btn-group">
+                            <button class="action-btn bg-success" onclick="handleAction('approve', '${f}')"><i class="fas fa-check"></i></button>
+                            <button class="action-btn bg-danger" onclick="handleAction('reject', '${f}')"><i class="fas fa-times"></i></button>
                         </div>
-                        <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 8px;">
-                            <div>Size: ${font.size} KB</div>
-                            <div>Category: ${font.category || 'Unknown'}</div>
-                            <div style="color: var(--success-color); font-weight: 500;">${font.downloads || 0} downloads</div>
-                        </div>
-                        <div style="display: flex; gap: 8px; margin-top: 12px;">
-                            <button class="font-preview-btn" data-font-name="${font.name}" style="flex: 1; padding: 6px 12px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Preview</button>
-                            <button class="font-delete-btn" data-font-name="${font.name}" style="flex: 1; padding: 6px 12px; background: var(--danger-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Delete</button>
-                        </div>
-                    </div>
+                    </li>
                 `).join('');
-                
-                // Add event listeners for font operations
-                setupFontGridEventListeners();
-                
-            } catch (error) {
-                console.error('Failed to load fonts:', error);
-                fontGrid.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--danger-color);">Error loading fonts.</div>';
+            } else {
+                pList.innerHTML = `<li style="justify-content: center; color: var(--text-secondary);">No pending items</li>`;
             }
-        }
-        
-        function setupFontGridEventListeners() {
-            const fontGrid = document.getElementById('fontGrid');
-            if (!fontGrid) return;
-            
-            // Font deletion
-            fontGrid.addEventListener('click', async (e) => {
-                if (e.target.classList.contains('font-delete-btn')) {
-                    const fontName = e.target.dataset.fontName;
-                    if (confirm(`Are you sure you want to delete ${fontName}? This action cannot be undone.`)) {
-                        const result = await apiCall(`/api/fonts/${encodeURIComponent(fontName)}`, 'DELETE');
-                        if (result) {
-                            showToast(`Font ${fontName} deleted successfully!`, 'success');
-                            initializeFontGrid(); // Refresh the grid
-                        }
-                    }
-                }
-                
-                // Font preview (mock functionality)
-                if (e.target.classList.contains('font-preview-btn')) {
-                    const fontName = e.target.dataset.fontName;
-                    showToast(`Preview functionality for ${fontName} would be implemented here.`, 'info');
-                }
-            });
-        }
-        
-        // Apply font filters
-        async function applyFontFilters() {
-            const search = document.getElementById('fontSearchInput')?.value || '';
-            const category = document.getElementById('fontCategoryFilter')?.value || 'all';
-            const sortBy = document.getElementById('fontSortBy')?.value || 'name';
-            
-            const queryParams = new URLSearchParams();
-            if (search) queryParams.append('search', search);
-            if (category !== 'all') queryParams.append('category', category);
-            if (sortBy) queryParams.append('sortBy', sortBy);
-            
-            try {
-                const response = await apiCall(`/api/fonts?${queryParams}`);
-                if (response) {
-                    const fontGrid = document.getElementById('fontGrid');
-                    const fontCount = document.getElementById('fontCount');
-                    const fonts = response.fonts || [];
-                    
-                    fontCount.textContent = fonts.length;
-                    
-                    if (fonts.length === 0) {
-                        fontGrid.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No fonts match the current filters.</div>';
-                        return;
-                    }
-                    
-                    fontGrid.innerHTML = fonts.map(font => `
-                        <div class="font-item" style="background: var(--bg-dark-3); border-radius: 8px; padding: 16px; border: 1px solid var(--border-color);">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                                <h4 style="margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-primary);">${font.name}</h4>
-                                <input type="checkbox" class="font-checkbox" data-font-name="${font.name}" style="margin-left: 8px;">
-                            </div>
-                            <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 8px;">
-                                <div>Size: ${font.size} KB</div>
-                                <div>Category: ${font.category || 'Unknown'}</div>
-                                <div style="color: var(--success-color); font-weight: 500;">${font.downloads || 0} downloads</div>
-                            </div>
-                            <div style="display: flex; gap: 8px; margin-top: 12px;">
-                                <button class="font-preview-btn" data-font-name="${font.name}" style="flex: 1; padding: 6px 12px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Preview</button>
-                                <button class="font-delete-btn" data-font-name="${font.name}" style="flex: 1; padding: 6px 12px; background: var(--danger-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Delete</button>
-                            </div>
-                        </div>
-                    `).join('');
-                    
-                    setupFontGridEventListeners();
-                }
-            } catch (error) {
-                console.error('Failed to apply filters:', error);
-                showToast('Failed to apply filters', 'error');
-            }
-        }
 
-        // Enhanced tab switching with initialization
-        const enhancedSetupEventListeners = () => {
-            // Set up navigation handler with enhanced tab initialization
-            elements.navMenu.addEventListener('click', (e) => {
-                e.preventDefault();
-                const link = e.target.closest('.nav-link');
-                if (!link) return;
-                const tabId = link.dataset.tab;
-                if (currentTab === tabId) return;
-                
-                currentTab = tabId;
-                elements.navMenu.querySelector('.active').classList.remove('active');
-                link.classList.add('active');
-                elements.tabContents.forEach(c => c.classList.toggle('active', c.id === tabId));
-                elements.pageTitle.textContent = link.querySelector('.nav-text').textContent.trim();
-                
-                // Initialize specific tab content
-                if (tabId === 'analytics') {
-                    setTimeout(initializeCharts, 100); // Small delay for DOM rendering
-                } else if (tabId === 'fonts') {
-                    initializeFontGrid();
-                }
-                
-                fetchData();
-            });
-            
-            // Set up all other event listeners
-            const handleListAction = async (e) => { const button = e.target.closest('.action-btn'); if (!button) return; const { dataset } = button; let actionTaken = false; if (dataset.filename) { if (button.classList.contains('approve-btn')) await apiCall('/api/approve', 'POST', { fileName: dataset.filename }); else if (button.classList.contains('reject-btn')) await apiCall('/api/reject', 'POST', { fileName: dataset.filename }); actionTaken = true; } else if (dataset.userid) { if (button.classList.contains('unban-btn')) await apiCall('/api/unban', 'POST', { userId: dataset.userid }); else if (button.classList.contains('ban-btn')) { if (confirm(`Ban user ${dataset.userid}?`)) await apiCall('/api/ban', 'POST', { userId: dataset.userid, reason: 'Banned from user list' }); } actionTaken = true; } if (actionTaken) { fetchData(); } };
-            elements.pendingList.addEventListener('click', handleListAction);
-            elements.bannedList.addEventListener('click', handleListAction);
-            elements.allUserList.addEventListener('click', handleListAction);
-            const handleUserSearch = async () => { const userId = elements.userSearchInput.value.trim(); if (!userId || isNaN(userId)) { alert('Please enter a valid User ID.'); return; } const user = await apiCall(`/api/user/${userId}`); renderUserInfo(user); };
-            elements.userSearchBtn.addEventListener('click', handleUserSearch);
-            elements.userSearchInput.addEventListener('keyup', e => { if (e.key === 'Enter') handleUserSearch(); });
-            elements.sendMessageBtn.addEventListener('click', async () => { const userId = elements.userSearchInput.value.trim(); const message = elements.singleMessage.value.trim(); if (userId && message) { const result = await apiCall('/api/message', 'POST', { userId, message }); if (result) { showToast(`Message queued for user ${userId}!`, 'success'); elements.singleMessage.value = ''; } } });
-            elements.sendBroadcastBtn.addEventListener('click', async (e) => { const button = e.target; const message = elements.broadcastMessage.value.trim(); if (message && confirm(`Are you sure you want to broadcast this message?`)) { button.disabled = true; button.textContent = 'Sending...'; const result = await apiCall('/api/broadcast', 'POST', { message }); if (result) { showToast(result.message, 'success'); elements.broadcastMessage.value = ''; } button.disabled = false; button.textContent = 'Broadcast'; } });
-            elements.logSearchInput.addEventListener('keyup', () => { clearTimeout(window.searchTimeout); window.searchTimeout = setTimeout(fetchData, 300); });
-            elements.allUserSearchInput.addEventListener('keyup', () => { clearTimeout(window.userSearchTimeout); window.userSearchTimeout = setTimeout(fetchData, 300); });
-            elements.sidebarToggle.addEventListener('click', () => { elements.sidebar.classList.toggle('collapsed'); elements.sidebarToggle.querySelector('.label').textContent = elements.sidebar.classList.contains('collapsed') ? '»' : '«'; });
+            // Banned List
+            const bList = $('bannedList');
+            if(data.bannedUsers && data.bannedUsers.length > 0) {
+                bList.innerHTML = data.bannedUsers.map(u => `
+                    <li>
+                        <div class="item-info">ID: ${u.id} (${u.reason || 'N/A'})</div>
+                        <button class="action-btn bg-secondary" onclick="handleAction('unban', ${u.id})">Unban</button>
+                    </li>
+                `).join('');
+            } else {
+                bList.innerHTML = `<li style="justify-content: center; color: var(--text-secondary);">No banned users</li>`;
+            }
+
+            // Logs
+            if(data.logs) {
+                const logCont = $('logContainer');
+                logCont.innerHTML = data.logs.map(l => `<div class="log-entry">${l}</div>`).join('');
+            }
         };
 
-        // Advanced functionality for all tabs
-        async function initializeNotificationsTab() {
-            try {
-                const analytics = await apiCall('/api/notifications/analytics');
-                if (analytics) {
-                    document.getElementById('notificationsSentToday').textContent = analytics.sentToday || 0;
-                    document.getElementById('notificationsDelivered').textContent = analytics.delivered || 0;
-                    document.getElementById('notificationOpenRate').textContent = analytics.openRate || '0%';
-                    document.getElementById('activeTemplates').textContent = analytics.activeTemplates || 0;
+        const renderUserList = (users) => {
+            const tbody = $('userTableBody');
+            if (!users || users.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center">No users found</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = users.map(u => `
+                <tr>
+                    <td>${u.id}</td>
+                    <td>${u.first_name || '-'}</td>
+                    <td>${u.username || '-'}</td>
+                    <td>${u.lastSeen ? new Date(u.lastSeen).toLocaleDateString() : '-'}</td>
+                    <td style="color: ${u.isBanned ? 'var(--danger-color)' : 'var(--success-color)'}">
+                        ${u.isBanned ? 'Banned' : 'Active'}
+                    </td>
+                    <td>
+                        <button class="action-btn ${u.isBanned ? 'bg-secondary' : 'bg-danger'}" 
+                                onclick="handleAction('${u.isBanned ? 'unban' : 'ban'}', ${u.id})">
+                            ${u.isBanned ? 'Unban' : 'Ban'}
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        };
+
+        const renderFonts = (fonts) => {
+            const grid = $('fontGrid');
+            if (!fonts || fonts.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 20px;">No fonts found</div>`;
+                return;
+            }
+            grid.innerHTML = fonts.map(f => `
+                <div style="background: var(--bg-dark-3); padding: 16px; border-radius: 6px;">
+                    <div style="font-weight:600; margin-bottom:4px; overflow:hidden; text-overflow:ellipsis;">${f.name}</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">
+                        Size: ${f.size}<br>
+                        Downloads: ${f.downloads}
+                    </div>
+                    <button class="action-btn bg-danger" style="width: 100%;" onclick="deleteFont('${f.name}')">Delete</button>
+                </div>
+            `).join('');
+        };
+
+        // --- 4. Actions ---
+        window.handleAction = async (action, id) => {
+            if(action === 'ban') {
+                const reason = prompt("Reason for ban:");
+                if(!reason) return;
+                await apiCall(`/api/ban`, 'POST', { userId: id, reason });
+            } else if (action === 'unban') {
+                await apiCall(`/api/unban`, 'POST', { userId: id });
+            } else if (action === 'approve') {
+                await apiCall(`/api/approve`, 'POST', { fileName: id });
+            } else if (action === 'reject') {
+                await apiCall(`/api/reject`, 'POST', { fileName: id });
+            }
+            showToast(`${action} processed`);
+            refreshData(); // Refresh dashboard
+        };
+
+        window.deleteFont = async (name) => {
+            if(!confirm(`Delete ${name}?`)) return;
+            const res = await apiCall(`/api/fonts/${encodeURIComponent(name)}`, 'DELETE');
+            if(res) {
+                showToast('Font deleted');
+                loadTab('fonts');
+            }
+        };
+
+        const refreshData = async () => {
+            const data = await apiCall('/api/data');
+            renderDashboard(data);
+        };
+
+        const loadTab = async (tab) => {
+            if (tab === 'dashboard') refreshData();
+            if (tab === 'users') {
+                const q = $('userSearch').value;
+                const data = await apiCall(`/api/users?search=${q}`);
+                if(data) renderUserList(data.users);
+            }
+            if (tab === 'fonts') {
+                const q = $('fontSearchInput').value;
+                const cat = $('fontCategoryInput').value;
+                const data = await apiCall(`/api/fonts?search=${q}&category=${cat}`);
+                if(data) renderFonts(data.fonts);
+            }
+            if (tab === 'analytics') initCharts();
+            if (tab === 'monitoring') updateMonitoring();
+        };
+
+        // --- 5. Charts & Monitoring ---
+        let chartInstances = {};
+
+        const initCharts = async () => {
+            // Fetch real data for charts
+            const data = await apiCall('/api/analytics');
+            if(!data) return;
+
+            const commonOpts = { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#8b949e' } } },
+                scales: { 
+                    y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
+                    x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
                 }
-            } catch (error) {
-                console.error('Failed to load notification analytics:', error);
-            }
-        }
-
-        async function initializeMonitoringTab() {
-            try {
-                // Load system metrics
-                const systemMetrics = await apiCall('/api/monitoring/system');
-                if (systemMetrics) {
-                    document.getElementById('cpuUsage').textContent = systemMetrics.cpu || '0%';
-                    document.getElementById('memoryUsage').textContent = systemMetrics.memory || '0MB';
-                    document.getElementById('diskUsage').textContent = systemMetrics.diskUsage || '0%';
-                    document.getElementById('uptime').textContent = systemMetrics.uptime || '0h';
-                    document.getElementById('requestsPerMinute').textContent = systemMetrics.requestsPerMinute || 0;
-                    document.getElementById('activeUsers').textContent = systemMetrics.activeUsers || 0;
-                    document.getElementById('errorRate').textContent = systemMetrics.errorRate || '0%';
-                    document.getElementById('avgResponseTime').textContent = systemMetrics.avgResponseTime || '0ms';
-                }
-
-                // Initialize monitoring charts
-                initializeMonitoringCharts();
-            } catch (error) {
-                console.error('Failed to load monitoring data:', error);
-            }
-        }
-
-        function initializeMonitoringCharts() {
-            const systemMetricsCtx = document.getElementById('systemMetricsChart');
-            const performanceCtx = document.getElementById('performanceChart');
-
-            if (systemMetricsCtx) {
-                new Chart(systemMetricsCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Now-5m', 'Now-4m', 'Now-3m', 'Now-2m', 'Now-1m', 'Now'],
-                        datasets: [{
-                            label: 'CPU %',
-                            data: [2.1, 3.5, 2.8, 4.2, 3.1, 2.4],
-                            borderColor: 'rgb(59, 130, 246)',
-                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                            tension: 0.4
-                        }, {
-                            label: 'Memory MB',
-                            data: [245, 251, 248, 265, 259, 254],
-                            borderColor: 'rgb(34, 197, 94)',
-                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { labels: { color: '#c9d1d9' } } },
-                        scales: {
-                            y: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
-                            x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
-                        }
-                    }
-                });
-            }
-
-            if (performanceCtx) {
-                new Chart(performanceCtx, {
-                    type: 'line',
-                    data: {
-                        labels: Array.from({length: 24}, (_, i) => `${23-i}:00`),
-                        datasets: [{
-                            label: 'Response Time (ms)',
-                            data: Array.from({length: 24}, () => Math.random() * 200 + 100),
-                            borderColor: 'rgb(239, 68, 68)',
-                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                            tension: 0.4
-                        }, {
-                            label: 'Requests/hour',
-                            data: Array.from({length: 24}, () => Math.random() * 1000 + 500),
-                            borderColor: 'rgb(245, 158, 11)',
-                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                            tension: 0.4,
-                            yAxisID: 'y1'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { labels: { color: '#c9d1d9' } } },
-                        scales: {
-                            y: { type: 'linear', display: true, position: 'left', ticks: { color: '#8b949e' }, grid: { color: '#30363d' } },
-                            y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false }, ticks: { color: '#8b949e' } },
-                            x: { ticks: { color: '#8b949e' }, grid: { color: '#30363d' } }
-                        }
-                    }
-                });
-            }
-        }
-
-        async function initializeContentTab() {
-            try {
-                const content = await apiCall('/api/content');
-                if (content) {
-                    document.getElementById('contentCount').textContent = content.total || 0;
-                    // Content will be loaded dynamically based on filters
-                }
-            } catch (error) {
-                console.error('Failed to load content data:', error);
-            }
-        }
-
-        async function initializeSecurityTab() {
-            try {
-                // Load security stats
-                const stats = await apiCall('/api/security/stats');
-                if (stats) {
-                    document.getElementById('failedLoginAttempts').textContent = stats.failedLoginAttempts || 0;
-                    document.getElementById('suspiciousActivity').textContent = stats.suspiciousActivity || 0;
-                    document.getElementById('blockedRequests').textContent = stats.blockedRequests || 0;
-                }
-
-                // Load security configuration
-                await loadSecurityConfig();
-                
-                // Load blocked IPs
-                await loadBlockedIPs();
-                
-                // Load security events
-                await loadSecurityEvents();
-                
-                // Load audit logs
-                await loadAuditLogs();
-                
-                // Load scan history
-                await loadScanHistory();
-
-            } catch (error) {
-                console.error('Failed to load security stats:', error);
-            }
-        }
-
-        // Security configuration management
-        async function loadSecurityConfig() {
-            try {
-                const response = await apiCall('/api/security/config');
-                if (response && response.config) {
-                    const config = response.config;
-                    document.getElementById('twoFactorAuth').checked = config.twoFactorAuth || false;
-                    document.getElementById('ipWhitelist').checked = config.ipWhitelist || false;
-                    document.getElementById('rateLimiting').checked = config.rateLimiting || true;
-                    document.getElementById('sessionTimeout').value = config.sessionTimeout || 30;
-                    document.getElementById('maxLoginAttempts').value = config.maxLoginAttempts || 5;
-                    
-                    // Update toggle switch appearances
-                    updateToggleSwitch('twoFactorAuth');
-                    updateToggleSwitch('ipWhitelist');
-                    updateToggleSwitch('rateLimiting');
-                }
-            } catch (error) {
-                console.error('Failed to load security config:', error);
-            }
-        }
-
-        function updateToggleSwitch(elementId) {
-            const checkbox = document.getElementById(elementId);
-            const slider = checkbox.nextElementSibling;
-            if (checkbox.checked) {
-                slider.style.backgroundColor = 'var(--success-color)';
-            } else {
-                slider.style.backgroundColor = 'var(--text-secondary)';
-            }
-        }
-
-        async function saveSecurityConfig() {
-            const config = {
-                twoFactorAuth: document.getElementById('twoFactorAuth').checked,
-                ipWhitelist: document.getElementById('ipWhitelist').checked,
-                rateLimiting: document.getElementById('rateLimiting').checked,
-                sessionTimeout: parseInt(document.getElementById('sessionTimeout').value),
-                maxLoginAttempts: parseInt(document.getElementById('maxLoginAttempts').value)
             };
 
-            try {
-                const result = await apiCall('/api/security/config', 'PUT', config);
-                if (result) {
-                    showToast('Security configuration updated successfully!', 'success');
-                    updateToggleSwitch('twoFactorAuth');
-                    updateToggleSwitch('ipWhitelist');
-                    updateToggleSwitch('rateLimiting');
-                }
-            } catch (error) {
-                console.error('Failed to save security config:', error);
-                showToast('Failed to save security configuration', 'error');
-            }
-        }
-
-        // Blocked IPs management
-        async function loadBlockedIPs() {
-            try {
-                const response = await apiCall('/api/security/blocked-ips');
-                const container = document.getElementById('blockedIPsList');
-                
-                if (response && response.blockedIPs && response.blockedIPs.length > 0) {
-                    container.innerHTML = response.blockedIPs.map(ipData => `
-                        <div class="blocked-ip-item" style="padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 8px; background: var(--bg-dark-3);">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <strong style="color: var(--text-primary);">${ipData.ip}</strong>
-                                    <p style="margin: 4px 0; color: var(--text-secondary); font-size: 0.9rem;">${ipData.reason || 'No reason provided'}</p>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Blocked: ${new Date(ipData.blockedAt).toLocaleString()}</span>
-                                </div>
-                                <button class="action-btn unblock-ip-btn" data-ip="${ipData.ip}" style="background: var(--danger-color); padding: 6px 12px;">Unblock</button>
-                            </div>
-                        </div>
-                    `).join('');
-                } else {
-                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-secondary);">No blocked IPs</div>';
-                }
-            } catch (error) {
-                console.error('Failed to load blocked IPs:', error);
-                document.getElementById('blockedIPsList').innerHTML = '<div style="text-align: center; padding: 20px; color: var(--danger-color);">Error loading blocked IPs</div>';
-            }
-        }
-
-        async function blockIP() {
-            const ip = document.getElementById('ipToBlock').value.trim();
-            const reason = document.getElementById('blockReason').value.trim();
-            
-            if (!ip) {
-                showToast('Please enter an IP address to block', 'error');
-                return;
-            }
-
-            // Basic IP validation
-            const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
-            if (!ipRegex.test(ip)) {
-                showToast('Please enter a valid IP address', 'error');
-                return;
-            }
-
-            try {
-                const result = await apiCall('/api/security/block-ip', 'POST', { ip, reason: reason || 'Blocked from admin panel' });
-                if (result) {
-                    showToast(`IP ${ip} has been blocked successfully!`, 'success');
-                    document.getElementById('ipToBlock').value = '';
-                    document.getElementById('blockReason').value = '';
-                    await loadBlockedIPs(); // Refresh the list
-                }
-            } catch (error) {
-                console.error('Failed to block IP:', error);
-                showToast('Failed to block IP address', 'error');
-            }
-        }
-
-        async function unblockIP(ip) {
-            try {
-                const result = await apiCall(`/api/security/blocked-ips/${encodeURIComponent(ip)}`, 'DELETE');
-                if (result) {
-                    showToast(`IP ${ip} has been unblocked successfully!`, 'success');
-                    await loadBlockedIPs(); // Refresh the list
-                }
-            } catch (error) {
-                console.error('Failed to unblock IP:', error);
-                showToast('Failed to unblock IP address', 'error');
-            }
-        }
-
-        // Security events management
-        async function loadSecurityEvents() {
-            try {
-                const filter = document.getElementById('securityEventFilter')?.value || 'all';
-                const response = await apiCall(`/api/security/events?type=${filter}`);
-                const container = document.getElementById('securityEventsList');
-                
-                if (response && response.events && response.events.length > 0) {
-                    container.innerHTML = response.events.map(event => {
-                        const eventColor = getEventColor(event.type);
-                        return `
-                            <div class="security-event" style="padding: 12px; border-left: 4px solid ${eventColor}; background: var(--bg-dark-3); border-radius: 4px; margin-bottom: 8px;">
-                                <div style="display: flex; justify-content: space-between; align-items: start;">
-                                    <div>
-                                        <span style="color: ${eventColor}; font-weight: bold;">${getEventIcon(event.type)} ${getEventTitle(event.type)}</span>
-                                        <p style="margin: 4px 0; color: var(--text-secondary); font-size: 0.9rem;">${event.description || 'No description available'}</p>
-                                        <span style="font-size: 0.8rem; color: var(--text-secondary);">${new Date(event.timestamp).toLocaleString()}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                } else {
-                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-secondary);">No security events found</div>';
-                }
-            } catch (error) {
-                console.error('Failed to load security events:', error);
-                document.getElementById('securityEventsList').innerHTML = '<div style="text-align: center; padding: 20px; color: var(--danger-color);">Error loading security events</div>';
-            }
-        }
-
-        function getEventColor(type) {
-            switch (type) {
-                case 'failed_login': return 'var(--warning-color)';
-                case 'suspicious_activity': return 'var(--danger-color)';
-                case 'blocked_request': return 'var(--danger-color)';
-                case 'admin_action': return 'var(--primary-color)';
-                default: return 'var(--text-secondary)';
-            }
-        }
-
-        function getEventIcon(type) {
-            switch (type) {
-                case 'failed_login': return '🚨';
-                case 'suspicious_activity': return '⚠️';
-                case 'blocked_request': return '🚫';
-                case 'admin_action': return '👤';
-                default: return '❓';
-            }
-        }
-
-        function getEventTitle(type) {
-            switch (type) {
-                case 'failed_login': return 'Failed Login Attempt';
-                case 'suspicious_activity': return 'Suspicious Activity';
-                case 'blocked_request': return 'Blocked Request';
-                case 'admin_action': return 'Admin Action';
-                default: return 'Security Event';
-            }
-        }
-
-        // Security operations
-        async function runSecurityScan() {
-            const button = document.getElementById('runSecurityScan');
-            const originalText = button.innerHTML;
-            
-            button.disabled = true;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scanning...';
-            
-            try {
-                const result = await apiCall('/api/security/scan', 'POST');
-                if (result) {
-                    const resultDiv = document.getElementById('scanResults');
-                    const resultText = document.getElementById('scanResultText');
-                    
-                    resultText.textContent = `Security scan completed. Found ${result.suspiciousUsers?.length || 0} suspicious patterns out of ${result.totalScanned || 0} users scanned.`;
-                    resultDiv.style.display = 'block';
-                    
-                    showToast(result.message || 'Security scan completed', 'success');
-                    
-                    // Refresh scan history
-                    await loadScanHistory();
-                }
-            } catch (error) {
-                console.error('Security scan failed:', error);
-                showToast('Security scan failed', 'error');
-            } finally {
-                button.disabled = false;
-                button.innerHTML = originalText;
-            }
-        }
-
-        async function generateSecurityReport() {
-            const button = document.getElementById('generateSecurityReport');
-            const originalText = button.innerHTML;
-            
-            button.disabled = true;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-            
-            try {
-                const result = await apiCall('/api/security/report');
-                if (result && result.report) {
-                    // Show report summary in a toast
-                    const report = result.report;
-                    showToast(`Security Report Generated - Users: ${report.overview.totalUsers}, Banned: ${report.overview.bannedUsers}, Blocked IPs: ${report.overview.blockedIPs}`, 'success');
-                    
-                    // You could also open a detailed report view here
-                    console.log('Security Report:', report);
-                }
-            } catch (error) {
-                console.error('Failed to generate security report:', error);
-                showToast('Failed to generate security report', 'error');
-            } finally {
-                button.disabled = false;
-                button.innerHTML = originalText;
-            }
-        }
-
-        // Audit logs management
-        async function loadAuditLogs() {
-            try {
-                const type = document.getElementById('auditLogType')?.value || 'all';
-                const response = await apiCall(`/api/security/audit?type=${type}&limit=20`);
-                const container = document.getElementById('auditLogList');
-                
-                if (response && response.logs && response.logs.length > 0) {
-                    container.innerHTML = response.logs.map(log => `
-                        <div class="audit-log-entry" style="padding: 8px; border-bottom: 1px solid var(--border-color); font-size: 0.85rem;">
-                            <div style="display: flex; justify-content: space-between; color: var(--text-secondary);">
-                                <span>[${new Date(log.timestamp).toLocaleString()}]</span>
-                                <span>User: ${log.userId}</span>
-                            </div>
-                            <div style="color: var(--text-primary); margin: 4px 0;">
-                                <strong>${log.type.toUpperCase()}</strong>: ${log.action}
-                            </div>
-                            ${log.details ? `<div style="color: var(--text-secondary); font-size: 0.8rem;">${JSON.stringify(log.details)}</div>` : ''}
-                        </div>
-                    `).join('');
-                } else {
-                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-secondary);">No audit logs found</div>';
-                }
-            } catch (error) {
-                console.error('Failed to load audit logs:', error);
-                document.getElementById('auditLogList').innerHTML = '<div style="text-align: center; padding: 20px; color: var(--danger-color);">Error loading audit logs</div>';
-            }
-        }
-
-        // Scan history management
-        async function loadScanHistory() {
-            try {
-                const response = await apiCall('/api/security/scans');
-                const container = document.getElementById('scanHistoryList');
-                
-                if (response && response.scans && response.scans.length > 0) {
-                    container.innerHTML = response.scans.map(scan => `
-                        <div class="scan-history-item" style="padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 8px; background: var(--bg-dark-3);">
-                            <div style="display: flex; justify-content: space-between; align-items: start;">
-                                <div>
-                                    <strong style="color: var(--text-primary);">Security Scan</strong>
-                                    <p style="margin: 4px 0; color: var(--text-secondary); font-size: 0.9rem;">
-                                        Found ${scan.suspiciousUsers || 0} suspicious patterns in ${scan.totalUsers || 0} users
-                                    </p>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">${new Date(scan.timestamp).toLocaleString()}</span>
-                                </div>
-                                <div style="text-align: right;">
-                                    <div style="color: ${(scan.suspiciousUsers || 0) > 0 ? 'var(--warning-color)' : 'var(--success-color)'}; font-weight: bold;">
-                                        ${(scan.suspiciousUsers || 0) > 0 ? '⚠️ Issues Found' : '✅ Clean'}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                } else {
-                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-secondary);">No scan history available</div>';
-                }
-            } catch (error) {
-                console.error('Failed to load scan history:', error);
-                document.getElementById('scanHistoryList').innerHTML = '<div style="text-align: center; padding: 20px; color: var(--danger-color);">Error loading scan history</div>';
-            }
-        }
-
-        // Security event handlers setup
-        function setupSecurityEventHandlers() {
-            // Security scan button
-            const runScanBtn = document.getElementById('runSecurityScan');
-            if (runScanBtn) {
-                runScanBtn.addEventListener('click', runSecurityScan);
-            }
-
-            // Generate report button
-            const reportBtn = document.getElementById('generateSecurityReport');
-            if (reportBtn) {
-                reportBtn.addEventListener('click', generateSecurityReport);
-            }
-
-            // Block IP button
-            const blockIPBtn = document.getElementById('blockIPBtn');
-            if (blockIPBtn) {
-                blockIPBtn.addEventListener('click', blockIP);
-            }
-
-            // Save security config button
-            const saveConfigBtn = document.getElementById('saveSecurityConfig');
-            if (saveConfigBtn) {
-                saveConfigBtn.addEventListener('click', saveSecurityConfig);
-            }
-
-            // Refresh buttons
-            const refreshBlockedIPsBtn = document.getElementById('refreshBlockedIPs');
-            if (refreshBlockedIPsBtn) {
-                refreshBlockedIPsBtn.addEventListener('click', loadBlockedIPs);
-            }
-
-            const refreshAuditBtn = document.getElementById('refreshAuditLog');
-            if (refreshAuditBtn) {
-                refreshAuditBtn.addEventListener('click', loadAuditLogs);
-            }
-
-            const refreshScanBtn = document.getElementById('refreshScanHistory');
-            if (refreshScanBtn) {
-                refreshScanBtn.addEventListener('click', loadScanHistory);
-            }
-
-            // Security event filter
-            const eventFilter = document.getElementById('securityEventFilter');
-            if (eventFilter) {
-                eventFilter.addEventListener('change', loadSecurityEvents);
-            }
-
-            // Audit log type filter
-            const auditFilter = document.getElementById('auditLogType');
-            if (auditFilter) {
-                auditFilter.addEventListener('change', loadAuditLogs);
-            }
-
-            // Unblock IP buttons (delegated event handling)
-            document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('unblock-ip-btn')) {
-                    const ip = e.target.dataset.ip;
-                    if (ip && confirm(`Are you sure you want to unblock IP ${ip}?`)) {
-                        unblockIP(ip);
-                    }
-                }
+            const ctx1 = $('userGrowthChart').getContext('2d');
+            if(chartInstances.growth) chartInstances.growth.destroy();
+            chartInstances.growth = new Chart(ctx1, {
+                type: 'line',
+                data: data.userGrowth || { labels: [], datasets: [] }, // Expects backend data structure
+                options: commonOpts
             });
 
-            // Toggle switches
-            document.addEventListener('change', (e) => {
-                if (e.target.matches('#twoFactorAuth, #ipWhitelist, #rateLimiting')) {
-                    updateToggleSwitch(e.target.id);
+            const ctx2 = $('downloadsChart').getContext('2d');
+            if(chartInstances.downloads) chartInstances.downloads.destroy();
+            chartInstances.downloads = new Chart(ctx2, {
+                type: 'bar',
+                data: data.downloads || { labels: [], datasets: [] },
+                options: commonOpts
+            });
+        };
+
+        const updateMonitoring = async () => {
+            const data = await apiCall('/api/monitoring');
+            if(!data) return;
+            $('metricCpu').innerText = data.cpu || '0%';
+            $('metricRam').innerText = data.ram || '0MB';
+            $('metricUptime').innerText = data.uptime || '0%';
+            $('metricLatency').innerText = data.latency || '0ms';
+            
+            // Re-render system chart if needed
+            const ctx = $('systemMetricsChart').getContext('2d');
+            if(chartInstances.system) chartInstances.system.destroy();
+            chartInstances.system = new Chart(ctx, {
+                type: 'line',
+                data: data.chartData || { labels: [], datasets: [] },
+                options: { 
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { min: 0, max: 100 } }
                 }
             });
+        };
 
-            // System operations in security tab
-            const createBackupBtn = document.getElementById('createBackupBtn');
-            if (createBackupBtn) {
-                createBackupBtn.addEventListener('click', async () => {
-                    if (confirm('Create a system backup? This may take a few moments.')) {
-                        const result = await apiCall('/api/system/backup', 'POST');
-                        if (result) {
-                            showToast('System backup created successfully!', 'success');
-                            document.getElementById('lastBackupTime').textContent = 'Just now';
-                        }
-                    }
-                });
-            }
-
-            const exportLogsBtn = document.getElementById('exportLogsBtn');
-            if (exportLogsBtn) {
-                exportLogsBtn.addEventListener('click', () => {
-                    window.open('/api/system/logs/export', '_blank');
-                    showToast('System logs export initiated...', 'info');
-                });
-            }
-
-            const clearCacheBtn = document.getElementById('clearCacheBtn');
-            if (clearCacheBtn) {
-                clearCacheBtn.addEventListener('click', async () => {
-                    if (confirm('Clear system cache? This will refresh all cached data.')) {
-                        const result = await apiCall('/api/system/cache/clear', 'POST');
-                        if (result) {
-                            showToast('System cache cleared successfully!', 'success');
-                        }
-                    }
-                });
-            }
-        }
-
-        // System operations handlers
-        function setupSystemOperations() {
-            // Database backup
-            document.addEventListener('click', async (e) => {
-                if (e.target.textContent === 'Backup Database') {
-                    if (confirm('Create a backup of the database? This may take a few moments.')) {
-                        const result = await apiCall('/api/system/backup', 'POST');
-                        if (result) {
-                            showToast('Database backup created successfully!', 'success');
-                        }
-                    }
-                }
-
-                if (e.target.textContent === 'Clear Cache') {
-                    if (confirm('Clear all system caches? This will refresh font data.')) {
-                        const result = await apiCall('/api/system/cache/clear', 'POST');
-                        if (result) {
-                            showToast('System cache cleared successfully!', 'success');
-                        }
-                    }
-                }
-
-                if (e.target.textContent === 'Export Logs') {
-                    window.open('/api/system/logs/export', '_blank');
-                    showToast('Log export initiated...', 'info');
-                }
-
-                if (e.target.textContent === 'Apply Filters' && currentTab === 'fonts') {
-                    applyFontFilters();
-                }
-            });
-        }
-
-        // Content management handlers
-        function setupContentManagement() {
-            const contentFilters = document.querySelectorAll('.content-filter');
-            contentFilters.forEach(filter => {
-                filter.addEventListener('click', (e) => {
-                    // Update active filter
-                    contentFilters.forEach(f => {
-                        f.classList.remove('active');
-                        f.style.background = 'var(--bg-dark-3)';
-                    });
-                    e.target.classList.add('active');
-                    e.target.style.background = 'var(--primary-color)';
-                    
-                    // Filter would be applied here
-                    showToast(`Filtering by: ${e.target.textContent}`, 'info');
-                });
-            });
-
-            // Content creation
-            const createContentBtn = document.getElementById('createContentBtn');
-            if (createContentBtn) {
-                createContentBtn.addEventListener('click', () => {
-                    showToast('Content creation modal would open here', 'info');
-                });
-            }
-        }
-
-        // Notification management handlers
-        function setupNotificationHandlers() {
-            const createTemplateBtn = document.getElementById('createTemplateBtn');
-            const scheduleNotificationBtn = document.getElementById('scheduleNotificationBtn');
-
-            if (createTemplateBtn) {
-                createTemplateBtn.addEventListener('click', () => {
-                    showToast('Template creation modal would open here', 'info');
-                });
-            }
-
-            if (scheduleNotificationBtn) {
-                scheduleNotificationBtn.addEventListener('click', () => {
-                    showToast('Notification scheduling modal would open here', 'info');
-                });
-            }
-        }
-
-        // Enhanced tab management
-        function enhancedFetchData() {
-            switch (currentTab) {
-                case 'dashboard':
-                    fetchData();
-                    break;
-                case 'analytics':
-                    initializeCharts();
-                    break;
-                case 'fonts':
-                    initializeFontGrid();
-                    break;
-                case 'notifications':
-                    initializeNotificationsTab();
-                    break;
-                case 'monitoring':
-                    initializeMonitoringTab();
-                    break;
-                case 'content':
-                    initializeContentTab();
-                    break;
-                case 'security':
-                    initializeSecurityTab();
-                    break;
-                case 'users':
-                    fetchData();
-                    break;
-                default:
-                    fetchData();
-            }
-        }
-
+        // --- 6. Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
-            enhancedSetupEventListeners();
-            setupSystemOperations();
-            setupContentManagement();
-            setupNotificationHandlers();
-            setupSecurityEventHandlers();
-            connectWebSocket();
-            
-            // Initialize all default tab content
-            enhancedFetchData();
-            
-            // Auto-refresh monitoring data every 30 seconds
-            setInterval(() => {
-                if (currentTab === 'monitoring') {
-                    initializeMonitoringTab();
+            // Navigation
+            $$('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    $('sidebar').classList.remove('mobile-open');
+
+                    $$('.nav-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    
+                    $$('.tab-content').forEach(tc => tc.classList.remove('active'));
+                    const tabId = link.dataset.tab;
+                    $(tabId).classList.add('active');
+                    $('pageTitle').innerText = link.querySelector('.nav-text').innerText;
+
+                    loadTab(tabId);
+                });
+            });
+
+            // Toggles
+            $('sidebarToggle').addEventListener('click', () => {
+                $('sidebar').classList.toggle('collapsed');
+                const icon = $('sidebarToggle').querySelector('i');
+                icon.className = $('sidebar').classList.contains('collapsed') ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
+            });
+            $('mobileMenuBtn').addEventListener('click', () => $('sidebar').classList.toggle('mobile-open'));
+
+            // Buttons
+            $('btnBroadcast').addEventListener('click', async () => {
+                const msg = $('broadcastMsg').value;
+                if(msg) {
+                    await apiCall('/api/broadcast', 'POST', { message: msg });
+                    showToast('Broadcast Sent');
+                    $('broadcastMsg').value = '';
                 }
-            }, 30000);
+            });
+            
+            $('btnSearchUser').addEventListener('click', () => loadTab('users'));
+            $('btnFilterFonts').addEventListener('click', () => loadTab('fonts'));
+            
+            // Security
+            $('btnBlockIp').addEventListener('click', async () => {
+                const ip = $('ipInput').value;
+                if(ip) {
+                    await apiCall('/api/security/block', 'POST', { ip });
+                    showToast('IP Blocked');
+                    $('ipInput').value = '';
+                }
+            });
+
+            // Initial Data Load
+            refreshData();
         });
     </script>
 </body>
