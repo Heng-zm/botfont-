@@ -58,8 +58,21 @@
       "first_name": "HENG",
       "last_name": ".",
       "username": "Ozo0_0",
-      "lastSeen": "2026-01-03T04:33:34.791Z",
+      "lastSeen": "2026-01-03T06:37:10.638Z",
       "firstSeen": "2026-01-01T03:18:59.314Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
+    },
+    "1323205262": {
+      "id": 1323205262,
+      "is_bot": false,
+      "first_name": "តាំង",
+      "last_name": "វិញងួន",
+      "username": "ImngounzZZ",
+      "lastSeen": "2026-01-03T06:17:25.562Z",
+      "firstSeen": "2026-01-03T06:17:25.562Z",
       "activity": {
         "downloads": [],
         "uploads": []
@@ -123,7 +136,7 @@
       "first_name": "Meng",
       "last_name": "🙉",
       "username": "van085",
-      "lastSeen": "2026-01-03T04:17:58.036Z",
+      "lastSeen": "2026-01-03T06:09:58.824Z",
       "firstSeen": "2026-01-01T08:45:03.615Z",
       "activity": {
         "downloads": [],
@@ -214,6 +227,19 @@
         "downloads": [],
         "uploads": []
       }
+    },
+    "6278632665": {
+      "id": 6278632665,
+      "is_bot": false,
+      "first_name": "𝓥𝓪𝓷𝓷𝔂",
+      "last_name": "",
+      "username": "",
+      "lastSeen": "2026-01-03T06:18:09.413Z",
+      "firstSeen": "2026-01-03T06:18:01.700Z",
+      "activity": {
+        "downloads": [],
+        "uploads": []
+      }
     }
   },
   "bannedUsers": {
@@ -237,12 +263,12 @@
   "messageQueue": [],
   "fileIdCache": {},
   "broadcastResults": {
-    "message": "🤖 សូមស្វាគមន៍មកកាន់ KhFontBot!\n\n➡️ សរសេរ /fonts ឬ ឈ្មោះ Font ដើម្បីស្វែងរកពុម្ពអក្សរ។\n\n​➕ប្រើ /uploadfont សម្រាប់ upload  ពុម្ពអក្សរបន្ថែម\n💡ប្រើ /uploadfont រួចផ្ញើ File ពុម្ពអក្សរ ជា (.ttf ឬ .otf)​។",
-    "total": 12,
-    "sent": 12,
+    "message": "👋 សូមស្វាគមន៍មកកាន់ KhFontBot!\n\nខ្ញុំអាចជួយអ្នកស្វែងរក និងចែករំលែកពុម្ពអក្សរខ្មែរបានយ៉ាងងាយស្រួល។ ខាងក្រោមនេះជារបៀបប្រើប្រាស់៖\n\n1️⃣ ស្វែងរកពុម្ពអក្សរ ដោយគ្រាន់តែវាយឈ្មោះពុម្ពអក្សរ។\n2️⃣ មើលបញ្ជីពុម្ពអក្សរទាំងអស់ ដោយប្រើ /fonts ។\n3️⃣ 💡 ចែករំលែក Font ដោយប្រើ /uploadfont រួចផ្ញើ File ពុម្ពអក្សរ ជា (.ttf ឬ .otf) ។\n4️⃣ ប្រើខ្ញុំនៅក្នុងការជជែកផ្សេងៗ ដោយវាយ @khfontbot បន្ទាប់មកវាយឈ្មោះពុម្ពអក្សរ។",
+    "total": 15,
+    "sent": 0,
     "failed": 0,
-    "startedAt": "2026-01-02T06:16:02.672Z",
-    "completedAt": "2026-01-02T06:16:12.010Z",
+    "startedAt": "2026-01-03T06:09:26.783Z",
+    "completedAt": "2026-01-03T06:09:33.824Z",
     "errors": []
   },
   "errors": {

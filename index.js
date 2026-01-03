@@ -1,10 +1,14 @@
 // index.js
+
+// 1. FIX DEPRECATION WARNING (Must be at the very top)
+process.env.NTBA_FIX_350 = 1;
+
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const { logger, getUserInfo } = require('./services/logger');
 const db = require('./services/dbService');
 const { initializeCache } = require('./services/fontService');
-const { startAdminPanel } = require('./adminPanel'); // Ensure this file exists
+const { startAdminPanel } = require('./adminPanel');
 const userProfileService = require('./services/userProfileService');
 const analyticsService = require('./services/analyticsService');
 const notificationService = require('./services/notificationService');
@@ -20,19 +24,27 @@ const adminHandler = require('./handlers/adminHandler');
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const ADMIN_ID = process.env.ADMIN_CHAT_ID;
 
+// 2. Critical Configuration Checks
 if (!token || !ADMIN_ID) { 
     logger.error("FATAL: Missing TELEGRAM_BOT_TOKEN or ADMIN_CHAT_ID in .env file!"); 
     process.exit(1); 
 }
 
+// 3. ID Validation Warning
+// If ID is numeric, not negative, and looks like a group ID (usually starts with -100)
+if (!ADMIN_ID.startsWith('-') && ADMIN_ID.length > 10) {
+    logger.warn(`⚠️ WARNING: Your ADMIN_CHAT_ID (${ADMIN_ID}) looks like a Group/Channel ID but is missing the negative sign.`);
+    logger.warn(`   If this is a supergroup, it should probably be: -100${ADMIN_ID}`);
+}
+
 async function main() {
-    // 1. Initialize core database
+    // 4. Initialize Database
     await db.initializeDatabase();
     
-    // 2. Initialize file cache
+    // 5. Initialize File Cache
     initializeCache();
     
-    // 3. Initialize advanced services (Optional but recommended)
+    // 6. Initialize Advanced Services
     const initService = async (name, service) => {
         try {
             if (service && typeof service.init === 'function') {
@@ -49,12 +61,12 @@ async function main() {
     await initService('Notification Service', notificationService);
     await initService('Recommendation Engine', recommendationEngine);
 
-    // 4. Start Bot
+    // 7. Start Bot
     const bot = new TelegramBot(token, { polling: true });
     
-    // 5. Message Queue Worker
+    // 8. Message Queue Worker (Rate Limit Handler)
     let isWorkerRunning = false;
-    const QUEUE_INTERVAL = 5000; 
+    const QUEUE_INTERVAL = 2000; // Speed up slightly (2s)
     
     setInterval(async () => {
         if (isWorkerRunning) return;
@@ -77,14 +89,13 @@ async function main() {
             for (const msg of regularMessages) {
                 try {
                     await bot.sendMessage(msg.chatId, msg.text, { parse_mode: 'Markdown', disable_web_page_preview: true });
-                    // Rate limit prevention
-                    await new Promise(r => setTimeout(r, 100)); 
+                    await new Promise(r => setTimeout(r, 50)); 
                 } catch (e) {
                     logger.error(`Failed to send queued message to ${msg.chatId}: ${e.message}`);
                 }
             }
 
-            // Handle Broadcasts (One at a time)
+            // Handle Broadcasts
             for (const task of broadcastTasks) {
                 await handleBroadcast(bot, task);
             }
@@ -100,7 +111,6 @@ async function main() {
     async function handleBroadcast(bot, task) {
         try {
             const allUsers = await db.getAllUsers();
-            // Filter valid targets (not admin, not bots)
             const targets = allUsers.filter(u => u.id && u.id.toString() !== ADMIN_ID && !u.is_bot);
             
             await db.startBroadcastLog(task.text, targets.length);
@@ -114,10 +124,8 @@ async function main() {
                     success++;
                 } catch (e) {
                     fail++;
-                    // Optional: remove invalid users from DB
                 }
-                // Strict rate limiting for broadcast (30 messages per second max globally)
-                await new Promise(r => setTimeout(r, 50)); 
+                await new Promise(r => setTimeout(r, 40)); // Max 25 msgs/sec
             }
             
             await db.endBroadcastLog();
@@ -127,17 +135,26 @@ async function main() {
         }
     }
 
-    // 6. Start Admin Dashboard
+    // 9. Start Admin Dashboard
     startAdminPanel(bot);
 
-    // 7. Universal Middleware & Routing
-    const handleUpdate = (type, handlerModule) => async (msg) => {
+    // 10. Central Update Handler
+    // Used to route messages and log activity
+    const handleUpdate = (type, handlerFn) => async (payload) => {
         try {
-            const user = getUserInfo(msg);
-            if (!user) return; // Ignore updates without user info
+            // "payload" is either msg or query depending on event
+            // Note: InlineQuery object structure is different from Message
+            let user = null;
+            if (type === 'inline_query') {
+                user = { id: payload.from.id, username: payload.from.username, first_name: payload.from.first_name };
+            } else {
+                user = getUserInfo(payload); // Works for messages and callback_queries
+            }
 
-            // Update user activity in DB
-            await db.addOrUpdateUser(user);
+            if (!user) return; 
+
+            // Update user activity in DB (Fire and forget)
+            db.addOrUpdateUser(user).catch(e => logger.warn(`DB Update failed: ${e.message}`));
 
             // Ban Check
             if (await db.isUserBanned(user.id)) {
@@ -147,22 +164,20 @@ async function main() {
 
             // Route Logic
             if (type === 'message') {
-                const text = msg.text || '';
+                const text = payload.text || '';
                 const isAdmin = user.id.toString() === ADMIN_ID;
                 
-                // If Admin sends a command, use Admin Handler
+                // Admin Commands
                 if (isAdmin && text.startsWith('/')) {
-                    return adminHandler(bot)(msg);
+                    return adminHandler(bot)(payload);
                 }
-                
-                // Otherwise use Standard Message Handler
-                return messageHandler(bot)(msg);
+                return messageHandler(bot)(payload);
             } 
             else if (type === 'callback_query') {
-                return handlerModule(bot)(msg);
+                return handlerFn(bot)(payload);
             } 
             else if (type === 'inline_query') {
-                return handlerModule(bot)(msg);
+                return handlerFn(bot)(payload);
             }
 
         } catch (error) {
@@ -173,13 +188,19 @@ async function main() {
         }
     };
 
-    // Register Event Listeners
+    // 11. Register Event Listeners
     bot.on('message', handleUpdate('message', null));
     bot.on('callback_query', handleUpdate('callback_query', callbackHandler));
     bot.on('inline_query', handleUpdate('inline_query', inlineHandler));
 
     // Error Handlers
-    bot.on('polling_error', (error) => logger.error(`Polling Error: ${error.message}`));
+    bot.on('polling_error', (error) => {
+        // Suppress common connection timeout errors to keep logs clean
+        if (error.code !== 'ETIMEDOUT') {
+            logger.error(`Polling Error: ${error.message}`);
+        }
+    });
+    
     bot.on('webhook_error', (error) => logger.error(`Webhook Error: ${error.message}`));
 
     // Graceful Shutdown
@@ -190,10 +211,9 @@ async function main() {
     process.on('SIGINT', shutdown);
     process.on('SIGTERM', shutdown);
 
-    logger.info('✅ Font Sharer Bot is fully operational.');
+    logger.info(`✅ Font Sharer Bot is online. Admin ID: ${ADMIN_ID}`);
 }
 
-// Start Main Process
 main().catch(err => logger.error('FATAL: Bot failed to start.', { stack: err.stack }));
 
 // Keep process alive
